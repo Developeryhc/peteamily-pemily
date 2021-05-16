@@ -7,53 +7,61 @@
 <title>header</title>
     <!-- jQuery 라이브러리 추가 (2개) -->
 <script type="text/javascript" src="/js/jquery-3.3.1.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <style>
         body{
-            margin:0;
-            height:2000px;
+            margin: 0;
         }
         header{
-            display:flex;
-            width:100%;
-            height:200px;
-            line-height:200px;
-            justify-content: space-evenly;
+            display: flex;
+            justify-content: center;
+            background-color: rgb(246,246,246);
             border-bottom:1px solid black;
-            position:fixed;
-            top:0;
-            background-color: rgba(238, 140, 148, 0.60);
         }
-        header>ul{
+        .header{
+            display:flex;
+            flex-direction: column;
+            /* height:200px; */
+            /* line-height:200px; */
+            justify-content: space-evenly;
+            /* position:fixed; */
+            /* top:0; */
+        }
+        .header>ul{
             list-style:none;
             margin:0;
             padding:0;
             display:flex;
-            
+            align-items: flex-end;
+            flex-direction: row;
+			font-family: 'Yanone Kaffeesatz', sans-serif;
         }
-        header a{
+        .header a{
             text-decoration: none;
             color:black;
         }
-        header>ul>li{
+        .menu{
             width:100px;
             text-align:center;
-
         }
-        header>ul>li:nth-child(3){
-            width:150px;
-            text-align:center;
+        .container{
+        	width:1180px;
+        	margin: 0 auto;
         }
     </style>
 </head>
 <body>
-	<header>
-        <ul>
-            <li><a href="/adopt">분양</a></li>
-            <li><a href="#">상품</a></li>
-            <li><a href="/">Pemily</a></li>
-            <li><a href="#">커뮤니티</a></li>
-            <li><a href="#">컨택</a></li>
-        </ul>
-	</header>
+    <header>
+        <div class="header">
+            <ul>
+                <li class="menu"><a href="/adopt">Adopt</a></li>
+                <li class="menu"><a href="#">Goods</a></li>
+                <li><a href="/"><img src="img/logo.JPG.jpg" alt="Logo" style="width:200px;"></a></li>
+                <li class="menu"><a href="#">Community</a></li>
+                <li class="menu"><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </header>
 </body>
 </html>

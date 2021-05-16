@@ -9,22 +9,22 @@
 <style>
     .testWrap{
         position:relative;
-        height:2000px;
+        height:800px;
     }
     .test{
         width:100px;
         height:400px;
-        margin-top:430px;
-        background-color:green;
+        margin-top:130px;
+        background-color:rgba(182, 215, 168, 0.54);
         position:sticky;
-        top:230px;
+        top:130px;
         left:90%;
         border-radius: 30px;
     }
     .go-top{
         width:50px;
         height:50px;
-        background-color: hotpink;
+        background-color: rgb(232,69,86);
         position:fixed;
         bottom:100px;
         left:100px;

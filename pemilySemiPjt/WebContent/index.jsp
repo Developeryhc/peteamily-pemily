@@ -9,8 +9,8 @@
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
 	<div class="container">
-		메인 컨텐츠이에요
+		
 	</div>
-	
+	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<% %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -55,7 +56,7 @@
     <header>
         <div class="header">
             <ul>
-                <li class="menu"><a href="/adopt">Adopt</a></li>
+                <li class="menu"><a href="/ca?incaNo=2">Adopt</a></li>
                 <li class="menu"><a href="#">Goods</a></li>
                 <li><a href="/"><img src="img/logo.JPG.jpg" alt="Logo" style="width:200px;"></a></li>
                 <li class="menu"><a href="#">Community</a></li>

@@ -1,6 +1,7 @@
-package adopt;
+package ca.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,18 +9,25 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import ca.model.service.CaService;
+import ca.model.vo.Adopt;
+import ca.model.vo.Ca;
+import inca.model.service.IncaService;
+import inca.model.vo.Inca;
 
 /**
  * Servlet implementation class AdoptServlet
  */
-@WebServlet(name = "Adopt", urlPatterns = { "/adopt" })
-public class AdoptServlet extends HttpServlet {
+@WebServlet(name = "Ca", urlPatterns = { "/ca" })
+public class CaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdoptServlet() {
+    public CaServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,10 +39,15 @@ public class AdoptServlet extends HttpServlet {
 		// 1. 인코딩
 		request.setCharacterEncoding("UTF-8");
 		// 2. 값 추출
-		
+		int incaNo = Integer.parseInt(request.getParameter("incaNo"));		
 		// 3. 비즈니스 로직
+		ArrayList<Inca> inca = new IncaService().IncaOneTypeSelect(incaNo);
+		ArrayList<Ca> ca = new CaService().CaOneTypeSelect(incaNo);
+		Adopt adopt = new Adopt(inca, ca);
 		// 4. 결과처리
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/adopt/adopt.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/ca/ca.jsp");
+		HttpSession session = request.getSession();
+		session.setAttribute("adopt", adopt);
 		rd.forward(request, response);
 	}
 

@@ -23,6 +23,7 @@ public class Member {
 	private String memberEnter;
 	// 분양예정
 	private int memberAn;
+	// 회원 list로 뽑아올때 정렬해 no를 매기는 변수
 	private int sort;
 	public Member() {
 		super();

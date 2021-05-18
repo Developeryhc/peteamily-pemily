@@ -1,8 +1,9 @@
 /* 직원 페이지의 메뉴 */
 /* ------------------------------------- */
 .emp-nav-Wrap{
-	width:1280px;
+	width:100%;
 	margin:0 auto;
+    background-color: rgba(242, 217, 207, 0.84);
 }
 .emp-nav{
     width:1000px;
@@ -24,13 +25,12 @@
     height:100%;
     text-decoration:none;
     color:#fff;
-    background-color: rgba(242, 217, 207, 0.84);
     font-size:1.1rem;
     font-weight:600;
 }
 .emp-nav>li:hover>a{
-    color:#222;
-    background-color:transparent;
+    color:#555;
+    background-color:#fff;
+    
 }
-
 

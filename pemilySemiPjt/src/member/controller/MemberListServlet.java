@@ -1,4 +1,4 @@
-package outCa.controller;
+package member.controller;
 
 import java.io.IOException;
 
@@ -9,20 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import outCa.model.service.OutCaService;
-import outCa.model.vo.OutCaPage;
+import member.model.service.MemberService;
+import member.model.vo.MemberPage;
 
 /**
- * Servlet implementation class OutCAListServlet
+ * Servlet implementation class MemberListServlet
  */
-@WebServlet(name = "OutCaList", urlPatterns = { "/outCaList" })
-public class OutCaListServlet extends HttpServlet {
+@WebServlet(name = "MemberList", urlPatterns = { "/memberList" })
+public class MemberListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public OutCaListServlet() {
+    public MemberListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,11 +38,11 @@ public class OutCaListServlet extends HttpServlet {
 		//2.
 		int reqPage = Integer.parseInt(request.getParameter("reqPage"));
 		//3.
-		OutCaPage ocap = new OutCaService().selectAllOutCa(reqPage);
+		MemberPage mp = new MemberService().selectAllMember(reqPage);
 		//4.
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employee/outCaList.jsp");
-		request.setAttribute("list", ocap.getList());
-		request.setAttribute("navigation", ocap.getNavigation());
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employee/memberList.jsp");
+		request.setAttribute("list", mp.getList());
+		request.setAttribute("navigation", mp.getNavigation());
 		rd.forward(request, response);
 	}
 

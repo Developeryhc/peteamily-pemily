@@ -1,28 +1,26 @@
-package outCa.controller;
+package notice.model.controller;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import outCa.model.service.OutCaService;
-import outCa.model.vo.OutCaPage;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 /**
- * Servlet implementation class OutCAListServlet
+ * Servlet implementation class ImageUploadServlet
  */
-@WebServlet(name = "OutCaList", urlPatterns = { "/outCaList" })
-public class OutCaListServlet extends HttpServlet {
+@WebServlet(name = "ImageUpload", urlPatterns = { "/imageUpload" })
+public class ImageUploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public OutCaListServlet() {
+    public ImageUploadServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,15 +33,13 @@ public class OutCaListServlet extends HttpServlet {
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 		//1.
 		request.setCharacterEncoding("utf-8");
-		//2.
-		int reqPage = Integer.parseInt(request.getParameter("reqPage"));
+		//2. 값 추출 ( 파일 업로드이기 때문에 경로설정과 크기, multipartreqeust로 값을 추출한다.)
+		String root = getServletContext().getRealPath("/");
+		String saveDirectory = root+"upload/notice";
+		int maxSize = 10 * 1024 * 1024;
+		MultipartRequest mRequest = new MultipartRequest(request, saveDirectory,maxSize, "UTF-8",new DefaultFileRenamePolicy());
 		//3.
-		OutCaPage ocap = new OutCaService().selectAllOutCa(reqPage);
-		//4.
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employee/outCaList.jsp");
-		request.setAttribute("list", ocap.getList());
-		request.setAttribute("navigation", ocap.getNavigation());
-		rd.forward(request, response);
+		response.getWriter().print("/upload/notice/"+mRequest.getFilesystemName("file"));
 	}
 
 	/**

@@ -14,7 +14,7 @@
 	    <link rel="stylesheet" href="/css/product/shop.css">
   	    <script type="text/javascript"></script>
   		<div class="content">
-   	    <p>product</p>
+   	    <p>product222</p>
         <%@include file="/WEB-INF/views/shop/shopMenu.jsp" %>
         <div class="c_hr"> 
             <p class="c_p">Total 150 items</p>

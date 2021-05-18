@@ -10,6 +10,20 @@
 <script type="text/javascript" src="/js/jquery-3.3.1.js"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+<!-- 직원 페이지 -->
+<link rel="stylesheet" href="/css/employee/empPage.css" type="text/css">
+<!-- 반려동물 목록 -->
+<link rel="stylesheet" href="/css/employee/companionAnimalList.css" type="text/css">
+<!-- 직원페이지 메뉴 -->
+<link rel="stylesheet" href="/css/employee/employeeNavi.css" type="text/css">
+<!-- 관리자 등록 페이지 -->
+<link rel="stylesheet" href="/css/employee/insertPage.css" type="text/css">
+<!-- 목록 네비게이션 -->
+<link rel="stylesheet" href="/css/employee/listPageNavi.css" type="text/css">
+<!-- 공지사항 목록 -->
+<link rel="stylesheet" href="/css/employee/noticeList.css" type="text/css">
+<!-- 등록 상품 목록 -->
+<link rel="stylesheet" href="/css/employee/productList.css" type="text/css">
     <style>
         body{
             margin: 0;

@@ -49,7 +49,7 @@
 				<li><a href="snake">뱀류</a></li>
 				<li><a href="arthropod">절지류</a></li>
 				<li><a href="caWriteFrm">글쓰기</a></li>
-				<li><a href="incaWriteFrm">이거 바꿈222222</a></li>
+				<li><a href="incaWriteFrm">아무거나룰룰</a></li>
 			</ul>
 		</div>
 		<div class="main">

@@ -30,59 +30,21 @@
 		box-shadow: 1px 1px 1px 1px rgba(242, 217, 207, 0.3);
 	}
 	.btn-wrap{
-		
 		text-align: center;
 	}
 </style>
 </head>
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
-	<!-- 서머노트 편집기 js -->
-	<script src="/js/summernote/summernote-lite.js"></script>
-	<script src="/js/summernote/lang/summernote-ko-KR.js"></script>
-	<link rel="stylesheet" href="/css/summernote/summernote-lite.css">
 	<div class="container">
 		<h1 style="text-align:center;">AdoptUpdate</h1>	
 		<form action="/caInsert" method="post" enctype="multipart/form-data">
 		<input type="text" class="title" name="title" placeholder=" 제목을 입력해주세요.">
-		<textarea id="summernote" name="content"></textarea>
+		<textarea class=".summernote" name="content"></textarea>
 		<div class="btn-wrap">
 			<button type="submit" class="update">Update</button>
 			<button type="reset" class="cancel">Cancel</button>
 		</div>
-		<script>
-		$(document).ready(function(){
-			$("#summernote").summernote({
-				height: 400,
-				minHeight: null,
-				maxHeight: null,
-				focus: true,
-				lang: "ko-KR",
-				placeholder: '최대 2048자까지 쓸 수 있습니다',
-				toolbar: [
-				    // [groupName, [list of button]]
-				    ['fontname', ['fontname']],
-				    ['fontsize', ['fontsize']],
-				    ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
-				    ['color', ['forecolor','color']],
-				    ['table', ['table']],
-				    ['para', ['ul', 'ol', 'paragraph']],
-				    ['height', ['height']],
-				    ['insert',['picture','link','video']],
-				    ['view', ['fullscreen', 'help']]
-				],
-				fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
-				fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],
-				callbacks: {
-					onImageUpload: function(files, editor, welEditable){
-						for(var i = files.length -1; i>=0; i--){
-							sendFile(files[i], this);
-						}
-					}
-				}
-	  		});
-		});
-		</script>
 		</form>
 	</div>
 </body>

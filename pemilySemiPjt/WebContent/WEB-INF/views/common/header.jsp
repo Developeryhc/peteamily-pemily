@@ -15,6 +15,13 @@
 <script type="text/javascript" src="/js/jquery-3.3.1.js"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+<!-- 서머노트 편집기 js -->
+<script src="/js/summernote/summernote-lite.js"></script>
+<script src="/js/summernote/lang/summernote-ko-KR.js"></script>
+<link rel="stylesheet" href="/css/summernote/summernote-lite.css">
+
+<!--직원 페이지 js -->
+<script type="text/javascript" src="/js/employee/insertPage.js"></script>
 <!-- 직원 페이지 -->
 <link rel="stylesheet" href="/css/employee/empPage.css" type="text/css">
 <!-- 반려동물 목록 -->
@@ -87,9 +94,12 @@
                 <li class="menu"><a href="/staff">Contact</a></li>
             </ul>
         </div>
+        <a class="empLink" href="/employeeMain">직원페이지</a>
+        <%--
         <%if(m.getMemberGrade() == 1){ %>
         <a class="empLink" href="/employeeMain">직원페이지</a>
         <%} %>
+         --%>
     </header>
 </body>
 </html>

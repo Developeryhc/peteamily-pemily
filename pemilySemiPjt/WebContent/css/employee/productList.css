@@ -1,0 +1,20 @@
+
+#inProductList>tbody>tr{
+    border-bottom:1px solid #ddd;
+}
+#inProductList td:first-child{
+	width:5%;
+}
+#inProductList td:nth-child(2){
+	width:15%;
+}
+#inProductList td:nth-child(3){
+	width:55%;
+	text-align:left;
+}
+#inProductList td:nth-child(4){
+	width:15%;
+}
+#inProductList td:last-child{
+	width:10%;
+}

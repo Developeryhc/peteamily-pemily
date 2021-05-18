@@ -78,7 +78,7 @@ public class IncaWriteServlet extends HttpServlet {
 		}else {
 			request.setAttribute("msg", "Inca Register Falied");
 		}
-		request.setAttribute("loc", "/ca?incaNo=2");
+		request.setAttribute("loc", "/caList?reqPage=1");
 		rd.forward(request, response);
 	}
 

@@ -12,12 +12,13 @@ public class Inca {
 	private int incaStore;
 	private String incaPic;
 	private String incaPath;
+	private int Sort;
 	public Inca() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public Inca(int incaNo, int incaAn, String incaName, String incaGender, int incaMonth, int incaCondition,
-			int incaPrice, String incaDate, int incaStore, String incaPic, String incaPath) {
+			int incaPrice, String incaDate, int incaStore, String incaPic, String incaPath, int sort) {
 		super();
 		this.incaNo = incaNo;
 		this.incaAn = incaAn;
@@ -30,6 +31,7 @@ public class Inca {
 		this.incaStore = incaStore;
 		this.incaPic = incaPic;
 		this.incaPath = incaPath;
+		Sort = sort;
 	}
 	public int getIncaNo() {
 		return incaNo;
@@ -97,5 +99,10 @@ public class Inca {
 	public void setIncaPath(String incaPath) {
 		this.incaPath = incaPath;
 	}
-	
+	public int getSort() {
+		return Sort;
+	}
+	public void setSort(int sort) {
+		Sort = sort;
+	}
 }

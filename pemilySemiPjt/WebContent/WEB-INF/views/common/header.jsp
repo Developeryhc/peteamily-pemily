@@ -59,8 +59,8 @@
                 <li class="menu"><a href="/ca?incaNo=2">Adopt</a></li>
                 <li class="menu"><a href="#">Goods</a></li>
                 <li><a href="/"><img src="img/logo.JPG.jpg" alt="Logo" style="width:200px;"></a></li>
-                <li class="menu"><a href="#">Community</a></li>
-                <li class="menu"><a href="#">Contact</a></li>
+                <li class="menu"><a href="/community">Community</a></li>
+                <li class="menu"><a href="/staff">Contact</a></li>
             </ul>
         </div>
     </header>

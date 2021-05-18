@@ -6,11 +6,16 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
  <link rel="stylesheet" href="/css/product/detail.css"> 
+    <style>
+        .arrow_size{
+            width: 9px;
+        }
+    </style>
 </head>
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
 	<div class="order_top">
-	      <  <a href="javascript:history.back();">이전페이지</a>                          <span class="span_r">  home > 테이블명 > 상품이름 </span>
+	      <img src="/img/arrow.png" class="arrow_size">  <a href="javascript:history.back();">이전페이지</a>                          <span class="span_r">  home > 테이블명 > 상품이름 </span>
 	    </div>
 	    <div class="order">
 	        <div class="red">

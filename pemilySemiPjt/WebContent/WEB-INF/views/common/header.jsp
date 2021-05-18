@@ -1,7 +1,12 @@
+<%@page import="javax.mail.Session"%>
+<%@page import="org.apache.catalina.SessionListener"%>
+<%@page import="member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<% %>
+<%
+	Member m = (Member)session.getAttribute("member");
+%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -82,11 +87,9 @@
                 <li class="menu"><a href="/staff">Contact</a></li>
             </ul>
         </div>
-<<<<<<< HEAD
-=======
-        <!-- pull 테스트 -->
-        <a class="empLink" href="/employeeMain">직원페이지...</a>
->>>>>>> branch 'master' of https://github.com/Developeryhc/peteamily-pemily.git
+        <%if(m.getMemberGrade() == 1){ %>
+        <a class="empLink" href="/employeeMain">직원페이지</a>
+        <%} %>
     </header>
 </body>
 </html>

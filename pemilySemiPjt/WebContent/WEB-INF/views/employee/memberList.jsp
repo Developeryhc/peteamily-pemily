@@ -24,9 +24,9 @@
 	            </tr>
 	        </thead>
 	        <tbody>
-	        	<%for(Member m : list){ %>
+	        	<%for(Member ml : list){ %>
 	            <tr>
-	                <td><%=m.getSort() %></td><td><%=m.getMemberId() %></td><td><%=m.getMemberGrade() %></td><td><%=m.getMemberEmail() %></td><td><%=m.getMemberEnter() %></td>
+	                <td><%=ml.getSort() %></td><td><%=ml.getMemberId() %></td><td><%=ml.getMemberGrade() %></td><td><%=ml.getMemberEmail() %></td><td><%=ml.getMemberEnter() %></td>
 	            </tr>
 	        	<%} %>
 	        </tbody>

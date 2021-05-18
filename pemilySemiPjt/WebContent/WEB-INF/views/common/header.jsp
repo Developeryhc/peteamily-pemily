@@ -47,7 +47,7 @@
             text-align:center;
         }
         .container{
-        	width:1180px;
+        	width:1280px;
         	margin: 0 auto;
         }
     </style>
@@ -57,7 +57,7 @@
         <div class="header">
             <ul>
                 <li class="menu"><a href="/ca?incaNo=2">Adopt</a></li>
-                <li class="menu"><a href="#">Goods</a></li>
+                <li class="menu"><a href="/buyProduct">Goods</a></li>
                 <li><a href="/"><img src="img/logo.JPG.jpg" alt="Logo" style="width:200px;"></a></li>
                 <li class="menu"><a href="/community">Community</a></li>
                 <li class="menu"><a href="/staff">Contact</a></li>

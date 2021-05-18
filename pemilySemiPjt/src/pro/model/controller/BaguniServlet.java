@@ -1,4 +1,4 @@
-package ca.controller;
+package pro.model.controller;
 
 import java.io.IOException;
 
@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class AdoptWriteServlet
+ * Servlet implementation class BaguniServlet
  */
-@WebServlet(name = "CaWriteFrm", urlPatterns = { "/caWriteFrm" })
-public class CAWriteFrmServlet extends HttpServlet {
+@WebServlet(name = "Baguni", urlPatterns = { "/baguni" })
+public class BaguniServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CAWriteFrmServlet() {
+    public BaguniServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,9 +28,12 @@ public class CAWriteFrmServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 1. 인코딩
-		request.setCharacterEncoding("UTF-8");
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/ca/caWrite.jsp");
+	//상세페이지에서 장바구니 누르면!
+		request.setCharacterEncoding("utf-8");
+		//2값가져오기 이름 가격 수량
+		//3비지니스로직
+		//4결과처리
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/shop/baguni.jsp");
 		rd.forward(request, response);
 	}
 

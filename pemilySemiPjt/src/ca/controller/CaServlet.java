@@ -39,13 +39,7 @@ public class CaServlet extends HttpServlet {
 		// 1. 인코딩
 		request.setCharacterEncoding("UTF-8");
 		// 2. 값 추출
-		int incaNo = Integer.parseInt(request.getParameter("incaNo"));
-		int start = Integer.parseInt(request.getParameter("start"));
-		// 3. 비즈니스 로직
-//		ArrayList<Inca> inca = new IncaService().IncaOneTypeSelect(incaNo, start);
-		ArrayList<Ca> ca = new CaService().CaOneTypeSelect(incaNo);
-//		Adopt adopt = new Adopt(inca, ca);
-		// 4. 결과처리
+
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/ca/ca.jsp");
 		HttpSession session = request.getSession();
 //		session.setAttribute("adopt", adopt);

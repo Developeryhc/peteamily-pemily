@@ -16,10 +16,12 @@ public class IncaDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Inca> inca = new ArrayList<Inca>();
-		String query = "SELECT * FROM (SELECT ROWNUM AS rnum, p.* FROM (SELECT * FROM inca WHERE inca_an)p) WHERE rnum between ? and ?";
+		String query = "SELECT * FROM (SELECT ROWNUM AS rnum, I.* FROM (SELECT * FROM INCA WHERE INCA_AN=?)I) INNER JOIN ca ON INCA_NO = CA_AN WHERE rnum BETWEEN ? AND ?;";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, incaNo);
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
 			rset = pstmt.executeQuery();
 			while(rset.next()) {
 				Inca i = new Inca();

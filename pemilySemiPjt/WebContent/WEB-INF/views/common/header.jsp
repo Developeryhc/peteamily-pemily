@@ -87,9 +87,11 @@
                 <li class="menu"><a href="/staff">Contact</a></li>
             </ul>
         </div>
-        <%if(m!=null && m.getMemberGrade() == 1){ %>
         <a class="empLink" href="/employeeMain">직원페이지</a>
+		<%--
+        <%if(m!=null && m.getMemberGrade() == 1){ %>
         <%} %>
+		 --%>        
     </header>
 </body>
 </html>

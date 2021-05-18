@@ -15,6 +15,8 @@
 <script type="text/javascript" src="/js/jquery-3.3.1.js"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+<!-- 직원 페이지 js -->
+<script type="text/javascript" src="/js/employee/insertPage.js"></script>
 <!-- 직원 페이지 -->
 <link rel="stylesheet" href="/css/employee/empPage.css" type="text/css">
 <!-- 반려동물 목록 -->
@@ -88,7 +90,6 @@
             </ul>
         </div>
         <a class="empLink" href="/employeeMain">직원페이지</a>
-		<%--
         <%if(m!=null && m.getMemberGrade() == 1){ %>
         <%} %>       
     </header>

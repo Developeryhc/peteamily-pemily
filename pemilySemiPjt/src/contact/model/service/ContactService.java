@@ -1,0 +1,34 @@
+package contact.model.service;
+
+import java.sql.Connection;
+import java.util.ArrayList;
+
+import common.JDBCTemplate;
+import contact.model.dao.ContactDao;
+import contact.model.vo.Contact;
+import contact.model.vo.Emp;
+
+public class ContactService {
+
+	public int insertPartner(Contact c) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new ContactDao().insertPartner(conn,c);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public ArrayList<Emp> selectAllEmp() {
+		Connection conn = JDBCTemplate.getConnection();
+		ArrayList<Emp> list = new ContactDao().selectAllEmp(conn);
+		JDBCTemplate.close(conn);
+		return list;
+	}
+
+	
+
+}

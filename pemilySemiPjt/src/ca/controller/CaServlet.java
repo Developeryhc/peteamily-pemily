@@ -39,7 +39,7 @@ public class CaServlet extends HttpServlet {
 		// 1. 인코딩
 		request.setCharacterEncoding("UTF-8");
 		// 2. 값 추출
-
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/ca/ca.jsp");
 		HttpSession session = request.getSession();
 //		session.setAttribute("adopt", adopt);

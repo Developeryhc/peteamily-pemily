@@ -1,31 +1,29 @@
 package ca.model.vo;
 
-import java.util.ArrayList;
-
 import inca.model.vo.Inca;
 
 public class Adopt {
-	private ArrayList<Inca> inca;
-	private ArrayList<Ca> ca;
+	private Inca inca;
+	private Ca ca;
 	public Adopt() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Adopt(ArrayList<Inca> inca, ArrayList<Ca> ca) {
+	public Adopt(Inca inca, Ca ca) {
 		super();
 		this.inca = inca;
 		this.ca = ca;
 	}
-	public ArrayList<Inca> getInca() {
+	public Inca getInca() {
 		return inca;
 	}
-	public void setInca(ArrayList<Inca> inca) {
+	public void setInca(Inca inca) {
 		this.inca = inca;
 	}
-	public ArrayList<Ca> getCa() {
+	public Ca getCa() {
 		return ca;
 	}
-	public void setCa(ArrayList<Ca> ca) {
+	public void setCa(Ca ca) {
 		this.ca = ca;
 	}
 

@@ -6,17 +6,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import ca.model.vo.Adopt;
+import ca.model.vo.Ca;
 import common.JDBCTemplate;
 import inca.model.vo.Inca;
 
 public class IncaDao {
 	
 	// 한가지 타입만 조회
-	public ArrayList<Inca> IncaOneTypeSelect(Connection conn, int incaNo, int start, int end) {
+	public ArrayList<Adopt> IncaOneTypeSelect(Connection conn, int incaNo, int start, int end) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		ArrayList<Inca> inca = new ArrayList<Inca>();
-		String query = "SELECT * FROM (SELECT ROWNUM AS rnum, I.* FROM (SELECT * FROM INCA WHERE INCA_AN=?)I) INNER JOIN ca ON INCA_NO = CA_AN WHERE rnum BETWEEN ? AND ?;";
+		ArrayList<Adopt> adopt = new ArrayList<Adopt>();
+		String query = "SELECT * FROM (SELECT ROWNUM AS RNUM, I.* FROM (SELECT * FROM INCA WHERE INCA_AN = ? AND NOT INCA_CONDITION = 0)I) JOIN CA ON INCA_NO = CA.CA_AN WHERE RNUM BETWEEN ? AND ?";
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, incaNo);
@@ -24,9 +26,11 @@ public class IncaDao {
 			pstmt.setInt(3, end);
 			rset = pstmt.executeQuery();
 			while(rset.next()) {
+				Adopt a = new Adopt();
 				Inca i = new Inca();
-				i.setIncaNo(rset.getInt("inca_no"));
-				i.setIncaAn(rset.getInt("inca_an"));
+				Ca c = new Ca();
+				c.setCaTitle(rset.getString("ca_title"));
+				c.setCaContent(rset.getString("ca_content"));
 				i.setIncaName(rset.getString("inca_name"));
 				i.setIncaGender(rset.getString("inca_gender"));
 				i.setIncaMonth(rset.getInt("inca_month"));
@@ -36,7 +40,9 @@ public class IncaDao {
 				i.setIncaStore(rset.getInt("inca_store"));
 				i.setIncaPic(rset.getString("inca_pic"));
 				i.setIncaPath(rset.getString("inca_path"));
-				inca.add(i);
+				a.setInca(i);
+				a.setCa(c);
+				adopt.add(a);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -45,7 +51,7 @@ public class IncaDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		return inca;
+		return adopt;
 	}
 	public int InsertInca(Connection conn, Inca i) {
 		PreparedStatement pstmt = null;

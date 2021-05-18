@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+
 import ca.model.service.CaService;
 import ca.model.vo.Adopt;
 import ca.model.vo.Ca;
@@ -39,11 +41,14 @@ public class CaServlet extends HttpServlet {
 		// 1. 인코딩
 		request.setCharacterEncoding("UTF-8");
 		// 2. 값 추출
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/ca/ca.jsp");
-		HttpSession session = request.getSession();
-//		session.setAttribute("adopt", adopt);
-		rd.forward(request, response);
+		int incaNo = Integer.parseInt(request.getParameter("incaNo"));
+		int start = Integer.parseInt(request.getParameter("start"));
+		// 3. 비즈니스 로직
+		ArrayList<Adopt> adopt = new IncaService().IncaOneTypeSelect(incaNo, start);
+		// 4. 결과처리
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		new Gson().toJson(adopt, response.getWriter());
 	}
 
 	/**

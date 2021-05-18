@@ -1,3 +1,4 @@
+<%@page import="member.model.vo.Member"%>
 <%@page import="ca.model.vo.Adopt"%>
 <%@page import="inca.model.vo.Inca"%>
 <%@page import="java.util.ArrayList"%>
@@ -5,7 +6,8 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
-	Adopt adopt = (Adopt)session.getAttribute("adopt");
+//	Adopt adopt = (Adopt)session.getAttribute("adopt");
+	Member m = (Member)session.getAttribute("member");
 %>
 <html>
 <head>
@@ -35,36 +37,38 @@
         text-decoration: none;
         color:black;
 	}
+	.more-btn{
+		text-align: center;
+	}
 </style>
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
+    <link rel="stylesheet" href="/css/product/shop.css">
+    <script type="text/javascript"></script>
 	<div class="container">
 		<div class="menu-wrap">
-			<ul>
-				<li><a href="ca?incaNo=2">강아지</a></li>
-				<li><a href="cat?incaNo=3">고양이</a></li>
-				<li><a href="fish?incaNo=4">물고기</a></li>
-				<li><a href="lizard?incaNo=5">도마뱀류</a></li>
-				<li><a href="rodent?incaNo=6">설치류</a></li>
-				<li><a href="snake?incaNo=7">뱀류</a></li>
-				<li><a href="arthropod?incaNo=8">절지류</a></li>
-				<li><a href="caWriteFrm">글쓰기</a></li>
-				<li><a href="incaWriteFrm">아무거나룰룰</a></li>
-			</ul>
+			<button type="button"><a href="/ca?incaNo=2" class="no">Dog</a></button> 
+      		<button type="button"><a href="/ca?incaNo=3" class="no">Cat</a></button>
+      	  	<button type="button"><a href="/ca?incaNo=4" class="no">Fish</a></button>
+      	  	<button type="button"><a href="/ca?incaNo=5" class="no">lizard</a></button>
+      	  	<button type="button"><a href="/ca?incaNo=6" class="no">rodent</a></button>
+      	  	<button type="button"><a href="/ca?incaNo=7" class="no">snake</a></button>
+      	  	<button type="button"><a href="/ca?incaNo=8" class="no">arthropod</a></button>
+      	  	<%if(m.getMemberGrade()== 1){ %>
+      	  	<button type="button"><a href="/caWriteFrm" class="no">CA Upload</a></button>
+      	  	<button type="button"><a href="/incaWriteFrm" class="no">INCA Upload</a></button>
+			<%} %>
 		</div>
-		<div class="main">
-			<div class="main-left"></div>
-			<div class="main-right"></div>
-		</div>
+		<div class="main"></div>
+		<button type='button' class='more-btn' currentCount='0' value='' totalCount='<%=%>'>더 보기</button>
 	</div>
 	<script>
 		$(function(){
 			more(1);
 			var main = $(".main");
-			main.append("<button type='button' class='more-btn' value='more'>더 보기</button>");
+			//main.append("<button type='button' class='more-btn' currentCount='0' value='' totalCount='0'>더 보기</button>");
 			$(".more-btn").click(function(){
 				// more($(this).val());
-				var left = "<div class='main-left'><img src=/upload/inca/"+<%=%>+"'>"
 			});
 		});
 		function more(start){
@@ -74,21 +78,21 @@
 				type : "post",
 				success : function(data){
 					for(var i = 0; i<data.length; i++){
-						var p = data[i];
+						var a = data[i];
 						var html = "";
-						html += "<div class='photo'>";
-						html += "<img src='/upload/photo/"+p.filepath+"'>";
-						html += "<p class='caption'>"+p.photoContent+"</p></div>";
-						$(".photoWrapper").append(html);
+						html += "<div class='main-left'>";
+						html += "<img src='/upload/inca/"+a.inca.incaPath+"'>";
+						html += "<p>"+a.ca.caContent+"</p></div>";
+						$(".main").append(html);
 					}
 					// 이미지 추가가 끝나고 나면 더보기 버튼의 value 값 조정
-					$("#more-btn").val(Number(start)+5);
-					var curr = Number($("#more-btn").attr("currentCount"));
-					$("#more-btn").attr("currentCount", curr+data.length);	// attr과 append의 의미
-					var totalCount = $("#more-btn").attr("totalCount");
-					var currCount = $("#more-btn").attr("currentCount");
+					$(".more-btn").val(Number(start)+4);
+					var curr = Number($(".more-btn").attr("currentCount"));
+					$(".more-btn").attr("currentCount", curr+data.length);	// attr과 append의 의미
+					var totalCount = $(".more-btn").attr("totalCount");
+					var currCount = $(".more-btn").attr("currentCount");
 					if(currCount == totalCount){
-						$("#more-btn").attr("disabled", true);		// 비활성화
+						$(".more-btn").attr("disabled", true);		// 비활성화
 					}
 				}
 			});

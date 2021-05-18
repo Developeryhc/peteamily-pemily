@@ -3,6 +3,7 @@ package inca.model.service;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import ca.model.vo.Adopt;
 import common.JDBCTemplate;
 import inca.model.dao.IncaDao;
 import inca.model.vo.Inca;
@@ -10,13 +11,13 @@ import inca.model.vo.IncaPage;
 
 public class IncaService {
 
-	public ArrayList<Inca> IncaOneTypeSelect(int incaNo, int start) {
+	public ArrayList<Adopt> IncaOneTypeSelect(int incaNo, int start) {
 		Connection conn = JDBCTemplate.getConnection();
 		int length = 4;
 		int end = start+length-1;
-		ArrayList<Inca> inca = new IncaDao().IncaOneTypeSelect(conn, incaNo, start, end);
+		ArrayList<Adopt> adopt = new IncaDao().IncaOneTypeSelect(conn, incaNo, start, end);
 		JDBCTemplate.close(conn);
-		return inca;
+		return adopt;
 	}
 
 	public int insertInca(Inca i) {

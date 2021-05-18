@@ -94,9 +94,13 @@
                 <li class="menu"><a href="/staff">Contact</a></li>
             </ul>
         </div>
+
         <a class="empLink" href="/employeeMain">직원페이지</a>
         <%--
         <%if(m.getMemberGrade() == 1){ %>
+=======
+        <%if(m!=null && m.getMemberGrade() == 1){ %>
+>>>>>>> branch 'master' of https://github.com/Developeryhc/peteamily-pemily.git
         <a class="empLink" href="/employeeMain">직원페이지</a>
         <%} %>
          --%>

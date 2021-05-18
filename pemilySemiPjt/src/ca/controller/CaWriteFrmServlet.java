@@ -9,20 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import inca.model.service.IncaService;
-import inca.model.vo.IncaPage;
-
 /**
- * Servlet implementation class CaListServlet
+ * Servlet implementation class AdoptWriteServlet
  */
-@WebServlet(name = "CaList", urlPatterns = { "/caList" })
-public class CaListServlet extends HttpServlet {
+@WebServlet(name = "CaWriteFrm", urlPatterns = { "/caWriteFrm" })
+public class CaWriteFrmServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CaListServlet() {
+    public CaWriteFrmServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,16 +28,9 @@ public class CaListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//1.
-		request.setCharacterEncoding("utf-8");
-		//2.
-		int reqPage = Integer.parseInt(request.getParameter("reqPage"));
-		//3.
-		IncaPage incaPage = new IncaService().selectAllInca(reqPage);
-		//4.
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employee/CaList.jsp");
-		request.setAttribute("list", incaPage.getList());
-		request.setAttribute("navigation", incaPage.getNavigation());
+		// 1. 인코딩
+		request.setCharacterEncoding("UTF-8");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/ca/caWrite.jsp");
 		rd.forward(request, response);
 	}
 

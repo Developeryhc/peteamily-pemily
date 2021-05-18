@@ -42,12 +42,12 @@
 		<div class="menu-wrap">
 			<ul>
 				<li><a href="ca?incaNo=2">강아지</a></li>
-				<li><a href="cat">고양이</a></li>
-				<li><a href="fish">물고기</a></li>
-				<li><a href="lizard">도마뱀류</a></li>
-				<li><a href="rodent">설치류</a></li>
-				<li><a href="snake">뱀류</a></li>
-				<li><a href="arthropod">절지류</a></li>
+				<li><a href="cat?incaNo=3">고양이</a></li>
+				<li><a href="fish?incaNo=4">물고기</a></li>
+				<li><a href="lizard?incaNo=5">도마뱀류</a></li>
+				<li><a href="rodent?incaNo=6">설치류</a></li>
+				<li><a href="snake?incaNo=7">뱀류</a></li>
+				<li><a href="arthropod?incaNo=8">절지류</a></li>
 				<li><a href="caWriteFrm">글쓰기</a></li>
 				<li><a href="incaWriteFrm">아무거나룰룰</a></li>
 			</ul>
@@ -64,7 +64,7 @@
 			main.append("<button type='button' class='more-btn' value='more'>더 보기</button>");
 			$(".more-btn").click(function(){
 				// more($(this).val());
-				var left = "<div class='main-left'><img src=/upload/inca/"++"'>"
+				var left = "<div class='main-left'><img src=/upload/inca/"+<%=%>+"'>"
 			});
 		});
 		function more(start){

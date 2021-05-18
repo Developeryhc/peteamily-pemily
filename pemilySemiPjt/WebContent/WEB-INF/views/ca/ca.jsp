@@ -43,7 +43,7 @@
 </style>
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
-    <link rel="stylesheet" href="/css/product/shop.css">
+    <link rel="stylesheet" href="/css/product/shop.css" type="text/css">
     <script type="text/javascript"></script>
 	<div class="container">
 		<div class="menu-wrap">
@@ -54,6 +54,7 @@
       	  	<button type="button"><a href="/ca?incaNo=6" class="no">rodent</a></button>
       	  	<button type="button"><a href="/ca?incaNo=7" class="no">snake</a></button>
       	  	<button type="button"><a href="/ca?incaNo=8" class="no">arthropod</a></button>
+      	  	
       	  	<%if(m.getMemberGrade()== 1){ %>
       	  	<button type="button"><a href="/caWriteFrm" class="no">CA Upload</a></button>
       	  	<button type="button"><a href="/incaWriteFrm" class="no">INCA Upload</a></button>

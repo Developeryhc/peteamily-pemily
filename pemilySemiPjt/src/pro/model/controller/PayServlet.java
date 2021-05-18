@@ -1,4 +1,4 @@
-package ca.controller;
+package pro.model.controller;
 
 import java.io.IOException;
 
@@ -9,20 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import inca.model.service.IncaService;
-import inca.model.vo.IncaPage;
-
 /**
- * Servlet implementation class CaListServlet
+ * Servlet implementation class PayServlet
  */
-@WebServlet(name = "CaList", urlPatterns = { "/caList" })
-public class CaListServlet extends HttpServlet {
+@WebServlet(name = "Pay", urlPatterns = { "/pay" })
+public class PayServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CaListServlet() {
+    public PayServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,17 +28,14 @@ public class CaListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//1.
-		request.setCharacterEncoding("utf-8");
-		//2.
-		int reqPage = Integer.parseInt(request.getParameter("reqPage"));
-		//3.
-		IncaPage incaPage = new IncaService().selectAllInca(reqPage);
-		//4.
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employee/CaList.jsp");
-		request.setAttribute("list", incaPage.getList());
-		request.setAttribute("navigation", incaPage.getNavigation());
+		//결제하기 버튼 누르면 !!! 알터로 주문완료 끝 내기!
+	RequestDispatcher rd= request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
+		request.setAttribute("msg", "주문완료");
+		request.setAttribute("loc", "/");
 		rd.forward(request, response);
+		
+		
+		
 	}
 
 	/**

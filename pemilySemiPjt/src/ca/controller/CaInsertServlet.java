@@ -1,4 +1,4 @@
-package ca.controller;
+ package ca.controller;
 
 import java.io.IOException;
 
@@ -15,13 +15,13 @@ import ca.model.vo.Ca;
  * Servlet implementation class AdoptUpdateServlet
  */
 @WebServlet(name = "CaInsert", urlPatterns = { "/caInsert" })
-public class CAInsertServlet extends HttpServlet {
+public class CaInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CAInsertServlet() {
+    public CaInsertServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

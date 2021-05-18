@@ -50,6 +50,11 @@
         	width:1180px;
         	margin: 0 auto;
         }
+        .empLink{
+        	position : absolute;
+        	top:0;
+        	right:0;
+        }
     </style>
 </head>
 <body>
@@ -63,6 +68,7 @@
                 <li class="menu"><a href="/staff">Contact</a></li>
             </ul>
         </div>
+        <a class="empLink" href="/employeeMain">직원페이지...</a>
     </header>
 </body>
 </html>

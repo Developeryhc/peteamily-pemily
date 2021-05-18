@@ -9,5 +9,6 @@
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
 	<%@include file="/WEB-INF/views/employee/employeeNavi.jsp" %>
+	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

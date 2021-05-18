@@ -15,6 +15,11 @@
 <script type="text/javascript" src="/js/jquery-3.3.1.js"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+<!--  -->
+<script src="/js/summernote/summernote-lite.js"></script>
+<script src="/js/summernote/lang/summernote-ko-KR.js"></script>
+
+<link rel="stylesheet" href="/css/summernote/summernote-lite.css">
 <!-- 직원 페이지 js -->
 <script type="text/javascript" src="/js/employee/insertPage.js"></script>
 <!-- 직원 페이지 -->

@@ -40,7 +40,7 @@
 		<h1 style="text-align:center;">AdoptUpdate</h1>	
 		<form action="/caInsert" method="post" enctype="multipart/form-data">
 		<input type="text" class="title" name="title" placeholder=" 제목을 입력해주세요.">
-		<textarea class=".summernote" name="content"></textarea>
+		<textarea class="summernote" name="content"></textarea>
 		<div class="btn-wrap">
 			<button type="submit" class="update">Update</button>
 			<button type="reset" class="cancel">Cancel</button>

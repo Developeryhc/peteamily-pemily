@@ -81,4 +81,11 @@ public class IncaService {
 		return incaPage;
 	}
 
+	public Adopt selectOneCa(int incaNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		Adopt adopt = new IncaDao().selectOneCa(conn, incaNo);
+		JDBCTemplate.close(conn);
+		return adopt;
+	}
+
 }

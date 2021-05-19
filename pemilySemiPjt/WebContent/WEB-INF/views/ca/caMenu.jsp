@@ -77,78 +77,17 @@
 	<div class="content">
 		<div class="menu-wrap">
 			<ul>
-				<li><a href="/dogView?incaNo=2">Dog</a></li>
-				<li><a href="/catView?incaNo=3">Cat</a></li>
-				<li><a href="/fishView?incaNo=4">Fish</a></li>
-				<li><a href="/lizard?incaNo=5">Lizard</a></li>
-				<li><a href="/rodent?incaNo=6">Rodent</a></li>
-				<li><a href="/snake?incaNo=7">Snake</a></li>
-				<li><a href="/arthropod?incaNo=8">Arthropod</a></li>
+				<li><a href="/caViewList?incaNo=2">Dog</a></li>
+				<li><a href="/caViewList?incaNo=3">Cat</a></li>
+				<li><a href="/caViewList?incaNo=4">Fish</a></li>
+				<li><a href="/caViewList?incaNo=5">Lizard</a></li>
+				<li><a href="/caViewList?incaNo=6">Rodent</a></li>
+				<li><a href="/caViewList?incaNo=7">Snake</a></li>
+				<li><a href="/caViewList?incaNo=8">Arthropod</a></li>
 				<li><a href="/caWrite">Ca Upload</a></li>
 				<li><a href="/incaWrite">Inca Upload</a></li>
 			</ul>
 		</div>
-		<script>
-		$(function(){
-			list(2, 1);
-			$(".main").append("<button type='button' class='more-btn' value='' totalCount='' currentCount='0'>더 보기</button>");
-			var incaNo;
-			$(".more-btn").click(function(){
-				console.log($(".more-btn").val());
-				list(incaNo, $(".more-btn").val());
-			})
-		});
-		
-		function list(incaNo, start) {
-			incaNo = incaNo;
-			$.ajax({
-				url : "/caView",
-				data : {
-					incaNo : incaNo,
-					start : start
-				},
-				type : "post",
-				success : function(data) {
-					for (var i = 0; i < data.adopt.length; i++) {
-						var ca = data.adopt[i].ca;
-						var inca = data.adopt[i].inca;
-						var html = "";
-						if (i % 2 == 0 || i == 0) {
-							html += "<div class='main-left'>";
-							html += "<img src='/upload/inca/"+inca.incaPath+"'>";
-							html += "<div><p>이름 : " + inca.incaName + "</p>";
-							html += "<p>개월 : " + inca.incaMonth + "</p>";
-							html += "<p>성별 : " + inca.incaGender + "</p>";
-							html += "<p>★ 이런분이 가족이였으면 좋겠어요 ! ☆</p>";
-							html += "<p>" + ca.caTitle + "</p>";
-							html += "<p>" + ca.caContent + "</p></div></div>";
-						} else {
-							html += "<div class='main-right'>";
-							html += "<div><p>이름 : " + inca.incaName + "</p>";
-							html += "<p>개월 : " + inca.incaMonth + "</p>";
-							html += "<p>성별 : " + inca.incaGender + "</p>";
-							html += "<p>★ 이런분이 가족이였으면 좋겠어요 ! ☆</p>";
-							html += "<p>" + ca.caTitle + "</p>";
-							html += "<p>" + ca.caContent + "</p></div>";
-							html += "<img src='/upload/inca/"+inca.incaPath+"'></div>";
-						}
-						$(".main").append(html);
-						$(".more-btn").attr("totalCount", (1+i));
-
-						// 이미지 추가가 끝나고 나면 더보기 버튼의 value 값 조정
-						$(".more-btn").val(Number(start)+4);
-						var curr = Number($(".more-btn").attr("currentCount"));
-						$(".more-btn").attr("currentCount", curr+data.length);
-						var totalCount = $(".more-btn").attr("totalCount");
-						var currCount = $(".more-btn").attr("currentCount");
-						if(currCount == totalCount){
-							$(".more-btn").attr("disabled", true);		// 비활성화
-						}
-					}
-				}
-			});
-		}
-		</script>
 	</div>
 </body>
 </html>

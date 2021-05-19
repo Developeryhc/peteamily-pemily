@@ -40,13 +40,13 @@
 	<script type="text/javascript"></script>
 	<div class="container">
 		<div class="selectCa">
-			<a href="/dogView?incaNo=2"><img src="/img/ca1.jpg" class="CaImg"></a>
-			<a href="/catView?incaNo=3"><img src="/img/ca2.jpg" class="CaImg"></a>
-			<a href="/fishView?incaNo=4"><img src="/img/ca3.jpg" class="CaImg"></a>
-			<a href="/lizard?incaNo=5"><img src="/img/ca4.jpg" class="CaImg"></a>
-			<a href="/rodent?incaNo=6"><img src="/img/ca5.jpg" class="CaImg"></a>
-			<a href="/snake?incaNo=7"><img src="/img/ca6.jpg" class="CaImg"></a>
-			<a href="/arthropod?incaNo=8"><img src="/img/ca7.jpg" class="CaImg"></a>
+			<a href="/caViewList?incaNo=2"><img src="/img/ca1.jpg" class="CaImg"></a>
+			<a href="/caViewList?incaNo=3"><img src="/img/ca2.jpg" class="CaImg"></a>
+			<a href="/caViewList?incaNo=4"><img src="/img/ca3.jpg" class="CaImg"></a>
+			<a href="/caViewList?incaNo=5"><img src="/img/ca4.jpg" class="CaImg"></a>
+			<a href="/caViewList?incaNo=6"><img src="/img/ca5.jpg" class="CaImg"></a>
+			<a href="/caViewList?incaNo=7"><img src="/img/ca6.jpg" class="CaImg"></a>
+			<a href="/caViewList?incaNo=8"><img src="/img/ca7.jpg" class="CaImg"></a>
 		</div>
 	</div>
 	<script>

@@ -30,7 +30,8 @@ public class IncaDao {
 				Inca i = new Inca();
 				Ca c = new Ca();
 				c.setCaTitle(rset.getString("ca_title"));
-				c.setCaContent(rset.getString("ca_content"));
+				c.setCaAn(rset.getInt("ca_an"));
+				i.setIncaNo(rset.getInt("inca_no"));
 				i.setIncaName(rset.getString("inca_name"));
 				i.setIncaGender(rset.getString("inca_gender"));
 				i.setIncaMonth(rset.getInt("inca_month"));
@@ -116,12 +117,12 @@ public class IncaDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String query = "select count(*) as count from inca";
-		int result = 0;
+		int totalCount = 0;
 		try {
 			pstmt = conn.prepareStatement(query);
 			rset = pstmt.executeQuery();
 			if(rset.next()) {
-				result = rset.getInt("count");
+				totalCount = rset.getInt("count");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -130,7 +131,44 @@ public class IncaDao {
 			JDBCTemplate.close(rset);
 			JDBCTemplate.close(pstmt);
 		}
-		return result;
+		return totalCount;
+	}
+	public Adopt selectOneCa(Connection conn, int incaNo) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		Adopt adopt = new Adopt();
+		String query = "SELECT * FROM (SELECT * FROM INCA JOIN CA ON INCA_NO = CA.CA_AN WHERE INCA_NO = ? AND NOT INCA_CONDITION = 0)";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, incaNo);
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				Inca inca = new Inca();
+				Ca ca = new Ca();
+				inca.setIncaAn(rset.getInt("inca_an"));
+				inca.setIncaCondition(rset.getInt("inca_condition"));
+				inca.setIncaDate(rset.getString("inca_date"));
+				inca.setIncaGender(rset.getString("inca_gender"));
+				inca.setIncaMonth(rset.getInt("inca_month"));
+				inca.setIncaNo(rset.getInt("inca_no"));
+				inca.setIncaPath(rset.getString("inca_path"));
+				inca.setIncaPic(rset.getString("inca_pic"));
+				inca.setIncaStore(rset.getInt("inca_store"));
+				inca.setIncaName(rset.getString("inca_name"));
+				inca.setIncaPrice(rset.getInt("inca_price"));
+				ca.setCaTitle(rset.getString("ca_title"));
+				ca.setCaContent(rset.getString("ca_content"));
+				adopt.setInca(inca);
+				adopt.setCa(ca);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return adopt;
 	}
 
 }

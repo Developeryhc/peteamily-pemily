@@ -5,8 +5,11 @@ section{
 	flex-direction:column;
 }
 section > * {
-	width:1000px;
+	width:800px;
 	margin:0 auto;
+}
+#caCheck{
+	width:100px;
 }
 .section-headline{
 	text-align:center;
@@ -14,21 +17,39 @@ section > * {
 	margin-top:50px;
 }
 .mdBtn{
-	width:48px;
-	height:48px;
+	width:50px;
+	height:30px;
 	padding:0;
 	margin:1px;
+	box-sizing:border-box;
+	border:none;
+	cursor:pointer;
+	border-radius:5px;
+}
+.modifyBtn{
+	background-color:khaki;
+}
+.deleteBtn{	
+	background-color:lightcoral;
 }
 .printList{
-
 	border-collapse: collapse;
 	border-top:3px solid black;
 	border-bottom:3px solid black;
 }
-.printList>thead th{
+.printList>thead tr{
     height:50px;
     border-bottom:1px solid black;
     background-color:rgba(174, 215, 232, 0.73);
+}
+.printList>tbody>tr:hover>td{
+	background-color:#ddd;
+}
+.printList td:nth-last-child(2){
+	width:50px;	
+}
+.printList td:last-child{
+	width:50px;
 }
 .printList>tbody *{
     text-align:center;
@@ -37,4 +58,13 @@ section > * {
 .printList>tbody>tr{
     border-bottom:1px solid #ddd;
 }
-
+.printList td>a{
+	display:block;
+	width:100%;
+	height:100%;
+	text-decoration:none;
+	color:black;
+}
+.won{
+	font-size:0.5rem;
+}

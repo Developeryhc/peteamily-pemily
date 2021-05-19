@@ -35,13 +35,21 @@ public class NoticeListServlet extends HttpServlet {
 				request.setCharacterEncoding("utf-8");
 				//2.값추출(요청페이지 번호 받음)
 				int reqPage = Integer.parseInt(request.getParameter("reqPage"));
+				int noticeCom = Integer.parseInt(request.getParameter("noticeCom"));
 				//3.비즈니스 로직 (공지사항 목록이 나오기때문에 리턴값은 ArrayList로 받음!
-				NoticePageData npd = new NoticeService().selectNoticeList(reqPage);
+				NoticePageData npd = new NoticeService().selectNoticeList(reqPage,noticeCom);
 				//4.결과처리
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/notice/noticeList.jsp");
-				request.setAttribute("list", npd.getList());
-				request.setAttribute("pageNavi", npd.getPageNavi());
-				rd.forward(request, response);
+				if(noticeCom == 1) {
+					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employee/noticeList.jsp");
+					request.setAttribute("list", npd.getList());
+					request.setAttribute("pageNavi", npd.getPageNavi());										
+					rd.forward(request, response);
+				}else if(noticeCom == 2) {
+					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/notice/noticeList.jsp");
+					request.setAttribute("list", npd.getList());
+					request.setAttribute("pageNavi", npd.getPageNavi());					
+					rd.forward(request, response);
+				}
 	}
 
 	/**

@@ -12,16 +12,17 @@ import notice.model.vo.Notice;
 
 public class NoticeDao {
 
-	public ArrayList<Notice> selectNoticeList(Connection conn, int start, int end) {
+	public ArrayList<Notice> selectNoticeList(Connection conn, int noticeCom, int start, int end) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Notice> list = new ArrayList<Notice>();
-		String query =     "select * from (select rownum as rnum, n. * from(select * from notice order by notice_no desc)n) where rnum between ? and ?";
+		String query =    "select * from (select rownum as rnum, n. * from(select * from notice where notice_com=? order by notice_no desc)n) where rnum between ? and ?";
 		
 		try {
 			pstmt= conn.prepareStatement(query);
-			pstmt.setInt(1, start);
-			pstmt.setInt(2, end);
+			pstmt.setInt(1, noticeCom);
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
 			rset = pstmt.executeQuery();
 			while(rset.next()) {
 				Notice n = new Notice();
@@ -44,14 +45,15 @@ public class NoticeDao {
 		return list;
 	}
 
-	public int totalCount(Connection conn) {
+	public int totalCount(Connection conn, int noticeCom) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String query = "select count(*) as cnt from notice"; //cnt는 별칭!
+		String query = "select count(*) as cnt from notice where notice_com=?"; //cnt는 별칭!
 		int result = 0;  //여기서 쓰는 변수 int는 count에 대한 변수임!
 		
 		try {
 			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, noticeCom);
 			rset = pstmt.executeQuery();
 			if(rset.next()) {  //count 쿼리문을 쓰면 총게시물 : 85개! 이런식으로 나와서 if임
 				result = rset.getInt("cnt");

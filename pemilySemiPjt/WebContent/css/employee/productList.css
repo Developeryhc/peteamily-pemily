@@ -1,20 +1,20 @@
-
-#inProductList>tbody>tr{
-    border-bottom:1px solid #ddd;
-}
+/* No */
 #inProductList td:first-child{
-	width:5%;
+	width:50px;
 }
+/* 분류 */
 #inProductList td:nth-child(2){
-	width:15%;
+	width:100px;
 }
+/* 상품명 */
 #inProductList td:nth-child(3){
-	width:55%;
 	text-align:left;
 }
+/* 판매가 */
 #inProductList td:nth-child(4){
-	width:15%;
+	width:100px;
 }
-#inProductList td:last-child{
-	width:10%;
+/* 수량 */
+#inProductList td:nth-child(5){
+	width:100px;
 }

@@ -19,25 +19,10 @@
 <script src="/js/summernote/summernote-lite.js"></script>
 <script src="/js/summernote/lang/summernote-ko-KR.js"></script>
 <link rel="stylesheet" href="/css/summernote/summernote-lite.css">
-<!-- 직원 페이지 js -->
-<script type="text/javascript" src="/js/employee/insertPage.js"></script>
-<!-- 직원 페이지 -->
-<link rel="stylesheet" href="/css/employee/empPage.css" type="text/css">
-<!-- 반려동물 목록 -->
-<link rel="stylesheet" href="/css/employee/companionAnimalList.css" type="text/css">
-<!-- 직원페이지 메뉴 -->
-<link rel="stylesheet" href="/css/employee/employeeNavi.css" type="text/css">
-<!-- 관리자 등록 페이지 -->
-<link rel="stylesheet" href="/css/employee/insertPage.css" type="text/css">
-<!-- 목록 네비게이션 -->
-<link rel="stylesheet" href="/css/employee/listPageNavi.css" type="text/css">
-<!-- 공지사항 목록 -->
-<link rel="stylesheet" href="/css/employee/noticeList.css" type="text/css">
-<!-- 등록 상품 목록 -->
-<link rel="stylesheet" href="/css/employee/productList.css" type="text/css">
     <style>
         body{
             margin: 0;
+            min-width:1280px;
         }
         header{
             display: flex;

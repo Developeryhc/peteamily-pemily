@@ -12,14 +12,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	.activeMenu{
-	color:#555;
-    background-color:#fff;
-}
+	.empMenu:nth-child(2)>a{
+		color:#555;
+    	background-color:#fff;
+	}
 </style>
 </head>
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
+	<%@include file="/WEB-INF/views/common/empDefault.jsp" %>
 	<%@include file="/WEB-INF/views/employee/employeeNavi.jsp" %>
 	<section>
 		<h2 class="section-headline">반려동물 목록</h2>
@@ -27,7 +28,7 @@
         <table id="com_animals" class="printList">
             <thead>
                 <tr>
-                    <th>No</th><th>과</th><th>종</th><th colspan="2">이름</th><th>개월</th><th>예상 분양가</th><th>검사</th><th>지점</th><th>분양</th>
+                    <th>No</th><th>종</th><th>이름</th><th>개월</th><th>예상 분양가</th><th>검사</th><th>지점</th><th>분양</th><th colspan="2"></th>
                 </tr>
             </thead>
             <tbody>
@@ -36,13 +37,14 @@
             		String condition = inca.getIncaCondition() == 0 ? "1차" : (inca.getIncaCondition() == 1 ? "2차" : "완료");
             	%>
                 <tr>
-                	<td><%=inca.getSort() %></td><td><%=inca.getIncaAn() %></td><td><%=inca.getIncaAn() %></td><td><%=inca.getIncaName() %></td><td><%=inca.getIncaName() %></td><td><%=inca.getIncaMonth() %></td><td><%=inca.getIncaPrice() %>원</td><td><%=condition %></td><td><%=inca.getIncaStore() %></td><td><%=inca.getIncaCondition() %></td>
+                	<td><%=inca.getSort() %></td><td><%=inca.getIncaAn() %></td><td><%=inca.getIncaName() %></td><td><%=inca.getIncaMonth() %></td><td><%=inca.getIncaPrice() %><span class="won">원</span></td><td><%=condition %></td><td><%=inca.getIncaStore() %></td><td><%=inca.getIncaCondition() %></td><td><button type="button" class="mdBtn modifyBtn">수정</button></td><td><button type="button" class="mdBtn deleteBtn">삭제</button></td>
                 </tr>
                 <%} %>
             </tbody>
         </table>
         <%=navigation %>
 	</section>
+	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 	<script>
 	</script>
 </body>

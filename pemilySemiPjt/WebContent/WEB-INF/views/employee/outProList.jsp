@@ -11,9 +11,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	.empMenu:nth-child(5)>a{
+		color:#555;
+    	background-color:#fff;
+	}
+</style>
 </head>
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
+	<%@include file="/WEB-INF/views/common/empDefault.jsp" %>
 	<%@include file="/WEB-INF/views/employee/employeeNavi.jsp" %>
 	<section>
 	    <h2 class="section-headline">상품 판매 내역</h2>
@@ -35,5 +42,6 @@
 	    </table>
 	    <%=navigation %>
 	</section>
+	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

@@ -3,11 +3,10 @@
 <%@page import="inca.model.vo.Inca"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
-//	Adopt adopt = (Adopt)session.getAttribute("adopt");
-
+	//	Adopt adopt = (Adopt)session.getAttribute("adopt");
 %>
 <html>
 <head>
@@ -15,52 +14,53 @@
 <title>가족이 될 준비가 된 친구들이에요 :)</title>
 </head>
 <style>
-	.container{
-		margin-top: 200px;
-		height: 2000px;
-	}
-	.menu-wrap{
-		width: 1280px
-		margin: 0 auto;
-	}
-	.menu-wrap>ul{
-        list-style:none;
-        margin:0;
-        padding:0;
-        display:flex;
-	}
-	.menu-wrap>ul>li{
-        width:100px;
-        text-align:center;
-	}
-	.menu-wrap>ul>li>a{
-        text-decoration: none;
-        color:black;
-	}
-	.more-btn{
-		text-align: center;
-	}
+.container {
+	margin-top: 200px;
+	width: 1280px;
+}
+
+.selectCa{
+	margin: 50px 0;
+	display: flex;
+}
+.selectCa>a{
+	height: 600px;
+	display: flex-end;
+	flex-grow: 1;
+}
+.CaImg{
+	height: 600px;
+	transition-duration: 0.2s;
+	border-radius: 100px;
+}
+
 </style>
 <body>
-	<%@include file="/WEB-INF/views/common/header.jsp" %>
-    <link rel="stylesheet" href="/css/product/shop.css" type="text/css">
-    <script type="text/javascript"></script>
+	<%@include file="/WEB-INF/views/common/header.jsp"%>
+	<script type="text/javascript"></script>
 	<div class="container">
-		<div class="menu-wrap">
-			<button type="button" onclick="list(2);">Dog</button> 
-      		<button type="button" onclick="list(3);">Cat</button>
-      	  	<button type="button" onclick="list(4);">Fish</button>
-      	  	<button type="button" onclick="list(5);">Lizard</button>
-      	  	<button type="button" onclick="list(6);">Rodent</button>
-      	  	<button type="button" onclick="list(7);">Snake</button>
-      	  	<button type="button" onclick="list(8);">Arthropod</button>
-      	  	
-      	  	<%if(m.getMemberGrade()== 1){ %>
-      	  	<button type="button" onclick="location.href='/WEB-INF/views/ca/caWrite.jsp'">CA Upload</button>
-      	  	<button type="button" onclick="location.href='/WEB-INF/views/ca/incaWrite.jsp'">INCA Upload</button>
-			<%} %>
+		<div class="selectCa">
+			<a href="/dogView?incaNo=2"><img src="/img/ca1.jpg" class="CaImg"></a>
+			<a href="/catView?incaNo=3"><img src="/img/ca2.jpg" class="CaImg"></a>
+			<a href="/fishView?incaNo=4"><img src="/img/ca3.jpg" class="CaImg"></a>
+			<a href="/lizard?incaNo=5"><img src="/img/ca4.jpg" class="CaImg"></a>
+			<a href="/rodent?incaNo=6"><img src="/img/ca5.jpg" class="CaImg"></a>
+			<a href="/snake?incaNo=7"><img src="/img/ca6.jpg" class="CaImg"></a>
+			<a href="/arthropod?incaNo=8"><img src="/img/ca7.jpg" class="CaImg"></a>
 		</div>
 	</div>
-	<%@include file="/WEB-INF/views/common/footer.jsp" %>
+	<script>
+		$(".CaImg").hover(function(){
+			$(".CaImg").css("width", "Calc(680px/7)");
+			$(".CaImg").not(this).css("height", "500px");
+			$(this).css("height", "600px");
+			$(this).css("width", "600px");
+		});
+		$(".CaImg").mouseout(function(){
+			$(".CaImg").css("width", "Calc(1280px/7)");
+			$(".CaImg").css("height", "600px");
+		});
+	</script>
+	<%@include file="/WEB-INF/views/common/footer.jsp"%>
 </body>
 </html>

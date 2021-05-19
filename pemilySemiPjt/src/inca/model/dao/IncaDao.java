@@ -14,7 +14,7 @@ import inca.model.vo.Inca;
 public class IncaDao {
 	
 	// 한가지 타입만 조회
-	public ArrayList<Adopt> IncaOneTypeSelect(Connection conn, int incaNo, int start, int end) {
+	public ArrayList<Adopt> selectOneTypeInca(Connection conn, int incaNo, int start, int end) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<Adopt> adopt = new ArrayList<Adopt>();

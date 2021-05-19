@@ -21,6 +21,13 @@ public class CaService {
 		JDBCTemplate.close(conn);
 		return ca;
 	}
+
+	public int totalCount(int incaNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		int totalCount = new CaDao().totalCount(conn, incaNo);
+		JDBCTemplate.close(conn);
+		return totalCount;
+	}
 	
 	
 

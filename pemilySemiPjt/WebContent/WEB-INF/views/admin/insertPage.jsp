@@ -33,7 +33,7 @@
             <input type="hidden" id="noticeCom" name="noticeCom" value="0">
             <input type="hidden" id="noticeWriter" name="noticeWriter" value="도베르만">
             <input type="text" id="noticeTitle" class="title" name="noticeTitle" placeholder="제목 입력" autocomplete="off">
-            <div id="noticeContent" class="summernote" name="noticeContent"></div>
+            <textarea id="noticeContent" class="summernote" name="noticeContent"></textarea>
             <div class="btns">
 	            <button type="button" id="noticeBtn">작성완료</button>
 	            <button type="button" class="cancelBtn">돌아가기</button>            
@@ -234,12 +234,12 @@
         <form class="forms" id="parcelOutFrm" action="javascript:void(0);">
         	<h2>분양 등록</h2>
         	<input type="text" class="title" name="서블릿에 전송할 명칭" placeholder="제목 입력">
-            <div id="noticeContent" class="summernote" name="noticeContent"></div>
+            <textarea id="noticeContent" class="summernote" name="noticeContent"></textarea>
         </form>
         <form class="forms" id="goodsFrm" action="javascript:void(0);">
         	<h2>물품 등록</h2>
         	<input type="text" class="title" name="서블릿에 전송할 명칭" placeholder="제목 입력">
-            <div id="noticeContent" class="summernote" name="noticeContent"></div>
+            <textarea id="noticeContent" class="summernote" name="noticeContent"></textarea>
         </form>
     </section>
 </body>

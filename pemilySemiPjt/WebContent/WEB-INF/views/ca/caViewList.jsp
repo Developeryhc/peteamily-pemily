@@ -64,7 +64,7 @@
 	<script>
 	$(function(){
 		var incaNo = <%=incaAn%>;
-		var m = <%=m.getMemberNo()%>;
+		var m = "1";
 		list(incaNo, 1);
 		$(".more-btn").click(function(){
 			list(incaNo, $(".more-btn").val());
@@ -77,6 +77,7 @@
 		$(document).on("click", ".main-wrap", function(){
 			oneView($(this).children().eq(0).val(), m);
 		});
+		
 	});
 	
 	function list(incaNo, start) {
@@ -134,15 +135,15 @@
 				var inca = data.inca;
 				var html = "";
 				// 폼태그로 변경해서 submit ? onclick ?
-				html += "<div class='modal-back'><div class='main-left main-wrap modal-main'><form action='/caApply' method='get'><input type='hidden' name='memberName' value='"+m+"'><input type='hidden' name='incaNo' value='"+inca.incaNo+"'>";
+				html += "<div class='modal-back'><div class='main-left main-wrap modal-main'><form action='/caApply' method='get'><input type='hidden' name='memberNo' value='"+m+"'><input type='hidden' name='incaNo' value='"+inca.incaNo+"'>";
 				html += "<img src='/upload/inca/"+inca.incaPath+"'>";
 				html += "<div class='p-left'><p>이름 : " + inca.incaName + "</p>";
 				html += "<p>개월 : " + inca.incaMonth + "</p>";
 				html += "<p>성별 : " + inca.incaGender + "</p>";
 				html += "<p>★ 이런분이 가족이였으면 좋겠어요 ! ☆</p>";
 				html += "<p>" + ca.caTitle + "</p>";
-				html += "<p>" + ca.caContent + "</p></div></div>";
-				html += "<div class='btn-wrap'><button type='submit' class='modal-btn'>분양신청하기</button><button type='button' class='modal-btn' onclick='cancel();'>돌아가기</button></form></div></div>";
+				html += "<p>" + ca.caContent + "</p></div>";
+				html += "<div class='btn-wrap'><button type='submit' class='modal-btn adopt-btn'>분양신청하기</button><button type='button' class='modal-btn' onclick='cancel();'>돌아가기</button></div></form></div></div>";
 				$(".modal").append(html);
 				// 배경 불투명화 넣기
 				$(".back-color").css("background-color", "rgba(0, 0, 0, 0.5)");

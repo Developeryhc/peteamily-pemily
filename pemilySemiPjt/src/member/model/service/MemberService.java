@@ -7,6 +7,8 @@ import common.JDBCTemplate;
 import member.model.dao.MemberDao;
 import member.model.vo.Member;
 import member.model.vo.MemberPage;
+import outCa.model.dao.OutCaDao;
+import outCa.model.vo.OutCaTable;
 
 public class MemberService {
 	public int inserMember(Member m) {
@@ -103,5 +105,5 @@ public class MemberService {
 		MemberPage mp = new MemberPage(list, navigation);
 		return mp;
 	}
-	
+
 }

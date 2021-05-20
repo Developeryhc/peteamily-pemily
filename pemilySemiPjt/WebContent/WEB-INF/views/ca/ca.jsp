@@ -16,22 +16,23 @@
 <style>
 .container {
 	margin-top: 200px;
-	width: 1280px;
+	width: 1259px;
 }
 
 .selectCa{
-	margin: 50px 0;
+	margin: 100px 0;
+	width: 100%;
 	display: flex;
 }
 .selectCa>a{
 	height: 600px;
-	display: flex-end;
 	flex-grow: 1;
+	display: flex-end;
 }
 .CaImg{
-	height: 600px;
+	height: 400px;
+	width: Calc(1280px/7);
 	transition-duration: 0.2s;
-	border-radius: 100px;
 }
 
 </style>
@@ -51,14 +52,15 @@
 	</div>
 	<script>
 		$(".CaImg").hover(function(){
-			$(".CaImg").css("width", "Calc(680px/7)");
-			$(".CaImg").not(this).css("height", "500px");
-			$(this).css("height", "600px");
-			$(this).css("width", "600px");
+			var value = $(this).val();
+			$(".CaImg").css("width", "Calc(980px/7)");
+			$(".CaImg").not(this).css("height", "300px");
+			$(this).css("height", "400px");
+			$(this).css("width", "400px");
 		});
 		$(".CaImg").mouseout(function(){
 			$(".CaImg").css("width", "Calc(1280px/7)");
-			$(".CaImg").css("height", "600px");
+			$(".CaImg").css("height", "400px");
 		});
 	</script>
 	<%@include file="/WEB-INF/views/common/footer.jsp"%>

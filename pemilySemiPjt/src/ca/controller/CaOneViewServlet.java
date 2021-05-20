@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import ca.model.vo.Adopt;
 import inca.model.service.IncaService;
 
@@ -38,9 +40,9 @@ public class CaOneViewServlet extends HttpServlet {
 		// 3.
 		Adopt adopt = new IncaService().selectOneCa(incaNo);
 		// 4.
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/ca/caOneView.jsp");
-		request.setAttribute("adopt", adopt);
-		rd.forward(request, response);
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		new Gson().toJson(adopt, response.getWriter());
 	}
 
 	/**

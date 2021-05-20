@@ -94,7 +94,7 @@ public class NoticeService {
 		JDBCTemplate.close(conn);
 		return nwi;
 	}
-
+ 
 	public int searchOneNoticeNo(int noticeCom) {
 		Connection conn = JDBCTemplate.getConnection();
 		int noticeNo = new NoticeDao().searchOneNoticeNo(conn,noticeCom);

@@ -30,7 +30,7 @@ public class LoginFrmServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//1.인코딩
 		request.setCharacterEncoding("utf-8");
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/login.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/member/login.jsp");
 		rd.forward(request, response);
 	}
 

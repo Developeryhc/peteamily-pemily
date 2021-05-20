@@ -1,6 +1,5 @@
 <%@page import="member.model.vo.Member"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	Member member = (Member) request.getAttribute("member");
 %>
@@ -92,7 +91,5 @@
 			</table>
 		</div>
 	</div>
-
-
 </body>
 </html>

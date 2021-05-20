@@ -8,8 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 	<div class="wrap">
+		<div class="hearder">header</div>
 		<div class="content">
 			<div class="jogin-bg">
 				<div class="jogin-wrap">

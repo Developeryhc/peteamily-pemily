@@ -11,27 +11,45 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	.empMenu:nth-child(7)>a{
+		color:#555;
+    	background-color:#fff;
+	}
+</style>
 </head>
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
+	<%@include file="/WEB-INF/views/common/empDefault.jsp" %>
 	<%@include file="/WEB-INF/views/employee/employeeNavi.jsp" %>
 	<section>
 		<h2 class="section-headline">회원</h2>
 	    <table id="memberList" class="printList">
 	        <thead>
 	            <tr>
-	                <th>No</th><th>회원아이디</th><th>등급</th><th>회원Email</th><th>가입일</th>
+	                <th>No</th><th>회원아이디</th><th>회원Email</th><th>전화번호</th><th>가입일</th><th>상담 결과</th>
 	            </tr>
 	        </thead>
 	        <tbody>
-	        	<%for(Member m : list){ %>
+	        	<%for(Member ml : list){ %>
 	            <tr>
-	                <td><%=m.getSort() %></td><td><%=m.getMemberId() %></td><td><%=m.getMemberGrade() %></td><td><%=m.getMemberEmail() %></td><td><%=m.getMemberEnter() %></td>
+	                <td><%=ml.getSort() %></td><td><%=ml.getMemberId() %></td><td><%=ml.getMemberEmail() %></td><td><%=ml.getMemberPhone() %></td><td><%=ml.getMemberEnter() %></td>
+	                <td>
+	                <%
+	                	String an = ml.getMemberAn() == 0 ? "입양 불가" : "입양 가능";
+	                %>
+	                	<select id="caCheck">
+	                		<option selected><%=an %></option>
+	                		<option value="0">입양 불가</option>
+	                		<option value="1">입양 가능</option>
+	                	</select>
+	                </td>
 	            </tr>
 	        	<%} %>
 	        </tbody>
 	    </table>
 		<%=navigation %>	    
 	</section>
+	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

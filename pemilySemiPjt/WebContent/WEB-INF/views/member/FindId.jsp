@@ -1,3 +1,4 @@
+
 <%@page import="member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -20,12 +21,6 @@
 		&emsp; 가입일 :
 		<%=member.getMemberEnter()%><br>
 		<button id="button" onclick="location.href='/loginFrm'">로그인하러가기</button>
-
-
-
-
-
-
 
 </body>
 </html>

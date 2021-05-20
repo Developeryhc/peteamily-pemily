@@ -7,7 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import common.JDBCTemplate;
+import inca.model.vo.Inca;
 import outCa.model.vo.OutCa;
+import outCa.model.vo.OutCaTable;
 
 public class OutCaDao {
 
@@ -61,6 +63,82 @@ public class OutCaDao {
 			e.printStackTrace();
 		}finally {
 			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
+	public int updateOutCa(Connection conn, int memberNo, int incaNo, Inca i) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "INSERT INTO outca VALUES(outca_seq.NEXTVAL, ?, ?";
+		return 0;
+	}
+
+	public OutCaTable selectOneOutCaTable(Connection conn, int memberNo, int incaNo) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		OutCaTable oct = null;
+		String query = "SELECT I.inca_no, I.inca_store, I.inca_price, C.ca_writer, M.member_id FROM inca I, (SELECT ca_an, ca_writer FROM ca) C, (SELECT member_no, member_id FROM member) M WHERE M.member_no = ? AND C.ca_an = ? AND I.inca_no = ?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, incaNo);
+			pstmt.setInt(3, incaNo);
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				oct = new OutCaTable();
+				oct.setOutcaNo(rset.getInt("inca_no"));
+				oct.setOutcaStore(rset.getInt("inca_store"));
+				oct.setOutcaPrice(rset.getInt("inca_price"));
+				oct.setOutcaEmp(rset.getString("ca_writer"));
+				oct.setOutcaMember(rset.getString("member_id"));
+				System.out.println(oct.getOutcaMember());
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return oct;
+	}
+
+	public int updateMember(Connection conn, OutCaTable oct) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "UPDATE member SET member_an =? WHERE member_id = ?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, oct.getOutcaNo());
+			pstmt.setString(2, oct.getOutcaMember());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
+	public int insertOutCa(Connection conn, OutCaTable oct) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "INSERT INTO outca VALUES(outca_seq.NEXTVAL, ?, ?, ?, ?, DEFAULT, ?, 0, 0)";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, oct.getOutcaNo());
+			pstmt.setString(2, oct.getOutcaMember());
+			pstmt.setInt(3, oct.getOutcaPrice());
+			pstmt.setInt(4, oct.getOutcaStore());
+			pstmt.setString(5, oct.getOutcaEmp());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
 			JDBCTemplate.close(pstmt);
 		}
 		return result;

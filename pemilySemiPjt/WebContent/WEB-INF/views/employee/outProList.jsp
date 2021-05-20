@@ -11,9 +11,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	.empMenu:nth-child(5)>a{
+		color:#555;
+    	background-color:#fff;
+	}
+</style>
 </head>
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
+	<%@include file="/WEB-INF/views/common/empDefault.jsp" %>
 	<%@include file="/WEB-INF/views/employee/employeeNavi.jsp" %>
 	<section>
 	    <h2 class="section-headline">상품 판매 내역</h2>
@@ -28,12 +35,13 @@
 	            	for(OutPro outPro : list){
 	            %>
 	            <tr>
-	            	<td><%=outPro.getSort() %></td><td><%=outPro.getOutProPn() %></td><td><%=outPro.getOutProMi() %></td><td><%=outPro.getOutProAmount() %></td><td><%=outPro.getOutProPrice() %></td><td><%=outPro.getOutProDate() %></td>
+	            	<td><%=outPro.getSort() %></td><td><%=outPro.getOutProPn() %></td><td><%=outPro.getOutProMi() %></td><td><%=outPro.getOutProAmount() %><span class="won">개</span></td><td><%=outPro.getOutProPrice() %><span class="won">원</span></td><td><%=outPro.getOutProDate() %></td>
 	            </tr>
 	            <%} %>
 	        </tbody>
 	    </table>
 	    <%=navigation %>
 	</section>
+	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

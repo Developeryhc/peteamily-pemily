@@ -11,9 +11,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	.empMenu:nth-child(4)>a{
+		color:#555;
+    	background-color:#fff;
+	}
+</style>
 </head>
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
+	<%@include file="/WEB-INF/views/common/empDefault.jsp" %>
 	<%@include file="/WEB-INF/views/employee/employeeNavi.jsp" %>
 	<section>
 		<h2 class="section-headline">분양</h2>
@@ -25,8 +32,12 @@
 	        </thead>
 	        <tbody>
 	            <%for(OutCa oCa : list){ %>
+	            <%
+	            	String store = oCa.getOutCaStore() == 1 ? "본사" : (oCa.getOutCaStore() == 2 ? "강남" : "부산");
+	            	String ani = oCa.getOutCaAn()==1?"강아지":(oCa.getOutCaAn()==2?"고양이":(oCa.getOutCaAn()==3?"어류":(oCa.getOutCaAn()==4?"도마뱀":(oCa.getOutCaAn()==5?"설치류":(oCa.getOutCaAn()==6?"뱀":(oCa.getOutCaAn()==7?"절지류":"기타"))))));
+	            %>
 	            <tr>
-	            	<td><%=oCa.getSort() %></td><td><%=oCa.getOutCaAn() %></td><td><%=oCa.getOutCaMi() %></td><td><%=oCa.getOutCaPrice() %></td><td><%=oCa.getOutCaStore() %></td><td><%=oCa.getOutCaEmp() %></td><td><%=oCa.getOutCaDate() %></td><td><%=oCa.getOutCaCon() %></td>
+	            	<td><%=oCa.getSort() %></td><td><%=ani %></td><td><%=oCa.getOutCaMi() %></td><td><%=oCa.getOutCaPrice() %><span class="won">원</span></td><td><%=store %></td><td><%=oCa.getOutCaEmp() %></td><td><%=oCa.getOutCaDate() %></td><td><button class="mdBtn downBtn">Down</button></td>
 	            </tr>
 	            <%} %>
 	        	<%if(list.isEmpty()) {%>
@@ -36,5 +47,6 @@
 	    </table>
 	    <%=navigation %>
 	</section>
+	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

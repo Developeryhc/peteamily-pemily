@@ -8,4 +8,4 @@
     <button type="button"><a href="/buyProduct" class="no">snack</a></button> 
         <button type="button"><a href="/toy" class="no">toy</a></button>
         <button type="button"><a href="/clothes" class="no">clothes</a> 
-        </button>
+    </button>

@@ -11,6 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.connector.Request;
+
+import com.google.gson.Gson;
+
 import ca.model.service.CaService;
 import ca.model.vo.Adopt;
 import ca.model.vo.Ca;
@@ -38,11 +42,7 @@ public class CaServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1. 인코딩
 		request.setCharacterEncoding("UTF-8");
-		// 2. 값 추출
-		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/ca/ca.jsp");
-		HttpSession session = request.getSession();
-//		session.setAttribute("adopt", adopt);
 		rd.forward(request, response);
 	}
 

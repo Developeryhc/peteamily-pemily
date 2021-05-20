@@ -24,31 +24,88 @@
     }
 	#pageNavi{
         text-align: center;
+	}
+	 .faq-wrap {
+        width: 100%;
+        height: 200px;
+        margin: 10px auto;
+        border: 1px solid #000000;
+        position: relative;
     }
+    .faq-wrap img {
+        width: 100%;
+        vertical-align: middle;
+    }
+    .faq-text {
+        padding: 5px 10px;
+        text-align: center;
+        position: absolute;
+	    top: 50%;
+	    left: 50%;
+        transform: translate( -50%, -50% );
+    }
+     .photo {
+            margin: 20px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 180px;
+            
+        }
+        
+        .photo:hover {
+            border: 1px solid #777;
+        }
+        
+        .photo>img {
+            width: 100%;
+            height:100px;
+        }
+    
+        .content {
+           
+            text-align: center;
+        }
+        .wrap{
+        width:1200px;
+        overflow: hidden;
+        }
+       
 </style>
 </head>
 <body>
-	<%@include file="/WEB-INF/views/common/header.jsp" %>
-	<fieldset>
-		<legend>분양 후기 게시판</legend>
-		<table class="table" style="width:100%;">
-				<tr>
-					<th>번호</th><th>제목</th><th>작성자</th><th>작성일</th>
-				</tr>
-				<%for(Care c : list) {%>
-				<tr>
-					<td><%=c.getRnum() %></td>
-					<td style="text-align:left;"><a href="/careView?careNo=<%=c.getCareNo()%>"><%=c.getCareTitle()%></a></td>
-					<td><%=c.getCareWriter()%></td>
-					<td><%=c.getCareDate() %></td>
-				</tr>
-				<%} %>
-				<div class="write">
-				<a href="/careWriteFrm">글쓰기</a>
-				</div>
-				
-			</table>
-			<div id="pageNavi"><%=pageNavi %></div>
-	</fieldset>
+
+	<div class="container">
+
+			<div class="faq-wrap">
+        		<div class="faq-image"><img src="" alt="" width="100%;" height="200px;"></div>
+        		<div class="faq-text">
+            		<p>친구들을 소개해주세요!</p>
+        		</div>
+    		</div>
+    		
+    <div class="wrap">
+    		<%for(Care c : list) {%>
+        <div class="photo">
+            	<img src='/upload/care/<%=c.getCarePath() %>'>
+            	
+            <div class="content">
+                <div class="title">
+                 <a href="/careView?careNo=<%=c.getCareNo()%>"><%=c.getCareTitle()%></a>
+                </div>
+                <div class="writer"><%=c.getCareWriter()%></div>
+                <div class="date"> <%=c.getCareDate() %></div>
+            </div>
+        </div>
+        <%} %>		
+   	</div>
+   		<div>
+   			<a class="btn btn-default" href="/careWriteFrm">글쓰기</a>
+   </div>
+   </div>
+   
+        <div id="pageNavi"><%=pageNavi %></div>
+     
 </body>
 </html>
+
+	

@@ -61,4 +61,11 @@ public class InProductService {
 		return inProPage;
 	}
 
+	public InPro selectOneInPro(int inProNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		InPro inPro = new InProductDao().selectOneInPro(conn,inProNo);
+		JDBCTemplate.close(conn);
+		return inPro;
+	}
+
 }

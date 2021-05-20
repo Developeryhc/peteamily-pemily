@@ -24,7 +24,7 @@ public class FaqDao {
 				f.setFaqContent(rset.getString("faq_content"));
 				f.setFaqDate(rset.getString("faq_date"));
 				f.setFaqNo(rset.getInt("faq_no"));
-				f.setFaqTiite(rset.getString("faq_Title"));
+				f.setFaqTitle(rset.getString("faq_Title"));
 				f.setFaqWriter(rset.getString("faq_writer"));
 				list.add(f);
 			}
@@ -37,6 +37,43 @@ public class FaqDao {
 		}
 		
 		return list;
+	}
+
+	public int deleteFaq(Connection conn, int faqNo) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "delete from faq where faq_no=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, faqNo);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+	
+		return result;
+	}
+
+	public int insertFaq(Connection conn, Faq f) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "insert into faq values(faq_seq.nextval,?,?,?,to_char(sysdate,'yyyy-mm-dd'))";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1,f.getFaqTitle());
+			pstmt.setString(2,f.getFaqWriter());
+			pstmt.setString(3,f.getFaqContent());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
 	}
 
 }

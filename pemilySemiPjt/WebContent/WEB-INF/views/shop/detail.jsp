@@ -19,6 +19,10 @@
         font-size: 30px;
         font-weight: bolder;
         }
+        .img_size{
+        	margin-top: 15px;
+        	width: 450px;
+        }
     </style>
 </head>
 <body>
@@ -29,9 +33,10 @@
 	    <div class="order">
 	        <div class="red">
 	         	
-	            <img src="/upload/inProduct/<%=pro.getInProPic() %>" alt="">
+	            <img src="/upload/inProduct/<%=pro.getInProPic() %>" class="img_size">
 	        </div>
 	        <div class="blue">
+	        <form action="">
 	        <table class="tb">
 	            <tr><td><p class="tb_p"><%=pro.getInProName() %></p></td></tr>
 	                <tr><td class="tb_size"> 판매가격 <%=pro.getInProPrice() %>원</td></tr>
@@ -50,11 +55,14 @@
 	
 	                </td></tr>
 	                <tr><td class="tb_size">
-	                   <div class="btn"><a href="/buy">구매하기(클릭)</a></div>
+	                
+	               		
+	                   <div class="btn"><a href="/buy">구매하기</a></div>
 	                   <div class="btn"><a href="/baguni">장바구니 (클릭) </a></div>
 	                   <div class="btn"><a href="#">찜하기</a></div>
 	                </td></tr>
 	            </table>
+	            </form>
 	        </div>
 	    </div>
 	    <div class="order_bottom">

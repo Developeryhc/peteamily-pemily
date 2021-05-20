@@ -18,7 +18,7 @@
         width: 100%;
         height: 200px;
         margin: 10px auto;
-        border: 1px solid #000000;
+      background-color : rgba(182, 215, 168, 0.54);
         position: relative;
     }
     .faq-wrap img {
@@ -55,7 +55,7 @@
 <body>
 	<div class="container">
 		<div class="faq-wrap">
-        	<div class="faq-image"><img src="" alt="" width="100%;" height="200px;"></div>
+        	<div class="faq-image"></div>
         	<div class="faq-text">
             	<p>자주하는 질문 등록</p>
         	</div>

@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<link rel="stylesheet" href="/css/product/baguni.css">
 </head>
 <body>
 
@@ -46,7 +47,7 @@
                 총 주문금액 = 3000 + 3000 = 6000원
             </td></tr>
         </table>
-       
+     
 
 </body>
 </html>

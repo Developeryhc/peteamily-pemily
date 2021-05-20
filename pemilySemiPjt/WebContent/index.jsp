@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Pemily에 오신것을 환영합니다.</title>
 </head>
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
 <script type="text/javascript" src="/js/jquery-3.3.1.js"></script>
 <style>
 	body{

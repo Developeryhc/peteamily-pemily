@@ -142,7 +142,8 @@ $(document).ready(function() {
 	 $('#noticeBtn').click(function(){
 	 	const noticeCom = $('#noticeCom').val();		//직원/회원 select값
 	 	const title = $('#noticeTitle').val();			//제목 값
-	 	const content = $('#noticeContent').val();		//textarea는 html()로 값을 호출하는게 정상이지만 서머노트 에디터 적용값을 가져오려면 val()를 호출해야함
+	 	//const content = $('#noticeContent').val();		//textarea는 html()로 값을 호출하는게 정상이지만 서머노트 에디터 적용값을 가져오려면 val()를 호출해야함
+	 	const content = $('#noticeContent').summernote('code');	
 		if(noticeCom == '0'){
 			alert('등록할 공지를 선택하세요.');
 			return;

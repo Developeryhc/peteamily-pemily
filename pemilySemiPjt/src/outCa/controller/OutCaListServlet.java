@@ -15,7 +15,7 @@ import outCa.model.vo.OutCaPage;
 /**
  * Servlet implementation class OutCAListServlet
  */
-@WebServlet(name = "OutCAList", urlPatterns = { "/outCAList" })
+@WebServlet(name = "OutCaList", urlPatterns = { "/outCaList" })
 public class OutCaListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -40,7 +40,7 @@ public class OutCaListServlet extends HttpServlet {
 		//3.
 		OutCaPage ocap = new OutCaService().selectAllOutCa(reqPage);
 		//4.
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employee/outCAList.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employee/outCaList.jsp");
 		request.setAttribute("list", ocap.getList());
 		request.setAttribute("navigation", ocap.getNavigation());
 		rd.forward(request, response);

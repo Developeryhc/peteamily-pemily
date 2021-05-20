@@ -3,11 +3,10 @@
 <%@page import="inca.model.vo.Inca"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
-//	Adopt adopt = (Adopt)session.getAttribute("adopt");
-
+	//	Adopt adopt = (Adopt)session.getAttribute("adopt");
 %>
 <html>
 <head>
@@ -15,63 +14,49 @@
 <title>가족이 될 준비가 된 친구들이에요 :)</title>
 </head>
 <style>
-	.container{
-		margin-top: 200px;
-		height: 2000px;
-	}
-	.menu-wrap{
-		width: 1280px
-		margin: 0 auto;
-	}
-	.menu-wrap>ul{
-        list-style:none;
-        margin:0;
-        padding:0;
-        display:flex;
-	}
-	.menu-wrap>ul>li{
-        width:100px;
-        text-align:center;
-	}
-	.menu-wrap>ul>li>a{
-        text-decoration: none;
-        color:black;
-	}
-	.more-btn{
-		text-align: center;
-	}
+.container {
+	margin-top: 200px;
+	width: 1280px;
+}
+
+.selectCa{
+	margin: 50px 0;
+	display: flex;
+}
+.selectCa>a{
+	height: 600px;
+	display: flex-end;
+	flex-grow: 1;
+}
+.CaImg{
+	height: 600px;
+	transition-duration: 0.2s;
+	border-radius: 100px;
+}
+
 </style>
 <body>
-	<%@include file="/WEB-INF/views/common/header.jsp" %>
-    <link rel="stylesheet" href="/css/product/shop.css" type="text/css">
-    <script type="text/javascript"></script>
+	<%@include file="/WEB-INF/views/common/header.jsp"%>
+	<script type="text/javascript"></script>
 	<div class="container">
-		<div class="menu-wrap">
-			<button type="button"><a href="/ca?incaNo=2" class="no">Dog</a></button> 
-      		<button type="button"><a href="/ca?incaNo=3" class="no">Cat</a></button>
-      	  	<button type="button"><a href="/ca?incaNo=4" class="no">Fish</a></button>
-      	  	<button type="button"><a href="/ca?incaNo=5" class="no">lizard</a></button>
-      	  	<button type="button"><a href="/ca?incaNo=6" class="no">rodent</a></button>
-      	  	<button type="button"><a href="/ca?incaNo=7" class="no">snake</a></button>
-      	  	<button type="button"><a href="/ca?incaNo=8" class="no">arthropod</a></button>
-      	  	
-      	  	<%if(m.getMemberGrade()== 1){ %>
-      	  	<button type="button"><a href="/caWriteFrm" class="no">CA Upload</a></button>
-      	  	<button type="button"><a href="/incaWriteFrm" class="no">INCA Upload</a></button>
-			<%} %>
+		<div class="selectCa">
+			<a href="/caViewList?incaNo=2"><img src="/img/ca1.jpg" class="CaImg"></a>
+			<a href="/caViewList?incaNo=3"><img src="/img/ca2.jpg" class="CaImg"></a>
+			<a href="/caViewList?incaNo=4"><img src="/img/ca3.jpg" class="CaImg"></a>
+			<a href="/caViewList?incaNo=5"><img src="/img/ca4.jpg" class="CaImg"></a>
+			<a href="/caViewList?incaNo=6"><img src="/img/ca5.jpg" class="CaImg"></a>
+			<a href="/caViewList?incaNo=7"><img src="/img/ca6.jpg" class="CaImg"></a>
+			<a href="/caViewList?incaNo=8"><img src="/img/ca7.jpg" class="CaImg"></a>
 		</div>
-		<div class="main"></div>
-		<button type='button' class='more-btn' currentCount='0' value='' totalCount='<%=%>'>더 보기</button>
 	</div>
 	<script>
-		$(function(){
-			more(1);
-			var main = $(".main");
-			//main.append("<button type='button' class='more-btn' currentCount='0' value='' totalCount='0'>더 보기</button>");
-			$(".more-btn").click(function(){
-				// more($(this).val());
-			});
+		$(".CaImg").hover(function(){
+			$(".CaImg").css("width", "Calc(680px/7)");
+			$(".CaImg").not(this).css("height", "500px");
+			$(this).css("height", "600px");
+			$(this).css("width", "600px");
 		});
+<<<<<<< HEAD
 		function more(start){
 			$.ajax({
 				url : "/ca",
@@ -100,7 +85,13 @@
 			
 		
 		}
+=======
+		$(".CaImg").mouseout(function(){
+			$(".CaImg").css("width", "Calc(1280px/7)");
+			$(".CaImg").css("height", "600px");
+		});
+>>>>>>> branch 'master' of https://github.com/Developeryhc/peteamily-pemily.git
 	</script>
-	<%@include file="/WEB-INF/views/common/footer.jsp" %>
+	<%@include file="/WEB-INF/views/common/footer.jsp"%>
 </body>
 </html>

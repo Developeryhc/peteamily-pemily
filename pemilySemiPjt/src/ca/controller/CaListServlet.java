@@ -38,7 +38,7 @@ public class CaListServlet extends HttpServlet {
 		//3.
 		IncaPage incaPage = new IncaService().selectAllInca(reqPage);
 		//4.
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employee/CaList.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employee/caList.jsp");
 		request.setAttribute("list", incaPage.getList());
 		request.setAttribute("navigation", incaPage.getNavigation());
 		rd.forward(request, response);

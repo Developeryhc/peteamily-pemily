@@ -5,9 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	.empMenu:last-child>a{
+		color:#555;
+    	background-color:#fff;
+	}
+</style>
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp" %>
+	<%@include file="/WEB-INF/views/common/empDefault.jsp" %>
 	<%@ include file="/WEB-INF/views/employee/employeeNavi.jsp" %>
 	<section>
 		<div class="category">
@@ -33,7 +40,7 @@
             <input type="hidden" id="noticeCom" name="noticeCom" value="0">
             <input type="hidden" id="noticeWriter" name="noticeWriter" value="도베르만">
             <input type="text" id="noticeTitle" class="title" name="noticeTitle" placeholder="제목 입력" autocomplete="off">
-            <div id="noticeContent" class="summernote" name="noticeContent"></div>
+            <textarea id="noticeContent" class="summernote" name="noticeContent"></textarea>
             <div class="btns">
 	            <button type="button" id="noticeBtn">작성완료</button>
 	            <button type="button" class="cancelBtn">돌아가기</button>            
@@ -60,88 +67,93 @@
 				            	<option value="dog">견</option><!-- dog -->
 				            	<option value="cat">묘</option><!-- cat -->
 				            	<option value="pisces">어류</option><!-- pisces -->
-				            	<option value="amphibia">양서류</option><!-- amphibia -->
-				            	<option value="arthropod">절지류</option><!-- arthropod -->
-				            	<option value="reptile">파충류</option><!-- reptile -->
+				            	<option value="arthropod">절지류</option><!-- amphibia -->
+				            	<option value="rodent">설치류</option><!-- arthropod -->
+				            	<option value="lizard">도마뱀</option><!-- lizard -->
+				            	<option value="snake">뱀</option><!-- snake -->
 				            </select>
 				            <div class="kindsBox">
 					            <!-- 견 -->
 					            <select id="dog" class="kinds">
 					            	<option value="0" selected>분류</option>
-					            	<option value="2">닥스훈트</option>
-					            	<option value="2">말티즈</option>
-					            	<option value="2">비글</option>
-					            	<option value="2">비숑 프리제</option>
-					            	<option value="2">보더 콜리</option>
-					            	<option value="2">시바</option>
-					            	<option value="2">시추</option>
-					            	<option value="2">웰시 코기</option>
-					            	<option value="2">제페니즈 스피츠</option>
-					            	<option value="2">치와와</option>
-					            	<option value="2">퍼그</option>
-					            	<option value="2">포메라니안</option>
-					            	<option value="2">푸들</option>
+					            	<option value="1">닥스훈트</option>
+					            	<option value="1">말티즈</option>
+					            	<option value="1">비글</option>
+					            	<option value="1">비숑 프리제</option>
+					            	<option value="1">보더 콜리</option>
+					            	<option value="1">시바</option>
+					            	<option value="1">시추</option>
+					            	<option value="1">웰시 코기</option>
+					            	<option value="1">제페니즈 스피츠</option>
+					            	<option value="1">치와와</option>
+					            	<option value="1">퍼그</option>
+					            	<option value="1">포메라니안</option>
+					            	<option value="1">푸들</option>
 					            </select>
 					            <!-- 묘 -->
 					            <select id="cat" class="kinds">
 					            	<option value="0" selected>분류</option>
-					            	<option value="14">러시안 블루</option>
-					            	<option value="15">랙돌</option>
-					            	<option value="16">먼치킨</option>
-					            	<option value="17">브리티시 숏헤어</option>
-					            	<option value="18">브리티시 롱헤어</option>
-					            	<option value="19">봄베이</option>
-					            	<option value="20">뱅골</option>
-					            	<option value="21">사바나</option>
-					            	<option value="22">샴</option>
-					            	<option value="23">시베리안</option>
-					            	<option value="24">스코티시 폴드</option>
-					            	<option value="25">아메리칸 숏헤어</option>
-					            	<option value="26">유러피안 숏헤어</option>
-					            	<option value="27">페르시안</option>
+					            	<option value="2">러시안 블루</option>
+					            	<option value="2">랙돌</option>
+					            	<option value="2">먼치킨</option>
+					            	<option value="2">브리티시 숏헤어</option>
+					            	<option value="2">브리티시 롱헤어</option>
+					            	<option value="2">봄베이</option>
+					            	<option value="2">뱅골</option>
+					            	<option value="2">사바나</option>
+					            	<option value="2">샴</option>
+					            	<option value="2">시베리안</option>
+					            	<option value="2">스코티시 폴드</option>
+					            	<option value="2">아메리칸 숏헤어</option>
+					            	<option value="2">유러피안 숏헤어</option>
+					            	<option value="2">페르시안</option>
 					            </select>
 					            <!-- 어류 -->
 					            <select id="pisces" class="kinds">
 					            	<option value="0" selected>분류</option>
-					            </select>
-					            <!-- 양서류 -->
-					            <select id="arthropod" class="kinds">
-					            	<option value="0" selected>분류</option>
+					            	<option value="3">어류1</option>
+					            	<option value="3">어류2</option>
+					            	<option value="3">어류3</option>
+					            	<option value="3">어류4</option>
+					            	<option value="3">어류5</option>
+					            	<option value="3">어류6</option>
+					            	<option value="3">어류7</option>
 					            </select>
 					            <!-- 절지류 -->
-					            <select id="amphibia" class="kinds">
+					            <select id="arthropod" class="kinds">
 					            	<option value="0" selected>분류</option>
+					            	<option value="7">절지류1</option>
+					            	<option value="7">절지류2</option>
+					            	<option value="7">절지류3</option>
+					            	<option value="7">절지류4</option>
+					            	<option value="7">절지류5</option>
 					            </select>
-					            <!-- 파충류 -->
-					            <select id="reptile" class="kinds">
+					            <!-- 설치류 -->
+					            <select id="rodent" class="kinds">
 					            	<option value="0" selected>분류</option>
-					            	<!-- 도마뱀 > 카멜레온, 이구아나 포함... -->
-					            	<optgroup label="도마뱀">
-						            	<option value="">종1</option>
-						            	<option value="">종2</option>
-						            	<option value="">종3</option>
-						            	<option value="">종4</option>		            	
-					            	</optgroup>
-					            	<optgroup label="게코">
-						            	<option value="">크레스티드 게코</option>
-						            	<option value="">레오파드 게코</option>
-						            	<option value="">토카이</option>
-					            	</optgroup>
-					            	<optgroup label="뱀">
-					            		<option value="">비단뱀</option>
-					            		<option value="">구렁이</option>
-					            		<option value="">아나콘다</option>
-					            		<option value="">살모사</option>
-					            		<option value="">블랙맘바</option>
-					            	</optgroup>
-					            	<optgroup label="거북">
-					            		<option value="">종1</option>
-					            		<option value="">종2</option>
-					            		<option value="">종3</option>
-					            		<option value="">종4</option>
-					            		<option value="">종5</option>
-					            		<option value="">종6</option>
-					            	</optgroup>
+					            	<option value="5">설치류1</option>
+					            	<option value="5">설치류2</option>
+					            	<option value="5">설치류3</option>
+					            	<option value="5">설치류4</option>
+					            	<option value="5">설치류5</option>
+					            	<option value="5">설치류6</option>
+					            </select>
+					            <!-- 도마뱀 -->
+					            <select id="lizard" class="kinds">
+					            	<option value="0" selected>분류</option>
+					            	<option value="4">종1</option>
+					            	<option value="4">종2</option>
+					            	<option value="4">종3</option>
+					            	<option value="4">종4</option>		            	
+					            </select>
+					            <!-- 뱀 -->
+					            <select id="snake" class="kinds">
+					            	<option value="0" selected>분류</option>           	
+				            		<option value="6">비단뱀</option>
+				            		<option value="6">구렁이</option>
+				            		<option value="6">아나콘다</option>
+				            		<option value="6">살모사</option>
+				            		<option value="6">블랙맘바</option>
 					            </select>
 				            </div>
 			        	</div>
@@ -198,24 +210,13 @@
         		<label for="inProPic"></label>
         		<div class="proWrap">
         			<!-- 상품 이름 -->     
-        			<input type="text" id="inProName" class="inProInputs" name="inProName" placeholder="상품 이름 입력">
+        			<input type="text" id="inProNamspe" class="inProInputs" name="inProName" placeholder="상품 이름 입력">
         			<!-- 상품 분류 -->			
 		        	<select id="inProKind">
 		        		<option value="0" selected>분류</option>
-		        			<option value="5">올인원 상품</option>
-		        			<option value="10">비브리움?</option>
-		        			<option value="15">집</option>
-		        			<option value="20">영양제</option>
-		        			<option value="25">사료</option>
-		        			<option value="30">하네스</option>
-		    	    		<option value="35">목줄</option>
-			        		<option value="40">입마개</option>
-			        		<option value="45">패드</option>
-		        			<option value="50">놀이기구</option>        		
-		        			<option value="55">캣 타워</option>
-		        			<option value="60">조형물</option>
-		        			<option value="65">어항(수조)</option>
-		        			<option value="70">여과기</option>
+		        			<option value="10">Snack</option>
+		        			<option value="20">Toy</option>
+		        			<option value="30">Clothes</option>
 		        	</select>
 		        	<!-- 상품 분류 -->
 		        	<input type="hidden" id="inProSn" name="inProSn" value="0">
@@ -234,12 +235,12 @@
         <form class="forms" id="parcelOutFrm" action="javascript:void(0);">
         	<h2>분양 등록</h2>
         	<input type="text" class="title" name="서블릿에 전송할 명칭" placeholder="제목 입력">
-            <div id="noticeContent" class="summernote" name="noticeContent"></div>
+            <textarea id="noticeContent" class="summernote" name="noticeContent"></textarea>
         </form>
         <form class="forms" id="goodsFrm" action="javascript:void(0);">
         	<h2>물품 등록</h2>
         	<input type="text" class="title" name="서블릿에 전송할 명칭" placeholder="제목 입력">
-            <div id="noticeContent" class="summernote" name="noticeContent"></div>
+            <textarea id="noticeContent" class="summernote" name="noticeContent"></textarea>
         </form>
     </section>
 </body>

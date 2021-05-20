@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,7 +16,7 @@
 .jogin-wrap {
 	background-color: rgba(243, 243, 243, 0.926);
 	width: 600px;
-	height: 1280px;
+	height: 1400px;
 	margin: 0 auto;
 	border-radius: 60px;
 	margin-top: 130px;
@@ -92,27 +90,36 @@
 		<div class="content">
 			<div class="jogin-bg">
 				<div class="jogin-wrap">
-					<form action="#" method="post" autocomplete="off">
+					<form action="/join" method="post" autocomplete="off">
 						<h1>회원가입</h1>
 						<div class="input-box">
 							<h3>아이디</h3>
-							<input type="text" name="id" placeholder="아이디를 입력해주세요"><br>
+							<input type="text" name="memberId" placeholder="아이디를 입력해주세요"><br>
 							<h3>비밀번호</h3>
-							<input type="password" name="pw" placeholder="비밀번호를 입력해주세요"><br>
+							<input type="password" name="memberPw" id="pw" class="pw"
+								placeholder="비밀번호를 입력해주세요"><br>
 							<h3>비밀번호 확인</h3>
-							<input type="password" name="pwre" placeholder="비밀번호를 입력해주세요"><br>
+							<input type="password" name="pwre" id="pwre" class="pw"
+								placeholder="비밀번호를 입력해주세요"><br> <br> <span
+								id="alert-success" style="display: none;">비밀번호가 일치합니다.</span> <span
+								id="alert-danger"
+								style="display: none; color: #d92742; font-weight: bold;">비밀번호가
+								일치하지 않습니다.</span> 
+							<h3>이름</h3>
+							<input type="text" name="memberName" id="memberName" class="memberName">
 							<h3>전화번호</h3>
-							<input type="tel" name="phone" placeholder="전화번호를 입력해주세요"><br>
+							<input type="tel" name="memberPhone" placeholder="전화번호를 입력해주세요"><br>
 							<h3>이메일 주소</h3>
-							<input type="email" name="mail" placeholder="이메일을 입력해주세요"><br>
+							<input type="email" name="memberEmail" placeholder="이메일을 입력해주세요"><br>
 							<h3>주소</h3>
-							<input type="text" name="addr" placeholder="주소를 입력해주세요"><br>
+							<input type="text" name="memberAddr" placeholder="주소를 입력해주세요"><br>
 							<br>
 							<table>
 								<tr>
-									<td><input type="radio" name="gender" value="m" id="m">
-										<label for="m">남</label> <input type="radio" name="gender"
-										value="f" id="f"> <label for="f">여</label><br> <br>
+									<td><input type="radio" name="memberGender" name="memberGender" value="M" id="memberGender">
+										<label for="M">남</label> 
+										<input type="radio" name="memberGender" name="memberGender" value="F" id="memberGender"> 
+										<label for="F">여</label><br> <br>
 										<input type="checkbox" id="checkall" class="chk">모두 동의
 										합니다.<br> <br> <input type="checkbox" id="c1"
 										class="chk" name="chk">(필수)<a href="/serviceFrm"
@@ -149,7 +156,23 @@
 					$("input[name=chk]").prop("checked", false);
 				}
 			})
-		})
+		});
+		$(".pw").focusout(function() {
+			var pwd1 = $("#pw").val();
+			var pwd2 = $("#pwre").val();
+			if (pwd1 != "" && pwd2 == "") {
+				null;
+			} else if (pwd1 != "" || pwd2 != "") {
+				if (pwd1 == pwd2) {
+					$("#alert-success").css('display', 'inline-block');
+					$("#alert-danger").css('display', 'none');
+				} else {
+					alert("비밀번호가 일치하지 않습니다. 비밀번호를 재확인해주세요.");
+					$("#alert-success").css('display', 'none');
+					$("#alert-danger").css('display', 'inline-block');
+				}
+			}
+		});
 	</script>
 
 </body>

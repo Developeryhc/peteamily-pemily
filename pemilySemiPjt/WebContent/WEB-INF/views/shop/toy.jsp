@@ -1,5 +1,12 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="inPro.model.vo.InPro"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <%
+    ArrayList<InPro> list = (ArrayList<InPro>)request.getAttribute("list");
+    int count = list.size();
+    %>
 
 <!DOCTYPE html>
 <html>
@@ -14,10 +21,10 @@
 	    <link rel="stylesheet" href="/css/product/shop.css">
   	    <script type="text/javascript"></script>
   		<div class="content">
-   	    <p>product222</p>
+   	    <p>product</p>
         <%@include file="/WEB-INF/views/shop/shopMenu.jsp" %>
         <div class="c_hr"> 
-            <p class="c_p">Total 150 items</p>
+            <p class="c_p">Total <%=count %> items</p>
             <button type="button">높은가격</button>
             <button type="button">낮은가격</button>
             <button type="button">리뷰순</button>
@@ -25,70 +32,16 @@
         </div>
         <div class="p_main">
             <div>
-                <div class="p_margin">
-                     <img src="/img/toy_1.png" alt=""><br>
-                    <a href="/detail">우리견 노즈워크 (이거클릭)</a>
-                    <p>33,000 won</p>
+                <%for(InPro pro : list) {%>
+           	 	<div>
+                    <img src="/upload/inProduct/<%=pro.getInProPic() %>" alt=""><br>
+                    <a href="#"><%=pro.getInProName() %></a>
+                    <p><%=pro.getInProPrice() %> won</p>
+                    
                 </div>
-                <div>
-                     <img src="/img/toy_1.png" alt=""><br>
-                    <a href="#">우리견 노즈워크</a>
-                    <p>33,000 won</p>
-                </div>
-                <div>
-                    <img src="/img/toy_1.png" alt=""><br>
-                    <a href="#">우리견 노즈워크</a>
-                    <p>33,000 won</p>
-                </div>
-                <div>
-                     <img src="/img/toy_1.png" alt=""><br>
-                     <a href="#">우리견 노즈워크</a>
-                    <p>33,000 won</p>
-                </div>
-            </div>
-            <div>
-                <div class="p_margin">
-                  <img src="/img/toy_1.png" alt=""><br>
-                     <a href="#">우리견 노즈워크</a>
-                    <p>33,000 won</p>
-                </div>
-                <div>
-                   <img src="/img/toy_1.png" alt=""><br>
-                     <a href="#">우리견 노즈워크</a>
-                    <p>33,000 won</p>
-                </div>
-                <div>
-                     <img src="/img/toy_1.png" alt=""><br>
-                     <a href="#">우리견 노즈워크</a>
-                    <p>33,000 won</p>
-                </div>
-                <div>
-                     <img src="/img/toy_1.png" alt=""><br>
-                     <a href="#">우리견 노즈워크</a>
-                    <p>33,000 won</p>
-                </div>
-            </div>
-            <div>
-                <div class="p_margin">
-                     <img src="/img/toy_1.png" alt=""><br>
-                     <a href="#">우리견 노즈워크</a>
-                    <p>33,000 won</p>
-                </div>
-                <div>
-                     <img src="/img/toy_1.png" alt=""><br>
-                     <a href="#">우리견 노즈워크</a>
-                    <p>33,000 won</p>
-                </div>
-                <div>
-                     <img src="/img/toy_1.png" alt=""><br>
-                     <a href="#">우리견 노즈워크</a>
-                    <p>33,000 won</p>
-                </div>
-                <div>
-                     <img src="/img/toy_1.png" alt=""><br>
-                     <a href="#">우리견 노즈워크</a>
-                    <p>33,000 won</p>
-                </div>
+            <%} %>
+                
+                    <a href="/detail">상세</a>
             </div>
         </div>
     </div>

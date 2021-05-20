@@ -1,6 +1,7 @@
 package care.model.service;
 
 import java.sql.Connection;
+
 import java.util.ArrayList;
 
 import care.model.dao.CareDao;
@@ -82,6 +83,51 @@ public class CareService {
 		Care c = dao.selectOneCare(conn, careNo);
 		JDBCTemplate.close(conn);
 		return c;
+	}
+
+	public int deleteCare(int careNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new CareDao().deleteCare(conn,careNo);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int totalCount() {
+		Connection conn = JDBCTemplate.getConnection();
+		int totalCount = new CareDao().totalCount(conn);
+		JDBCTemplate.close(conn);
+		return totalCount;
+	}
+
+	public int insertCare(Care c) {
+		Connection conn = JDBCTemplate.getConnection();
+		System.out.println(2);
+		int result = new CareDao().insertCare(conn,c);
+		System.out.println(3);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int updateCare(Care c) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new CareDao().updateCare(conn,c);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
 	}
 
 }

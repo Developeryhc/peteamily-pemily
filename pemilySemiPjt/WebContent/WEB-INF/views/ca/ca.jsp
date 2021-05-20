@@ -16,18 +16,15 @@
 <style>
 .container {
 	margin-top: 200px;
-	width: 1259px;
+	width: 1280px;
 }
 
 .selectCa{
 	margin: 100px 0;
 	width: 100%;
-	display: flex;
 }
 .selectCa>a{
-	height: 600px;
-	flex-grow: 1;
-	display: flex-end;
+	height: 400px;
 }
 .CaImg{
 	height: 400px;

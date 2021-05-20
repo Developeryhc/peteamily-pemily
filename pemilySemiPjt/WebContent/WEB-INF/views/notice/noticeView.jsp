@@ -9,49 +9,84 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-</head>
-<body>
-	<fieldset>
-		
-		<legend>공지사항</legend>
-		<table style="width:100%;">
+<script src="http://code.jquery.com/jquery-latest.js"></script> 
+<!-- jQuery받아오기 위해서 --> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<!-- 합쳐지고 최소화된 최신 CSS --> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> 
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<title>Insert title here</title>
+<style>
+.faq-wrap {
+        width: 100%;
+        height: 200px;
+        margin: 10px auto;
+        border: 1px solid #000000;
+        position: relative;
+    }
+    .faq-wrap img {
+        width: 100%;
+        vertical-align: middle;
+    }
+    .faq-text {
+        padding: 5px 10px;
+        text-align: center;
+        position: absolute;
+	    top: 50%;
+	    left: 50%;
+        transform: translate( -50%, -50% );
+    }
+   .bt{
+    text-align: center;}
+    th{
+    background-color: #f0eded;
+    text-align: center;
+    
+    }
+   table{
+   width:100%;
+   layout:fixed;}
+  
+</style> 
+</head> 
+<body> 
+
+<div class="container">
+		<div class="faq-wrap">
+        	<div class="faq-image"><img src="" alt="" width="100%;" height="200px;"></div>
+        	<div class="faq-text">
+            	<p>공지사항</p>
+        	</div>
+    	</div> 
+
+		<table class="table">
 		<tr>
 			<th>제목</th>
-			<th colspan="3"><%=n.getNoticeTitle() %></th>
+			<td colspan="3"><%=n.getNoticeTitle() %></td>
 		</tr>
 		<tr class="table-light">
 			<th>작성자</th>
-			<th><%=n.getNoticeWriter()%></th>
+			<td><%=n.getNoticeWriter()%></td>
 			<th>작성일</th>
-			<th><%=n.getNoticeDate()%></th>
+			<td><%=n.getNoticeDate()%></td>
 		</tr>
-			<%--<tr>
-			<th>첨부파일</th>
-			<th colspan="3">
-				<%if(n.get!=null) {%>
-				<img src="/img/file.png" width="16px">
-				<%} %>
-			</th>
-		</tr> --%>
-		
 		<tr class="table-light">
 			<th>내용</th>
-			<th><%=n.getNoticeContentBr() %></th>
+			<td colspan="3"><%=n.getNoticeContentBr() %></td>
 		</tr>
-		<tr class="table-light">
-			<th colspan="4" style="text-align:center;">
-				<button class="btn btn-info" onclick="history.go(-1);">이전화면</button>
-				<a href="/noticeUpdateFrm?noticeNo=<%=n.getNoticeNo()%>">수정하기</a>
-				<a href="/noticeDelete?noticeNo=<%=n.getNoticeNo() %>">삭제하기</a>
+		</table>		
 				
 				
 				<%--<%if(m!=null && m.getMemberId().equals(b.getBoardWriter())) {%>
 				<a class="btn btn-info" href="/boardUpdateFrm?boardNo=<%=b.getBoardNo() %>">수정하기</a>
 				<a class="btn btn-info" href="/boardDelete?boardNo=<%=b.getBoardNo() %>">삭제하기</a>
 				<%} %> --%>
-		</tr>
-		</table>
-		</fieldset>
+		<div class="bt">
+		<button class="btn btn-info" onclick="history.go(-1);">이전화면</button>
+		<a class="btn btn-info" href="/noticeUpdateFrm?noticeNo=<%=n.getNoticeNo()%>">수정하기</a>
+		<a class="btn btn-info" href="/noticeDelete?noticeNo=<%=n.getNoticeNo() %>&noticeCom=<%=n.getNoticeCom()%>">삭제하기</a>
+		</div>
 	</div>
+
 </body>
 </html>

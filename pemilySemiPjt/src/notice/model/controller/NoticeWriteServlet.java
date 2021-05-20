@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 import notice.model.service.NoticeService;
 import notice.model.vo.Notice;
 
@@ -31,34 +36,36 @@ public class NoticeWriteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
-		//1. 
-		request.setCharacterEncoding("utf-8");
-		//2. 
-		int noticeCom = Integer.parseInt(request.getParameter("noticeCom"));
-		String noticeWriter = request.getParameter("noticeWriter");
-		String noticeTitle = request.getParameter("noticeTitle");
-		String noticeContent = request.getParameter("noticeContent");
-		Notice n = new Notice();
-		n.setNoticeCom(noticeCom);
-		n.setNoticeContent(noticeContent);
-		n.setNoticeTitle(noticeTitle);
-		n.setNoticeWriter(noticeWriter);
-		//3.
-		int result = new NoticeService().insertNotice(n);
-		//result 되서 (insert) 나온 최신 글번호를 가지고와서 상세보기 페이지 url값을 줌
-		int noticeNo = new NoticeService().searchOneNoticeNo(noticeCom);
-		//4. 여기서는 실제로 구현될 결과/페이지 지정 처리를 해야됨
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
-		if(result>0) {
-			request.setAttribute("msg", "등록완료");
-			request.setAttribute("loc", "/noticeEmpView?noticeNo="+noticeNo);
-		}else {
-			request.setAttribute("msg", "등록실패");
-			request.setAttribute("loc", "/insertPage");
-		}
-		rd.forward(request, response);
+				request.setCharacterEncoding("utf-8");
+//				String content = request.getParameter("noticeContent");
+//				String title = request.getParameter("noticeTitle");
+				
+				int noticeCom = Integer.parseInt(request.getParameter("noticeChoice"));
+				String noticeWriter = request.getParameter("noticeWriter");
+				String noticeTitle = request.getParameter("noticeTitle");
+				String noticeContent = request.getParameter("noticeContent");
+				
+				Notice n = new Notice();
+				n.setNoticeContent((noticeContent));
+				n.setNoticeTitle((noticeTitle));
+				n.setNoticeCom((noticeCom));
+				n.setNoticeWriter((noticeWriter));
+				
+				//4
+				int result = new NoticeService().insertNotice(n);
+				
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
+				if(result>0) {
+					request.setAttribute("msg", "공지사항 등록 성공");
+				}else {
+					request.setAttribute("msg", "공지사항 등록 실패");
+				}
+				if(noticeCom==1) {
+					request.setAttribute("loc", "/noticeList?reqPage=1&noticeCom=1");
+				}else if(noticeCom==2) {
+					request.setAttribute("loc", "/noticeList?reqPage=1&noticeCom=2");
+				}
+				rd.forward(request, response);
 	}
 
 	/**

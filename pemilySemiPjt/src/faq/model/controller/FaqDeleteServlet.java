@@ -1,11 +1,15 @@
 package faq.model.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import faq.model.service.FaqService;
 
 /**
  * Servlet implementation class FaqDeleteServlet
@@ -26,8 +30,18 @@ public class FaqDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("utf-8");
+		int faqNo = Integer.parseInt(request.getParameter("faqNo"));
+		int result = new FaqService().deleteFaq(faqNo);
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
+		if(result>0) {
+			request.setAttribute("msg", "삭제성공");
+			request.setAttribute("loc", "/faqList");
+		}else {
+			request.setAttribute("msg", "삭제실패");
+			request.setAttribute("loc", "/faqList");
+		}
+		rd.forward(request, response);
 	}
 
 	/**

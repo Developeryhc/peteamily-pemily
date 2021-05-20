@@ -1,11 +1,17 @@
 package notice.model.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.InterningXmlVisitor;
+
+import notice.model.service.NoticeService;
 
 /**
  * Servlet implementation class NoticeDeleteServlet
@@ -26,9 +32,22 @@ public class NoticeDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("utf-8");
+		int noticeNo = Integer.parseInt(request.getParameter("noticeNo"));
+		int noticeCom = Integer.parseInt(request.getParameter("noticeCom"));
+		int result = new NoticeService().deleteNotice(noticeNo);
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
+		if(result>0) {
+			request.setAttribute("msg", "삭제성공");
+			request.setAttribute("loc", "/noticeList?reqPage=1&noticeCom="+noticeCom);
+		}else {
+			request.setAttribute("msg", "삭제실패");
+			request.setAttribute("loc", "/noticeView?noticeNo"+noticeNo);
+		}
+		rd.forward(request, response);
 	}
+	
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

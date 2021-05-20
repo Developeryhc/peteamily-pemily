@@ -6,34 +6,29 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Pemily에 오신것을 환영합니다.</title>
 </head>
+<script type="text/javascript" src="/js/jquery-3.3.1.js"></script>
 <style>
-	
-	.content{
-		height: 400px;
-	}
-	.content-wrap{
-		float: left;
-		width:Calc(100%/6);
-		border-radius: 400px;
-		box-sizing: border-box;
-		margin-top: 100px;
+	body{
+		margin: 0;
+		padding: 0;
 	}
 	.content-wrap img{
-		width: 100%;
-		border-radius: 400px;
+		float: left;
+		width:Calc(100%/2);
+		heigth: 200px;
 	}
 </style>
 <body>
-	<%@include file="/WEB-INF/views/common/header.jsp" %>
-	<div class="container">
+	<div class="content-wrap">
 		<div class="content">
-			<div class="back-wrap"></div>
-			<div class="content-wrap"><input type="hidden" value="ca"><img src="/img/adopt.png" alt="adopt"></div>
-			<div class="content-wrap"><input type="hidden" value="adopt"><img src="/img/food.png" alt="goods"></div>
-			<div class="content-wrap"><input type="hidden" value="noticeList"><img src="/img/notice.png" alt="notice"></div>
-			<div class="content-wrap"><input type="hidden" value="partner"><img src="/img/contact.png" alt="contact"></div>
-			<div class="content-wrap"><input type="hidden" value="login"><img src="/img/login.png" alt="login"></div>
-			<div class="content-wrap"><input type="hidden" value="join"><img src="/img/join.png" alt="join"></div>
+			<div class="content-top">
+				<div class="content-wrap"><input type="hidden" value="ca"><img src="/img/adopt.jpg" alt="adopt"></div>
+				<div class="content-wrap"><input type="hidden" value="adopt"><img src="/img/goods.jpg" alt="goods"></div>
+			</div>
+			<div class="content-bottom">
+				<div class="content-wrap"><input type="hidden" value="noticeList"><img src="/img/notice.jpg" alt="notice"></div>
+				<div class="content-wrap"><input type="hidden" value="partner"><img src="/img/contact.jpg" alt="contact"></div>
+			</div>
 		</div>
 	</div>
 	<script>
@@ -45,6 +40,5 @@
 		});
 		// 페이지 이동할 수 있게 작성
 	</script>
-	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

@@ -100,6 +100,9 @@
 
 </head>
 <body>
+	
+	
+		
 		<div class="container">
 			  <div class="faq-wrap">
         		<div class="faq-image"></div>
@@ -111,9 +114,7 @@
              	</p>
              	</div>
              	</div>
-        </div>
-      
-        <div class="container">
+    
 			
 			<%for(Faq faq :list) {%>
 				<ul class="menu">

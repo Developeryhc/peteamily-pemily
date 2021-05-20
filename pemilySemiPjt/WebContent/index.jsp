@@ -14,11 +14,12 @@
 	}
 	.content-wrap img{
 		float: left;
+		heigth:300px;
 		width:Calc(100%/2);
-		heigth: 200px;
 	}
 </style>
 <body>
+	<%@include file="/WEB-INF/views/common/header.jsp" %>
 	<div class="content-wrap">
 		<div class="content">
 			<div class="content-top">

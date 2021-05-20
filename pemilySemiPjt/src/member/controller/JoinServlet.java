@@ -52,7 +52,7 @@ public class JoinServlet extends HttpServlet {
 
 		//3.비니지스
 		int result = new MemberService().inserMember(m);
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/common/msg.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
 		if(result>0) {
 			request.setAttribute("msg", "회원가입 완료");
 		}else {

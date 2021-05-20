@@ -12,32 +12,75 @@
 		margin: 0;
 		padding: 0;
 	}
-	.content-wrap img{
-		float: left;
-		heigth:300px;
-		width:Calc(100%/2);
+	.content-top{
+		position: relative;
+		width:100vw;
+		height:50vh;
+	}
+	.content-bottom{
+		position: relative;
+		width:100vw;
+		height:50vh;
+	}
+	.content-top>.content-left{
+		width:50%;
+		height:50vh;
+		background-image:url(img/adopt.jpg);
+		background-size: cover;
+		position: absolute;
+		left:0;
+	}
+	.content-top>.content-right{
+		width:50%;
+		height:50vh;
+		background-image:url(img/goods.jpg);
+		background-size: cover;
+		position: absolute;
+		right:0;
+		
+	}
+	.content-bottom>.content-left{
+		width:50%;
+		height:50vh;
+		background-image:url(img/notice.jpg);
+		background-size: cover;
+		position: absolute;
+		left:0;
+	}
+	.content-bottom>.content-right{
+		width:50%;
+		height:50vh;
+		background-image:url(img/contact.jpg);
+		background-size: cover;
+		position: absolute;
+		right:0;
+	}
+	.main-modal{
+		background-color: rgba(246,246,246,0.5);
+	}
+	.main-modal p{
+		font-size: 50px;
 	}
 </style>
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
-	<div class="content-wrap">
-		<div class="content">
-			<div class="content-top">
-				<div class="content-wrap"><input type="hidden" value="ca"><img src="/img/adopt.jpg" alt="adopt"></div>
-				<div class="content-wrap"><input type="hidden" value="adopt"><img src="/img/goods.jpg" alt="goods"></div>
-			</div>
-			<div class="content-bottom">
-				<div class="content-wrap"><input type="hidden" value="noticeList"><img src="/img/notice.jpg" alt="notice"></div>
-				<div class="content-wrap"><input type="hidden" value="partner"><img src="/img/contact.jpg" alt="contact"></div>
-			</div>
+	<div class="content">
+		<div class="content-top">
+			<div class="content-wrap content-left"><input type="hidden" value="ca"></div>
+			<div class="content-wrap content-right"><input type="hidden" value="goods"></div>
+		</div>
+		<div class="content-bottom">
+			<div class="content-wrap content-left"><input type="hidden" value="noticeList"></div>
+			<div class="content-wrap content-right"><input type="hidden" value="partner"></div>
 		</div>
 	</div>
 	<script>
-		$(".content-wrap").mouseover(function(){
-			$(this).css("background-color", "rgb(232,69,86)");
+		var modal = "<div class='main-modal'><p>내가 보이니?</p></div>";
+		$(".content-wrap").hover(function(){
+			$(this).append(modal);
 		});
 		$(".content-wrap").mouseout(function(){
-			$(this).css("background-color", "");
+			$(this).removeAppend(modal);
 		});
 		// 페이지 이동할 수 있게 작성
 	</script>

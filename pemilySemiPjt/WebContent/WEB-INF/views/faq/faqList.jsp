@@ -41,7 +41,7 @@
         transform: translate( -50%, -50% );
     }
 	  
-       .menu>li{
+       .que>li{
             border-top: 1px solid #bcbcbc;
             border-bottom: 1px solid transparent;
             list-style: none;
@@ -59,7 +59,7 @@
             
          
         }
-        .b{
+        .bbb{
             height: 100px;
             
             display: none;
@@ -102,7 +102,7 @@
 <body>
 	
 	
-		
+		<%@include file="/WEB-INF/views/common/header.jsp" %>
 		<div class="container">
 			  <div class="faq-wrap">
         		<div class="faq-image"></div>
@@ -117,13 +117,13 @@
     
 			
 			<%for(Faq faq :list) {%>
-				<ul class="menu">
+				<ul class="que">
 					<li class="a">Q.
 					<%=faq.getFaqTitle() %>
 					
 					<a href="/faqDelete?faqNo=<%=faq.getFaqNo() %>">삭제하기</a> 
 					</li>
-					<li class="b">A.
+					<li class="bbb">A.
 					<%=faq.getFaqContent() %>
 					</li>
 				</ul>

@@ -55,6 +55,7 @@
 			$(this).css("height", "400px");
 			$(this).css("width", "400px");
 		});
+		
 		function more(start){
 			$.ajax({
 				url : "/ca",
@@ -81,10 +82,12 @@
 				}
 			});
 		}
+		
 		$(".CaImg").mouseout(function(){
 			$(".CaImg").css("width", "Calc(1280px/7)");
 			$(".CaImg").css("height", "400px");
 		});
+		
 		$(".CaImg").hover(function(){
 			
 		});

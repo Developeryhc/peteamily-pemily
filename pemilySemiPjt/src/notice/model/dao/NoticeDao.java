@@ -189,6 +189,25 @@ public class NoticeDao {
 		}
 		return result;
 	}
+
+	public int deleteEmpNotice(Connection conn, int noticeNo) {
+		PreparedStatement pstmt = null;
+		String query = "delete from notice where notice_no=?";
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, noticeNo);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
+
 	
 
 }

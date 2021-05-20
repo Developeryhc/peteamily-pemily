@@ -10,6 +10,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	.empMenu:first-child>a{
+		color:#555;
+    	background-color:#fff;
+	}
+</style>
+<style>
 	.noticeView-wrap{
 		margin-top:100px;
 		width:800px;
@@ -108,6 +114,7 @@
 		</div>
 		--%>
 	<%@include file="/WEB-INF/views/employee/empModal.jsp" %>
+		<span class="hiddenTextChk">noticeEmp</span>
 	</section>
 	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>

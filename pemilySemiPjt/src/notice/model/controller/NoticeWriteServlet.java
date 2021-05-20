@@ -47,6 +47,7 @@ public class NoticeWriteServlet extends HttpServlet {
 		n.setNoticeWriter(noticeWriter);
 		//3.
 		int result = new NoticeService().insertNotice(n);
+		//result 되서 (insert) 나온 최신 글번호를 가지고와서 상세보기 페이지 url값을 줌
 		int noticeNo = new NoticeService().searchOneNoticeNo(noticeCom);
 		//4. 여기서는 실제로 구현될 결과/페이지 지정 처리를 해야됨
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");

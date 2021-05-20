@@ -139,5 +139,8 @@ section > * {
 	width:100%;
 
 }
-
+/* 모달 처리할 때 어느 table 인지 확인하는 값 */
+.hiddenTextChk{
+	display:none;
+}
 

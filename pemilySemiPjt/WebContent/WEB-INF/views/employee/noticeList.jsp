@@ -50,6 +50,8 @@
             </tbody>
         </table>
         <%=pageNavi %>
+        <%@include file="/WEB-INF/views/employee/empModal.jsp" %>
+        <span class="hiddenTextChk">noticeEmp</span>
 	</section>
 	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>

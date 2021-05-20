@@ -88,4 +88,11 @@ public class IncaService {
 		return adopt;
 	}
 
+	public Inca selectOneInca(int incaNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		Inca inca = new IncaDao().selectOneInca(conn,incaNo);
+		JDBCTemplate.close(conn);
+		return inca;
+	}
+
 }

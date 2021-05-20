@@ -1,10 +1,5 @@
-<%@page import="contact.model.vo.Contact"%>
-<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%
-    ArrayList<Contact> list = (ArrayList<Contact>)request.getAttribute("list");
-    %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,7 +16,7 @@
 	.body{
 		width:78%;
 		margin:0 auto;
-		
+		border: 1px solid black;
 		overflow:hidden;
 	}
 	.middle{
@@ -58,7 +53,6 @@
 	
 	img{
 		width:95%;	
-		height:350px;
 	}
 	a{
 		text-decoration:none;
@@ -75,8 +69,6 @@
 </head>
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
-	<br><br>
-	
 	<div class="top">
 		<div class="text">
 			<br><br><br><br>
@@ -86,30 +78,69 @@
 			<h3>합리적인 서비스를 경험하세요.</h4>
 		</div>
 		<div class="topimg">
-			<img src="/img/partnerIntroTop.jpg" id="top">
+			<img src="/img/top.jpg" id="top">
 		</div>
 	</div><br>
 	<div class="middle">
 		<div class="divide"><a href="#" style="color:rgba(238, 140, 148, 0.60);">뷰티</a></div>
-		<div class="divide"><a href="partnerIntro?sort=라이프">라이프</a></div>
-		<div class="divide"><a href="partnerIntro?sort=의료">의료</a></div>
+		<div class="divide"><a href="#">라이프</a></div>
+		<div class="divide"><a href="#">의료</a></div>
 	</div><br>
 	<div class="body">
-		<%for(int i =0;i<list.size();i++) {%>
 		<div class="partner">
 			<div class="img">
-				<img src="/upload/partner/<%=list.get(i).getFilepath()%>">
+				<img src="/img/body1.png">
 			</div>
 			<div class="intro">
-				<h2><%=list.get(i).getPartnerName() %></h5>
-				<h5>대표 : <%=list.get(i).getPartnerEmp() %></h5>
-				<h5>연락처 : <%=list.get(i).getPhone() %></h5>
-				<h5>이메일 : <%=list.get(i).getEmail() %></h5>
-				<h5><%=list.get(i).getContent() %></h5>
+				<h5>벨르앙쥬 애견펜션</h5>
+				<h5>대표 : 최경운</h5>
+				<h5>연락처 : 010-8888-8888</h5>
+				<h5>Pemily 고객 이용료 60%할인</h5>
 			</div>
 		</div>
-		<%} %>
-	</div><br><br>
-	
+		<div class="partner">
+			<div class="img">
+				<img src="/img/body2.jpg">
+			</div>
+			<div class="intro">
+				<h5>메이트 동물병원</h5>
+				<h5>대표 : 조정욱</h5>
+				<h5>연락처 : 010-8888-8888</h5>
+				<h5>Pemily 고객 진료비 80%할인</h5>
+			</div>
+		</div>
+		<div class="partner">
+			<div class="img">
+			
+			</div>
+			<div class="intro">
+			
+			</div>
+		</div>
+		<div class="partner">
+			<div class="img">
+			
+			</div>
+			<div class="intro">
+			
+			</div>
+		</div>
+		<div class="partner">
+			<div class="img">
+			
+			</div>
+			<div class="intro">
+			
+			</div>
+		</div>
+		<div class="partner">
+			<div class="img">
+			
+			</div>
+			<div class="intro">
+			
+			</div>
+		</div>
+	</div>
 </body>
 </html>

@@ -76,7 +76,6 @@
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
 	<br><br>
-	
 	<div class="top">
 		<div class="text">
 			<br><br><br><br>
@@ -90,18 +89,18 @@
 		</div>
 	</div><br>
 	<div class="middle">
-		<div class="divide"><a href="#" style="color:rgba(238, 140, 148, 0.60);">뷰티</a></div>
+		<div class="divide"><a href="/partnerIntro?sort=뷰티">뷰티</a></div>
 		<div class="divide"><a href="partnerIntro?sort=라이프">라이프</a></div>
-		<div class="divide"><a href="partnerIntro?sort=의료">의료</a></div>
+		<div class="divide"><a href="#" style="color:rgba(238, 140, 148, 0.60);">의료</a></div>
 	</div><br>
 	<div class="body">
-		<%for(int i =0;i<list.size();i++) {%>
+		<%for(int i=0;i<list.size();i++) {%>
 		<div class="partner">
 			<div class="img">
 				<img src="/upload/partner/<%=list.get(i).getFilepath()%>">
 			</div>
 			<div class="intro">
-				<h2><%=list.get(i).getPartnerName() %></h5>
+				<h3><%=list.get(i).getPartnerName() %></h5>
 				<h5>대표 : <%=list.get(i).getPartnerEmp() %></h5>
 				<h5>연락처 : <%=list.get(i).getPhone() %></h5>
 				<h5>이메일 : <%=list.get(i).getEmail() %></h5>
@@ -109,7 +108,8 @@
 			</div>
 		</div>
 		<%} %>
+		
+		
 	</div><br><br>
-	
 </body>
 </html>

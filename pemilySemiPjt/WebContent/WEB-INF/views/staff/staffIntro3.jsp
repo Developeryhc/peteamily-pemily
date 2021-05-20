@@ -1,9 +1,9 @@
-<%@page import="contact.model.vo.Contact"%>
+<%@page import="contact.model.vo.Emp"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
-    ArrayList<Contact> list = (ArrayList<Contact>)request.getAttribute("list");
+    ArrayList<Emp> list = (ArrayList<Emp>)request.getAttribute("list");
     %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -40,11 +40,13 @@
 	.divide{
 		float:left;
 		width:33%;
+		
 	}
+	
 	.text>*{
-		color : rgba(238, 140, 148, 0.60);
+		color : rgba(182, 215, 168, 0.54);
 	}
-	.partner{
+	.staff{
 		width:49%;
 		height:600px;
 		float:left;
@@ -52,13 +54,12 @@
 	.image{
 		height:60%;
 	}
-	.partner>*{
-		color : rgba(238, 140, 148, 0.60);
+	.staff>*{
+		color : rgba(182, 215, 168, 0.54);
 	}
-	
 	img{
-		width:95%;	
 		height:350px;
+		width:95%;
 	}
 	a{
 		text-decoration:none;
@@ -69,7 +70,7 @@
 		color: black;
 	}
 	a:hover{
-		color: rgba(238, 140, 148, 0.60);
+		color:rgba(182, 215, 168, 0.54);
 	}
 </style>
 </head>
@@ -77,38 +78,40 @@
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
 	<br><br>
 	
-	<div class="top">
+		<div class="top">
 		<div class="text">
 			<br><br><br><br>
-			<h1>Pemily Partner는</h2>
-			<h3>Pemily를 이용해주시는 고객분들을 위한 서비스입니다.</h4>
-			<h3>미용부터 건강검진까지 Pemily와 제휴를 맺은 업체를 통해</h4>
-			<h3>합리적인 서비스를 경험하세요.</h4>
+			<h1>Pemily 전 직원들은</h2>
+			<h3>반려동물 관련 자격증을 보유하고 있습니다.</h4>
+			<h3>고객님이 안심하고 맡겨주실 수 있도록</h4>
+			<h3>전문 자격증을 소유한 직원들만이 반려동물을 관리합니다.</h4>
 		</div>
 		<div class="topimg">
-			<img src="/img/partnerIntroTop.jpg" id="top">
+			<img src="/img/staff1.png" id="top">
 		</div>
 	</div><br>
 	<div class="middle">
-		<div class="divide"><a href="#" style="color:rgba(238, 140, 148, 0.60);">뷰티</a></div>
-		<div class="divide"><a href="partnerIntro?sort=라이프">라이프</a></div>
-		<div class="divide"><a href="partnerIntro?sort=의료">의료</a></div>
+		<div class="divide"><a href="/staff?store=1">당산 본점</a></div>
+		<div class="divide"><a href="/staff?store=2">강남점</a></div>
+		<div class="divide"><a href="#" style="color:rgba(182, 215, 168, 0.54);">부산점</a></div>
 	</div><br>
 	<div class="body">
 		<%for(int i =0;i<list.size();i++) {%>
-		<div class="partner">
+			<div class="staff">
 			<div class="img">
-				<img src="/upload/partner/<%=list.get(i).getFilepath()%>">
+				<img src="/upload/staff/<%=list.get(i).getFilepath() %>">
 			</div>
 			<div class="intro">
-				<h2><%=list.get(i).getPartnerName() %></h5>
-				<h5>대표 : <%=list.get(i).getPartnerEmp() %></h5>
-				<h5>연락처 : <%=list.get(i).getPhone() %></h5>
-				<h5>이메일 : <%=list.get(i).getEmail() %></h5>
-				<h5><%=list.get(i).getContent() %></h5>
+				<h2><%=list.get(i).getEmpJob() %></h5>
+				<h5>이름 : <%=list.get(i).getEmpName() %></h5>
+				<h5>연락처 : <%=list.get(i).getEmpPhone() %></h5>
+				<h5>주소 : <%=list.get(i).getEmpAddr() %></h5>
+				<h5>입사일 : <%=list.get(i).getEmpEnter() %></h5>
 			</div>
 		</div>
 		<%} %>
+		
+		
 	</div><br><br>
 	
 </body>

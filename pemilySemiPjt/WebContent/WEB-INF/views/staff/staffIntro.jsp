@@ -15,12 +15,13 @@
 	.top{
 		width:78%;
 		margin:0 auto;
+		
 		overflow:hidden;
 	}
 	.body{
 		width:78%;
 		margin:0 auto;
-		border: 1px solid black;
+		
 		overflow:hidden;
 	}
 	.middle{
@@ -56,7 +57,10 @@
 	.staff>*{
 		color : rgba(182, 215, 168, 0.54);
 	}
-	
+	img{
+		height:350px;
+		width:95%;
+	}
 	a{
 		text-decoration:none;
 		display:block;
@@ -72,7 +76,8 @@
 </head>
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
-	<div class="container">
+	<br><br>
+	
 		<div class="top">
 		<div class="text">
 			<br><br><br><br>
@@ -87,65 +92,27 @@
 	</div><br>
 	<div class="middle">
 		<div class="divide"><a href="#" style="color:rgba(182, 215, 168, 0.54);">당산 본점</a></div>
-		<div class="divide"><a href="#">강남점</a></div>
-		<div class="divide"><a href="#">부산점</a></div>
+		<div class="divide"><a href="/staff?store=2">강남점</a></div>
+		<div class="divide"><a href="/staff?store=3">부산점</a></div>
 	</div><br>
 	<div class="body">
-		<div class="staff">
+		<%for(int i =0;i<list.size();i++) {%>
+			<div class="staff">
 			<div class="img">
-				<img src="/img/staff2.jpg">
+				<img src="/upload/staff/<%=list.get(i).getFilepath() %>">
 			</div>
 			<div class="intro">
-				<h5>반려동물 관리사</h5>
-				<h5>이름 : <%=list.get(0).getEmpName() %></h5>
-				<h5>연락처 : <%=list.get(0).getEmpPhone() %></h5>
-				<h5>입사일 : <%=list.get(0).getEmpEnter() %></h5>
+				<h2><%=list.get(i).getEmpJob() %></h5>
+				<h5>이름 : <%=list.get(i).getEmpName() %></h5>
+				<h5>연락처 : <%=list.get(i).getEmpPhone() %></h5>
+				<h5>주소 : <%=list.get(i).getEmpAddr() %></h5>
+				<h5>입사일 : <%=list.get(i).getEmpEnter() %></h5>
 			</div>
 		</div>
-		<div class="staff">
-			<div class="img">
-				<img src="/img/staff3.jpg">
-			</div>
-			<div class="intro">
-				<h5>반려동물 수의사</h5>
-				<h5>이름 : <%=list.get(1).getEmpName() %></h5>
-				<h5>연락처 : <%=list.get(1).getEmpPhone() %></h5>
-				<h5>입사일 : <%=list.get(1).getEmpEnter() %></h5>
-			</div>
-		</div>
-		<div class="staff">
-			<div class="img">
-			
-			</div>
-			<div class="intro">
-			
-			</div>
-		</div>
-		<div class="staff">
-			<div class="img">
-			
-			</div>
-			<div class="intro">
-			
-			</div>
-		</div>
-		<div class="staff">
-			<div class="img">
-			
-			</div>
-			<div class="intro">
-			
-			</div>
-		</div>
-		<div class="staff">
-			<div class="img">
-			
-			</div>
-			<div class="intro">
-			
-			</div>
-		</div>
-	</div>
-	</div>
+		<%} %>
+		
+		
+	</div><br><br>
+	
 </body>
 </html>

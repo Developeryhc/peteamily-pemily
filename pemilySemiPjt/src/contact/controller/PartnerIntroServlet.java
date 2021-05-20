@@ -11,19 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import contact.model.service.ContactService;
-import contact.model.vo.Emp;
+import contact.model.vo.Contact;
 
 /**
- * Servlet implementation class StaffServlet
+ * Servlet implementation class PartnerIntroServlet
  */
-@WebServlet(name = "Staff", urlPatterns = { "/staff" })
-public class StaffServlet extends HttpServlet {
+@WebServlet(name = "PartnerIntro", urlPatterns = { "/partnerIntro" })
+public class PartnerIntroServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StaffServlet() {
+    public PartnerIntroServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,24 +34,25 @@ public class StaffServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		//2.데이터 추출
-		int store = Integer.parseInt(request.getParameter("store"));
-		
+		String sort = request.getParameter("sort");
 		//로직처리
-		ArrayList<Emp> list = new ContactService().selectAllEmp(store);
+		ArrayList<Contact> list = new ContactService().selectAllPartner(sort);
+	
 		//결과처리
-		if(store ==1) {
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/staff/staffIntro.jsp");
+		if(sort.equals("뷰티")) {
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/contact/partnerIntro.jsp");
 			request.setAttribute("list", list);
 			rd.forward(request, response);
-		}else if(store==2) {
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/staff/staffIntro2.jsp");
+		}else if(sort.equals("라이프")) {
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/contact/partnerIntroLife.jsp");
 			request.setAttribute("list", list);
 			rd.forward(request, response);
-		}else if(store==3) {
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/staff/staffIntro3.jsp");
+		}else if(sort.equals("의료")) {
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/contact/partnerIntroMedic.jsp");
 			request.setAttribute("list", list);
 			rd.forward(request, response);
 		}
+		
 		
 	}
 

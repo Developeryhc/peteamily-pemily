@@ -82,8 +82,8 @@
 			<div class="content-wrap content-right"><input type="hidden" value="goods"><div class="main-modal"><a href="/buyProduct">반려물품</a></div></div>
 		</div>
 		<div class="content-bottom">
-			<div class="content-wrap content-left"><input type="hidden" value="noticeList"><div class="main-modal"><a href="/community">커뮤니티</a></div></div>
-			<div class="content-wrap content-right"><input type="hidden" value="partner"><div class="main-modal"><a href="/contact">컨택트</a></div></div>
+			<div class="content-wrap content-left"><input type="hidden" value="noticeList"><div class="main-modal"><a href="community?reqPage=1&noticeCom=2">커뮤니티</a></div></div>
+			<div class="content-wrap content-right"><input type="hidden" value="partner"><div class="main-modal"><a href="/staff?store=1">컨택트</a></div></div>
 		</div>
 	</div>
 	<script>

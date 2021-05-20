@@ -210,7 +210,7 @@
         		<label for="inProPic"></label>
         		<div class="proWrap">
         			<!-- 상품 이름 -->     
-        			<input type="text" id="inProName" class="inProInputs" name="inProName" placeholder="상품 이름 입력">
+        			<input type="text" id="inProNamspe" class="inProInputs" name="inProName" placeholder="상품 이름 입력">
         			<!-- 상품 분류 -->			
 		        	<select id="inProKind">
 		        		<option value="0" selected>분류</option>

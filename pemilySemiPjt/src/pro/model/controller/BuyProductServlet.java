@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import inPro.model.vo.InPro;
 import pro.model.service.ProductService;
 import pro.model.vo.product;
 
@@ -36,8 +37,8 @@ public class BuyProductServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		//2.값추출
 		//3로직
-		ArrayList<product> list = new ProductService().selectProduct();
-		System.out.println(list+" : 확인!!");
+		ArrayList<InPro> list = new ProductService().selectProduct();
+		
 		//4결과처리
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/shop/snack.jsp");
 		request.setAttribute("list", list);

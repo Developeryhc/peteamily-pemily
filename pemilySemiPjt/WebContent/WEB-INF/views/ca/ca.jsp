@@ -55,10 +55,41 @@
 			$(this).css("height", "400px");
 			$(this).css("width", "400px");
 		});
+<<<<<<< HEAD
+		function more(start){
+			$.ajax({
+				url : "/ca",
+				data : {start:start},
+				type : "post",
+				success : function(data){
+					for(var i = 0; i<data.length; i++){
+						var a = data[i];
+						var html = "";
+						html += "<div class='main-left'>";
+						html += "<img src='/upload/inca/"+a.inca.incaPath+"'>";
+						html += "<p>"+a.ca.caContent+"</p></div>";
+						$(".main").append(html);
+					}
+					// 이미지 추가가 끝나고 나면 더보기 버튼의 value 값 조정
+					$(".more-btn").val(Number(start)+4);
+					var curr = Number($(".more-btn").attr("currentCount"));
+					$(".more-btn").attr("currentCount", curr+data.length);	// attr과 append의 의미
+					var totalCount = $(".more-btn").attr("totalCount");
+					var currCount = $(".more-btn").attr("currentCount");
+					if(currCount == totalCount){
+						$(".more-btn").attr("disabled", true);		// 비활성화
+					}
+				}
+			});
+			
+		
+		}
+=======
 		$(".CaImg").mouseout(function(){
 			$(".CaImg").css("width", "Calc(1280px/7)");
 			$(".CaImg").css("height", "400px");
 		});
+>>>>>>> branch 'master' of https://github.com/Developeryhc/peteamily-pemily.git
 	</script>
 	<%@include file="/WEB-INF/views/common/footer.jsp"%>
 </body>

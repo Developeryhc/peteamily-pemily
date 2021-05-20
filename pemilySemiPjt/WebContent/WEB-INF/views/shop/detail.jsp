@@ -1,5 +1,10 @@
+<%@page import="inPro.model.vo.InPro"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%
+    InPro pro = (InPro)request.getAttribute("pro");
+    
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +15,14 @@
         .arrow_size{
             width: 9px;
         }
+        .f_size{
+        font-size: 30px;
+        font-weight: bolder;
+        }
+        .img_size{
+        	margin-top: 15px;
+        	width: 450px;
+        }
     </style>
 </head>
 <body>
@@ -19,12 +32,14 @@
 	    </div>
 	    <div class="order">
 	        <div class="red">
-	            <img src="/img/snack_2.PNG">
+	         	
+	            <img src="/upload/inProduct/<%=pro.getInProPic() %>" class="img_size">
 	        </div>
 	        <div class="blue">
+	        <form action="">
 	        <table class="tb">
-	            <tr><td><p class="tb_p">오리고기육포(70g)</p></td></tr>
-	                <tr><td class="tb_size"> 판매가격 ~~~원</td></tr>
+	            <tr><td><p class="tb_p"><%=pro.getInProName() %></p></td></tr>
+	                <tr><td class="tb_size"> 판매가격 <%=pro.getInProPrice() %>원</td></tr>
 	                <tr><td class="tb_size"> 수량 
 	                    <select name="count">
 	                        <option>1</option>
@@ -40,19 +55,30 @@
 	
 	                </td></tr>
 	                <tr><td class="tb_size">
-	                   <div class="btn"><a href="/buy">구매하기(클릭)</a></div>
+	                
+	               		
+	                   <div class="btn"><a href="/buy">구매하기</a></div>
 	                   <div class="btn"><a href="/baguni">장바구니 (클릭) </a></div>
 	                   <div class="btn"><a href="#">찜하기</a></div>
 	                </td></tr>
 	            </table>
+	            </form>
 	        </div>
 	    </div>
 	    <div class="order_bottom">
 	        <p>PRODUCT ___ 상품 상세 보기</p>
 	        <div>
-	            <img src="/img/snack_2_1.PNG" class="div_center">
+	        
+	        
+	        	
+	            <img src="/upload/inProduct/<%=pro.getInProPic() %>" class="div_center"><br><br>
+	            <p class="f_size"><%= pro.getInProName() %><p>
+	            
+	            <br> 지금 구매하시면 단돈 ! <%=pro.getInProPrice() %>원!!<br>
+	            	지금바로 구매하세요~
+	            
 	            <br><br>
-	            <img src="/img/snack_2_1.PNG" class="div_center">
+	           
 	        </div>
 	    </div>
 

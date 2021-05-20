@@ -1,7 +1,6 @@
 package pro.model.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,16 +13,16 @@ import inPro.model.vo.InPro;
 import pro.model.service.ProductService;
 
 /**
- * Servlet implementation class ClothesServlet
+ * Servlet implementation class DetileViewServlet
  */
-@WebServlet(name = "Clothes", urlPatterns = { "/clothes" })
-public class ClothesServlet extends HttpServlet {
+@WebServlet(name = "DetileView", urlPatterns = { "/detileView" })
+public class DetileViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ClothesServlet() {
+    public DetileViewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,14 +31,19 @@ public class ClothesServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		//인코딩
 		request.setCharacterEncoding("utf-8");
-		//3.로직처리 데베에서 리스트에 받아오기 
-		ArrayList<InPro> list = new ProductService().select3Product();
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/shop/clothes.jsp");
-		request.setAttribute("list", list);
+		//2값추출 ahref=로 ? 보내준 프라이머리키 
+		int inpro_no = Integer.parseInt(request.getParameter("inpro_no"));
+		//3비즈니스 로직
+		//프라이버리키에 해당하는 정보만 가져오기
+		InPro inpro = new ProductService().selectOnePro(inpro_no);
+		//결과처리 디테일 페이지에 값 보내주기
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/shop/detail.jsp");
+		request.setAttribute("pro", inpro);
 		rd.forward(request, response);
 		
+	
 	}
 
 	/**

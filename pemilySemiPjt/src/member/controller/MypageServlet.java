@@ -39,7 +39,7 @@ public class MypageServlet extends HttpServlet {
 				//3.비지니스로직
 				MypageData  md = new MemberService().myPage(m.getMemberId());
 				//4결과처리
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/member/mypage.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/member/mypage.jsp");
 				request.setAttribute("member", md.getM());
 				request.setAttribute("list", md.getList());
 				rd.forward(request, response);

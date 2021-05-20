@@ -29,7 +29,7 @@ public class PrivacyFrmServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/member/privacy.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/member/privacy.jsp");
 		rd.forward(request, response);
 	}
 

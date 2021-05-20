@@ -29,7 +29,7 @@ public class ServiceFrmServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/member/service.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/member/service.jsp");
 		rd.forward(request, response);
 	}
 

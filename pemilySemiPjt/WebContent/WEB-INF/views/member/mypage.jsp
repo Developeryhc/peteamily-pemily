@@ -67,7 +67,7 @@
 		</form><br>
 		<div class="order">
 		<h3>주문목록</h3>
-			<table>
+			<table class="table table-striped">
 				<tr>
 					<td>거래번호</td>
 					<td>상품명</td>
@@ -85,7 +85,7 @@
 		</div><br>
 		<div class="shopping">
 		<h3>장바구니</h3>
-			<table>
+			<table class="table table-striped">
 				<tr>
 					<td>상품명</td>
 					<td>상풍금액</td>

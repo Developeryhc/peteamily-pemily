@@ -61,9 +61,9 @@ public class NoticeWriteServlet extends HttpServlet {
 					request.setAttribute("msg", "공지사항 등록 실패");
 				}
 				if(noticeCom==1) {
-					request.setAttribute("loc", "/noticeList?reqPage=1&noticeCom=1");
+					request.setAttribute("loc", "/noticeEmpList?reqPage=1&noticeCom=1");
 				}else if(noticeCom==2) {
-					request.setAttribute("loc", "/noticeList?reqPage=1&noticeCom=2");
+					request.setAttribute("loc", "/community?reqPage=1&noticeCom=2");
 				}
 				rd.forward(request, response);
 	}

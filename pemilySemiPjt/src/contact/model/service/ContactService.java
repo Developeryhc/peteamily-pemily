@@ -22,11 +22,30 @@ public class ContactService {
 		return result;
 	}
 
-	public ArrayList<Emp> selectAllEmp() {
+	public ArrayList<Emp> selectAllEmp(int store) {
 		Connection conn = JDBCTemplate.getConnection();
-		ArrayList<Emp> list = new ContactDao().selectAllEmp(conn);
+		ArrayList<Emp> list = new ContactDao().selectAllEmp(conn,store);
 		JDBCTemplate.close(conn);
 		return list;
+	}
+
+	public ArrayList<Contact> selectAllPartner(String sort) {
+		Connection conn = JDBCTemplate.getConnection();
+		ArrayList<Contact> list = new ContactDao().selectAllPartner(conn,sort);
+		JDBCTemplate.close(conn);
+		return list;
+	}
+
+	public int insertEmp(Emp e) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new ContactDao().insertEmp(conn,e);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
 	}
 
 	

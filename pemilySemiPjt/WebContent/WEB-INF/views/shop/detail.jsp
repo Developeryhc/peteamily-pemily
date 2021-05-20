@@ -1,3 +1,4 @@
+
 <%@page import="inPro.model.vo.InPro"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -36,14 +37,12 @@
 	            <img src="/upload/inProduct/<%=pro.getInProPic() %>" class="img_size">
 	        </div>
 	        <div class="blue">
-	        <form action="/buy">
+	        <form action="">
 	        <table class="tb">
-	        <input type="hidden" value="<%=pro.getInProName()%>" id="pro_name" name="pro_name"> 
-	        <input type="hidden" id="inpro_price" name="inpro_price" value="<%=pro.getInProPrice()%>">
-	            <tr><td><p class="tb_p"><%=pro.getInProName() %></p></td></tr>
+	            <tr><td><p class="tb_p"><%=pro.getInProName() %><input type="hidden" name="inProName" value="<%=pro.getInProName()%>"></p></td></tr>
 	                <tr><td class="tb_size"> 판매가격 <%=pro.getInProPrice() %>원</td></tr>
 	                <tr><td class="tb_size"> 수량 
-	                    <select name="count" id="count">
+	                    <select name="count" class="select">
 	                        <option>1</option>
 	                        <option>2</option>
 	                        <option>3</option>
@@ -54,12 +53,9 @@
 	                        <option>8</option>
 	                        <option>9</option>
 	                    </select>
-	
 	                </td></tr>
 	                <tr><td class="tb_size">
-	                
-	               		
-	                   <button type="submit">구매하기</button>
+	                   <div class="btn btn-buy"><a>구매하기</a></div>
 	                   <div class="btn"><a href="/baguni">장바구니 (클릭) </a></div>
 	                   <div class="btn"><a href="#">찜하기</a></div>
 	                </td></tr>
@@ -83,8 +79,14 @@
 	           
 	        </div>
 	    </div>
-	    
-
-
+	    <script>
+	    	$(".select").click(function(){
+	    		var count = $(".select").val();
+	    		var href = "/buy?inProName=<%=pro.getInProName()%>&inProPrice=<%=pro.getInProPrice()%>&count=";
+	    		href += count;
+	    		$(".btn-buy").children().attr("href", href);
+	    	});
+	    </script>
 </body>
+
 </html>

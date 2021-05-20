@@ -1,3 +1,4 @@
+
 package pro.model.controller;
 
 import java.io.IOException;
@@ -30,18 +31,23 @@ public class BuyServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//상세페이지에서 구매하기 버튼 누르면!!
 		request.setCharacterEncoding("utf-8");
-		//값추출 (이름 가격 수량) //수량가져옴
-		int count = Integer.parseInt( request.getParameter("count"));
-		String inpro_name = request.getParameter("inpro_name");
-		int inpro_price = Integer.parseInt(request.getParameter("inpro_price"));
+		//값추출 (이름 가격 수량)
+		String inProName = request.getParameter("inProName");
+		System.out.println(inProName);
+		//int count = Integer.parseInt(request.getParameter("count"));
+		String count = request.getParameter("count");
+		System.out.println(count);
+		String inProPrice = request.getParameter("inProPrice");
 		
-		
+		System.out.println(inProPrice);
 		//비즈니스로직
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/shop/buy.jsp");
-		request.setAttribute("count", "count");
-		request.setAttribute("inpro_name", "inpro_name");
-		request.setAttribute("inpro_price", "inpro_price");
 		rd.forward(request, response);
+		
+		request.setAttribute(inProName, "inProName");
+		request.setAttribute(inProPrice, "inProPrice");
+		request.setAttribute(count, "count");
+		
 	}
 
 	/**

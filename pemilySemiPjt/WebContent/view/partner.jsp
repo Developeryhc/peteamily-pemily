@@ -11,8 +11,8 @@
 	}
 	table{
 		width:100%;
-		padding-left :300px;
-		padding-right:300px;
+		padding-left :100px;
+		padding-right:100px;
 		
 	}
 	tr{
@@ -48,30 +48,36 @@
 		height:50px;
 	}
 	.top{
-		background-color: rgba(182, 215, 168, 0.54);
-		margin-left: 150px;
-		margin-right:150px;
+		background-image:url(/img/intro-2.jpg);
+		background-size:cover;
+		height:500px;
+	}
+	.top>h1{
+		padding-top:20px;
 	}
 </style>
 </head>
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
+	<br><br>
 	<div class="container">
 		<div class="top">
 			<h1>가맹문의</h1>
-			<h2>Pemily에서 함께할 파트너를 찾습니다.</h3>
-			<h3>미용부터 건강검진까지 다양한 제휴업체들과의 협력을 통해 더 나은 서비스를 제공하기 위해 여러분들의 제안을 기다립니다.</h4><br>
+			<h2>Pemily에서 함께할 파트너를 찾습니다.</h2>
+			<h3>미용부터 건강검진까지 다양한 제휴업체들과의 협력을 통해 더 나은 서비스를 제공하기 위해</h3>
+			<h3>여러분들의 제안을 기다립니다.</h3>
+			<br>
 		</div><br>
 		<div class="body">
-		<form action="/partner" method="post">
+		<form action="/partner" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<th>구분</th>
 					<td>
-						<select>
-							<option>뷰티</option>
-							<option>라이프</option>
-							<option>의료</option>
+						<select name="partnerSort">
+							<option value="뷰티">뷰티</option>
+							<option value="라이프">라이프</option>
+							<option value="의료">의료</option>
 						</select>
 					</td>
 				</tr>
@@ -96,7 +102,7 @@
 				<tr>
 					<th>연락처</th>
 					<td>
-						<input type="text" name="phone">
+						<input type="text" name="phone" placeholder="-포함하여 입력">
 					</td>
 				</tr>
 				<tr>
@@ -109,6 +115,12 @@
 					<th>내용</th>
 					<td>
 						<input type="text" name="content">
+					</td>
+				</tr>
+				<tr>
+					<th>이미지 첨부</th>
+					<td>
+						<input type="file" name="filename">
 					</td>
 				</tr>
 			</table><br><br>

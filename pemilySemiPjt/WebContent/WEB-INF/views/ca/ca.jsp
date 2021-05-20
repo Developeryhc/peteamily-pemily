@@ -37,7 +37,7 @@
 	<%@include file="/WEB-INF/views/common/header.jsp"%>
 	<script type="text/javascript"></script>
 	<div class="container">
-		<div class="selectCa">
+		<div class="selectCa">ㄱ
 			<a href="/caViewList?incaNo=2"><img src="/img/ca1.jpg" class="CaImg"></a>
 			<a href="/caViewList?incaNo=3"><img src="/img/ca2.jpg" class="CaImg"></a>
 			<a href="/caViewList?incaNo=4"><img src="/img/ca3.jpg" class="CaImg"></a>
@@ -55,7 +55,7 @@
 			$(this).css("height", "400px");
 			$(this).css("width", "400px");
 		});
-<<<<<<< HEAD
+		
 		function more(start){
 			$.ajax({
 				url : "/ca",
@@ -81,15 +81,16 @@
 					}
 				}
 			});
-			
-		
 		}
-=======
+		
 		$(".CaImg").mouseout(function(){
 			$(".CaImg").css("width", "Calc(1280px/7)");
 			$(".CaImg").css("height", "400px");
 		});
->>>>>>> branch 'master' of https://github.com/Developeryhc/peteamily-pemily.git
+		
+		$(".CaImg").hover(function(){
+			
+		});
 	</script>
 	<%@include file="/WEB-INF/views/common/footer.jsp"%>
 </body>

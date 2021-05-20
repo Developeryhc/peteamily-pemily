@@ -1,5 +1,10 @@
+<%@page import="outCa.model.vo.OutCa"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%
+    	OutCa oc = (OutCa)request.getAttribute("oc");
+    %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,7 +23,7 @@
         width: 100%;
         height: 200px;
         margin: 10px auto;
-        border: 1px solid #000000;
+       background-color: rgba(174, 215, 232, 0.73);
         position: relative;
     }
     .faq-wrap img {
@@ -39,9 +44,13 @@
     height: 30px}
 </style>
 <body>
+
+
+
+<%@include file="/WEB-INF/views/common/header.jsp" %>
 <div class="container">
 		<div class="faq-wrap">
-        	<div class="faq-image"><img src="" alt="" width="100%;" height="200px;"></div>
+        	<div class="faq-image"></div>
         	<div class="faq-text">
             	<p>후기글 등록</p>
         	</div>
@@ -52,8 +61,8 @@
 						
 			<div class="summer">
 				<input type="text" class="summer" placeholder="제목" id="careTitle" name="careTitle" required>
-				<input type="hidden" name="careWriter" value="next007">
-				<input type="hidden" name="careAn" value="21">
+				<input type="hidden" name="careWriter" value="<%=m.getMemberId()%>">
+				<input type="hidden" name="careAn" value="<%=oc.getOutCaNo()%>">
 			</div>
 			<div class="summer">
 				

@@ -37,7 +37,7 @@
         width: 100%;
         height: 200px;
         margin: 10px auto;
-        border: 1px solid #000000;
+         background-color: rgba(242, 217, 207, 0.84);
         position: relative;
     }
     .faq-wrap img {
@@ -52,25 +52,42 @@
 	    left: 50%;
         transform: translate( -50%, -50% );
     }
- 
+ 	.bolder{
+ 	font-weight: bolder;
+ 	font-size: 20px;}
+ 	p>a{
+ 	margin : 20px;}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+	<%@include file="/WEB-INF/views/common/header.jsp" %>
+	
+		
+	
 	<div class="container">
 		<fieldset>
 		<div class="faq-wrap">
-        	<div class="faq-image"><img src="" alt="" width="100%;" height="200px;"></div>
+        	<div class="faq-image"></div>
         	<div class="faq-text">
-            	<p>공지사항</p>
+            	
+
+			
+			<p>
+				<a href="/careList?reqPage=1">분양후기</a>
+				<a class="bolder" href="/noticeList?reqPage=1&noticeCom=2">공지사항</a>
+				<a href="/faqList">FAQ	</a>
+			
+			</p>
+			
+			
+			
+		
         	</div>
     		</div>
     		
-    		
-    		
-    		
-    		
+    
     		
 		<table class="table table-striped" style="width:100%;">
 				<tr>
@@ -87,6 +104,7 @@
 					
 			</table>
 			<a class="btn btn btn-default" href="/noticeWriteFrm">글쓰기</a>
+			
 			<div id="pageNavi"><%=pageNavi %></div> 
 	</fieldset>
 </div>

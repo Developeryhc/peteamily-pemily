@@ -23,7 +23,7 @@
         width: 100%;
         height: 200px;
         margin: 10px auto;
-        border: 1px solid #000000;
+       background-color : rgba(182, 215, 168, 0.54);
         position: relative;
     }
     .faq-wrap img {
@@ -41,7 +41,7 @@
         transform: translate( -50%, -50% );
     }
 	  
-       .menu>li{
+       .que>li{
             border-top: 1px solid #bcbcbc;
             border-bottom: 1px solid transparent;
             list-style: none;
@@ -59,7 +59,7 @@
             
          
         }
-        .b{
+        .bbb{
             height: 100px;
             
             display: none;
@@ -74,6 +74,13 @@
     
     	a{
     	text-align: center;}
+    	.bolder{
+ 	font-weight: bolder;
+ 	font-size: 15px;}
+ 	p>a{
+ 	margin : 20px;
+ 	color:black;}
+    	
 </style>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
      <script>
@@ -93,25 +100,30 @@
 
 </head>
 <body>
+	
+	
+		<%@include file="/WEB-INF/views/common/header.jsp" %>
 		<div class="container">
 			  <div class="faq-wrap">
-        		<div class="faq-image"><img src="" alt="" width="100%;" height="200px;"></div>
+        		<div class="faq-image"></div>
         	  	<div class="faq-text">
-            	<p>자주하는 질문, 확인해보세요 :)</p>
+        	  	<p>
+        	  	<a href="/noticeList?reqPage=1&noticeCom=2">공지사항</a>
+            	<a class="bolder">자주하는 질문, 확인해보세요 :)</a>
+            	<a href="/careList?reqPage=1">분양후기</a>
+             	</p>
              	</div>
              	</div>
-        </div>
-      
-        <div class="container">
+    
 			
 			<%for(Faq faq :list) {%>
-				<ul class="menu">
+				<ul class="que">
 					<li class="a">Q.
 					<%=faq.getFaqTitle() %>
 					
 					<a href="/faqDelete?faqNo=<%=faq.getFaqNo() %>">삭제하기</a> 
 					</li>
-					<li class="b">A.
+					<li class="bbb">A.
 					<%=faq.getFaqContent() %>
 					</li>
 				</ul>

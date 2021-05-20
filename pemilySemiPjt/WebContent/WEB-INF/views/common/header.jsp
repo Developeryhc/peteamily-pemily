@@ -5,7 +5,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
-	Member m = (Member)session.getAttribute("member");
+	Member m = (Member)session.getAttribute("m");
 %>
 <html>
 <head>
@@ -51,13 +51,13 @@
             flex-direction: row;
 			font-family: 'Yanone Kaffeesatz', sans-serif;
         }
-        .header a{
-            text-decoration: none;
-            color:black;
-        }
         .menu{
             width:100px;
             text-align:center;
+        }
+        .menu a{        	
+            text-decoration: none;
+            color:black;
         }
         .container{
         	width:1280px;
@@ -99,18 +99,25 @@
             <ul>
                 <li class="menu"><a href="/ca">Adopt</a></li>
                 <li class="menu"><a href="/buyProduct">Goods</a></li>
-                <li><a href="/"><img src="img/logo.JPG.jpg" alt="Logo" style="width:200px;"></a></li>
-                <li class="menu"><a href="/community">Community</a></li>
-                <li class="menu"><a href="/staff">Contact</a></li>
+                <li><a href="/"><img src="img/logo.JPG.jpg" class="logo" alt="Logo" style="width:200px;"></a></li>
+                <li class="menu"><a href="/community?reqPage=1&noticeCom=2">Community</a></li>
+                <li class="menu"><a href="/view/contactMain.jsp">Contact</a></li>
             </ul>
         </div>
+        <%if(m == null){ %>
+        <a class="login" href="/loginFrm">로그인</a>
+        <a href="/joinFrm">회원가입</a>
+        <%}else{ %> 
+				<a href="/mypage">&ensp;&ensp;&ensp;<%=m.getMemberName() %></a> <a href="/logout">&ensp;&ensp;&ensp;로그아웃</a>
+				<a href="/mypage">&ensp;&ensp;&ensp;내정보</a> &ensp;&ensp;&ensp;&ensp;<a href="#">장바구니</a> 
+				<%} %>
         <a class="empLink" href="/employeeMain">직원페이지</a>
         <%if(m!=null && m.getMemberGrade() == 1){ %>
         <%} %>       
     </header>
     <div class="testWrap">
 		<div class="test"></div>
-   		<div class="go-top"></div>
+   		<div class="go-top"><img class="go-top" src="/img/moveButton/arrow.png"></div>
 	</div>
 <script>
 $('.go-top').click(function(){

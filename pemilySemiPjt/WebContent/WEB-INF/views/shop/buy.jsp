@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-    <%
-    String inpro_name = (String)request.getAttribute("inpro_name");
-    int inpro_price = (Integer)request.getAttribute("inpro_price");
-    int count = (Integer)request.getAttribute("count");
+    <%	
+	String name = (String)request.getAttribute("inProName");
+	String price = (String)request.getAttribute("inProPrice");
+	String count = (String)request.getAttribute("count");
     
     %>
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,13 +42,13 @@
                     1
                 </td>
                 <td>
-                   <%= inpro_name %>
+                   <%= name %>
                 </td>
                 <td>
-                    <%=count %> 개
+                    <%= count %> 개
                 </td>
                 <td>
-                   <%=inpro_price %> 원
+                   <%=price %> 원
                 </td>
             </tr>
         </table>

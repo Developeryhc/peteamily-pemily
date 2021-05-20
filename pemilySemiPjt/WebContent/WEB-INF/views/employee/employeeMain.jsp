@@ -11,6 +11,9 @@
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
 	<%@include file="/WEB-INF/views/common/empDefault.jsp" %>
 	<%@include file="/WEB-INF/views/employee/employeeNavi.jsp" %>
+	<section>
+	
+	</section>
 	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

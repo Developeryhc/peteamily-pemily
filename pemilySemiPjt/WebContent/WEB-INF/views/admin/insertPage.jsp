@@ -245,5 +245,6 @@
             <textarea id="noticeContent" class="summernote" name="noticeContent"></textarea>
         </form>
     </section>
+    <%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

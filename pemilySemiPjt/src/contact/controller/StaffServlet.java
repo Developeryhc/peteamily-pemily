@@ -33,12 +33,26 @@ public class StaffServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		//2.데이터 추출
+		int store = Integer.parseInt(request.getParameter("store"));
+		
 		//로직처리
-		ArrayList<Emp> list = new ContactService().selectAllEmp();
+		ArrayList<Emp> list = new ContactService().selectAllEmp(store);
 		//결과처리
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/staff/staffIntro.jsp");
-		request.setAttribute("list", list);
-		rd.forward(request, response);
+		if(store ==1) {
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/staff/staffIntro.jsp");
+			request.setAttribute("list", list);
+			rd.forward(request, response);
+		}else if(store==2) {
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/staff/staffIntro2.jsp");
+			request.setAttribute("list", list);
+			rd.forward(request, response);
+		}else if(store==3) {
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/staff/staffIntro3.jsp");
+			request.setAttribute("list", list);
+			rd.forward(request, response);
+		}
+		
 	}
 
 	/**

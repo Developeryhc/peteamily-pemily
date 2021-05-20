@@ -29,7 +29,7 @@
         width: 100%;
         height: 200px;
         margin: 10px auto;
-        border: 1px solid #000000;
+      	background-color: rgba(174, 215, 232, 0.73);
         position: relative;
     }
     .faq-wrap img {
@@ -69,6 +69,12 @@
         width:1200px;
         overflow: hidden;
         }
+       .bolder{
+ 	font-weight: bolder;
+ 	font-size: 20px;}
+ 	p>a{
+ 	margin : 20px;
+ 	color:black;}
        
 </style>
 </head>
@@ -77,9 +83,15 @@
 	<div class="container">
 
 			<div class="faq-wrap">
-        		<div class="faq-image"><img src="" alt="" width="100%;" height="200px;"></div>
+        		<div class="faq-image"></div>
         		<div class="faq-text">
-            		<p>친구들을 소개해주세요!</p>
+            		<p>
+				
+				<a href="/noticeList?reqPage=1&noticeCom=2">공지사항</a>
+				<a class="bolder" href="/careList?reqPage=1">분양후기</a>
+				<a href="/faqList">FAQ	</a>
+			
+			</p>
         		</div>
     		</div>
     		

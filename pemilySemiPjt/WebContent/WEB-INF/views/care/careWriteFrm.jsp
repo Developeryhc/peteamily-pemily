@@ -18,7 +18,7 @@
         width: 100%;
         height: 200px;
         margin: 10px auto;
-        border: 1px solid #000000;
+       background-color: rgba(174, 215, 232, 0.73);
         position: relative;
     }
     .faq-wrap img {
@@ -41,7 +41,7 @@
 <body>
 <div class="container">
 		<div class="faq-wrap">
-        	<div class="faq-image"><img src="" alt="" width="100%;" height="200px;"></div>
+        	<div class="faq-image"></div>
         	<div class="faq-text">
             	<p>후기글 등록</p>
         	</div>

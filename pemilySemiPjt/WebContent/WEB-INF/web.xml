@@ -9,4 +9,16 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <!-- 에러발생 시 사용자에게 보여줄 화면 -->
+  <!--  
+  <error-page>
+  	<error-code>404</error-code>	
+  	<location>/view/error1.jsp</location>
+  </error-page>
+  
+  <error-page>
+  	<error-code>500</error-code>	
+  	<location>/view/error2.jsp</location>
+  </error-page>
+  -->
 </web-app>

@@ -37,7 +37,7 @@
 	            	String ani = oCa.getOutCaAn()==1?"강아지":(oCa.getOutCaAn()==2?"고양이":(oCa.getOutCaAn()==3?"어류":(oCa.getOutCaAn()==4?"도마뱀":(oCa.getOutCaAn()==5?"설치류":(oCa.getOutCaAn()==6?"뱀":(oCa.getOutCaAn()==7?"절지류":"기타"))))));
 	            %>
 	            <tr>
-	            	<td><%=oCa.getSort() %></td><td><%=ani %></td><td><%=oCa.getOutCaMi() %></td><td><%=oCa.getOutCaPrice() %><span class="won">원</span></td><td><%=store %></td><td><%=oCa.getOutCaEmp() %></td><td><%=oCa.getOutCaDate() %></td><td><%=oCa.getOutCaCon() %></td>
+	            	<td><%=oCa.getSort() %></td><td><%=ani %></td><td><%=oCa.getOutCaMi() %></td><td><%=oCa.getOutCaPrice() %><span class="won">원</span></td><td><%=store %></td><td><%=oCa.getOutCaEmp() %></td><td><%=oCa.getOutCaDate() %></td><td><button class="mdBtn downBtn">Down</button></td>
 	            </tr>
 	            <%} %>
 	        	<%if(list.isEmpty()) {%>

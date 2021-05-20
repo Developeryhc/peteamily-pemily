@@ -214,20 +214,9 @@
         			<!-- 상품 분류 -->			
 		        	<select id="inProKind">
 		        		<option value="0" selected>분류</option>
-		        			<option value="5">올인원 상품</option>
-		        			<option value="10">비브리움?</option>
-		        			<option value="15">집</option>
-		        			<option value="20">영양제</option>
-		        			<option value="25">사료</option>
-		        			<option value="30">하네스</option>
-		    	    		<option value="35">목줄</option>
-			        		<option value="40">입마개</option>
-			        		<option value="45">패드</option>
-		        			<option value="50">놀이기구</option>        		
-		        			<option value="55">캣 타워</option>
-		        			<option value="60">조형물</option>
-		        			<option value="65">어항(수조)</option>
-		        			<option value="70">여과기</option>
+		        			<option value="10">Snack</option>
+		        			<option value="20">Toy</option>
+		        			<option value="30">Clothes</option>
 		        	</select>
 		        	<!-- 상품 분류 -->
 		        	<input type="hidden" id="inProSn" name="inProSn" value="0">

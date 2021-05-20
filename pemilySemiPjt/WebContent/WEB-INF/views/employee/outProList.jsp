@@ -35,7 +35,7 @@
 	            	for(OutPro outPro : list){
 	            %>
 	            <tr>
-	            	<td><%=outPro.getSort() %></td><td><%=outPro.getOutProPn() %></td><td><%=outPro.getOutProMi() %></td><td><%=outPro.getOutProAmount() %></td><td><%=outPro.getOutProPrice() %></td><td><%=outPro.getOutProDate() %></td>
+	            	<td><%=outPro.getSort() %></td><td><%=outPro.getOutProPn() %></td><td><%=outPro.getOutProMi() %></td><td><%=outPro.getOutProAmount() %><span class="won">개</span></td><td><%=outPro.getOutProPrice() %><span class="won">원</span></td><td><%=outPro.getOutProDate() %></td>
 	            </tr>
 	            <%} %>
 	        </tbody>

@@ -35,9 +35,12 @@
                 <%for(Inca inca : list) {%>
             	<%
             		String condition = inca.getIncaCondition() == 0 ? "1차" : (inca.getIncaCondition() == 1 ? "2차" : "완료");
+            		String ani = inca.getIncaAn()==1?"강아지":(inca.getIncaAn()==2?"고양이":(inca.getIncaAn()==3?"어류":(inca.getIncaAn()==4?"도마뱀":(inca.getIncaAn()==5?"설치류":(inca.getIncaAn()==6?"뱀":(inca.getIncaAn()==7?"절지류":"기타"))))));            		
+            		String adopt = inca.getIncaCondition()<2?"불가":"가능";
+            		String store = inca.getIncaStore()==1?"본사":(inca.getIncaStore()==2?"강남":"부산");
             	%>
                 <tr>
-                	<td><%=inca.getSort() %></td><td><%=inca.getIncaAn() %></td><td><%=inca.getIncaName() %></td><td><%=inca.getIncaMonth() %></td><td><%=inca.getIncaPrice() %><span class="won">원</span></td><td><%=condition %></td><td><%=inca.getIncaStore() %></td><td><%=inca.getIncaCondition() %></td><td><button type="button" class="mdBtn modifyBtn">수정</button></td><td><button type="button" class="mdBtn deleteBtn">삭제</button></td>
+                	<td><%=inca.getSort() %></td><td><%=ani %></td><td><%=inca.getIncaName() %></td><td><%=inca.getIncaMonth() %></td><td><%=inca.getIncaPrice() %><span class="won">원</span></td><td><%=condition %></td><td><%=store %></td><td><%=adopt %></td><td><button type="button" class="mdBtn modifyBtn">수정</button></td><td><button type="button" class="mdBtn deleteBtn">삭제</button></td>
                 </tr>
                 <%} %>
             </tbody>

@@ -33,9 +33,10 @@
         <tbody>
             <%
             	for(InPro inPro : list){
+            		 String proKinds = inPro.getInProSn()==10?"Snack":(inPro.getInProSn()==20?"Toy":(inPro.getInProSn()==30?"Clothes":"기타"));
             %>
             <tr>
-            	<td><%=inPro.getSort() %></td><td><%=inPro.getInProSn() %></td><td><%=inPro.getInProName() %></td><td><%=inPro.getInProPrice() %><span class="won">원</span></td><td><%=inPro.getInProAmount() %><span class="won">개</span></td><td><button type="button" class="mdBtn modifyBtn">수정</button></td><td><button type="button" class="mdBtn deleteBtn">삭제</button></td>
+            	<td><%=inPro.getSort() %></td><td><%=proKinds %></td><td><%=inPro.getInProName() %></td><td><%=inPro.getInProPrice() %><span class="won">원</span></td><td><%=inPro.getInProAmount() %><span class="won">개</span></td><td><button type="button" class="mdBtn modifyBtn">수정</button></td><td><button type="button" class="mdBtn deleteBtn">삭제</button></td>
             </tr>
             <%} %>
         </tbody>

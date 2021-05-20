@@ -9,6 +9,7 @@ import common.JDBCTemplate;
 import notice.model.dao.NoticeDao;
 import notice.model.vo.Notice;
 import notice.model.vo.NoticePageData;
+import notice.model.vo.NoticeWriteInfo;
 
 public class NoticeService {
 
@@ -79,6 +80,32 @@ public class NoticeService {
 		Connection conn = JDBCTemplate.getConnection();
 		int result = new NoticeDao().insertNotice(conn,n);
 		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public NoticeWriteInfo selectOneNoticeWriteInfo(int noticeNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		NoticeWriteInfo nwi = new NoticeDao().selectOneNoticeInfo(conn,noticeNo);
+		JDBCTemplate.close(conn);
+		return nwi;
+	}
+
+	public int searchOneNoticeNo(int noticeCom) {
+		Connection conn = JDBCTemplate.getConnection();
+		int noticeNo = new NoticeDao().searchOneNoticeNo(conn,noticeCom);
+		JDBCTemplate.close(conn);
+		return noticeNo;
+	}
+
+	public int modifyEmpNotice(int noticeNo, Notice n) {
+		Connection conn=JDBCTemplate.getConnection();
+		int result = new NoticeDao().modifyEmpNotice(conn,noticeNo,n);
+		if(result>0){
 			JDBCTemplate.commit(conn);
 		}else {
 			JDBCTemplate.rollback(conn);

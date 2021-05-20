@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!-- 직원 페이지 js -->
+<!-- 직원(관리자) 등록 페이지 js -->
 <script type="text/javascript" src="/js/employee/insertPage.js"></script>
+<!-- 직원 페이지 js -->
+<script type="text/javascript" src="/js/employee/employeeLists.js"></script>
 <!-- 직원 페이지 -->
 <link rel="stylesheet" href="/css/employee/empPage.css" type="text/css">
 <!-- 반려동물 목록 -->
@@ -24,5 +26,7 @@
 <!-- 직원목록 -->
 <link rel="stylesheet" href="/css/employee/empList.css" type="text/css">
 <!-- 회원 목록 --> 
-<link rel="stylesheet" href="/css/employee/memberList.css" type="text/css"> 
+<link rel="stylesheet" href="/css/employee/memberList.css" type="text/css">
+<!-- 직원 공지사항 상세보기/수정 --> 
+<link rel="stylesheet" href="/css/employee/noticeEmp.css" type="text/css"> 
 

@@ -26,12 +26,54 @@ section > * {
 	cursor:pointer;
 	border-radius:5px;
 }
+/* 수정 완료버튼 */
+.completeBtn{
+	background-color:plum;
+	transition-duration:0.3s;
+}
+/* 수정 취소버튼 */
+.cancelBtn{
+	background-color:#333;
+	color:#eee;
+	transition-duration:0.3s;
+}
+/* 수정버튼 */
 .modifyBtn{
 	background-color:khaki;
+	transition-duration:0.3s;
 }
+/* 삭제버튼 */
 .deleteBtn{	
 	background-color:lightcoral;
+	transition-duration:0.3s;
 }
+/* 다운버튼 */
+.downBtn{
+	background-color: olivedrab;
+	transition-duration:0.3s;
+}
+/* 모달 확인버튼 */
+.okBtn{
+	background-color: lightblue;
+	transition-duration:0.3s;
+}
+.okBtn:hover{
+	border:1px solid black;
+	background-color:#fff;
+	color:blue;
+}
+/* 모달 취소버튼 */
+.noBtn{
+	background-color: red;
+	color:#fff;
+	transition-duration:0.3s;
+}
+.noBtn:hover{
+	border:1px solid black;
+	background-color:#fff;
+	color:red;
+}
+
 .printList{
 	border-collapse: collapse;
 	border-top:3px solid black;
@@ -68,3 +110,34 @@ section > * {
 .won{
 	font-size:0.5rem;
 }
+/* emp 모달 */
+.eModal-wrap{
+	width:100%;
+	height:100%;
+	display:none;
+	justify-content:center;
+	align-items:center;
+	position:fixed;
+	top:0;
+	left:0;
+	background-color:rgba(0,0,0,0.5);
+	z-index:1000;
+}
+.eModal-box{
+	width:200px;
+	height:200px;
+	background-color:#fff;
+	border-radius:30px;
+	box-sizing:border-box;
+	padding:10px 0;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+	text-align:center;
+}
+.chk-wrap{
+	width:100%;
+
+}
+
+

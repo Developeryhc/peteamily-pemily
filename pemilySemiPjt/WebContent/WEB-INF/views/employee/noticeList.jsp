@@ -44,7 +44,7 @@
             		<%--<td><a href="/noticeEmpWriteFrm?noticeNo=<%=n.getNoticeNo()%>"><%=n.getNoticeTitle() %></a></td><td><%=n.getNoticeWriter() %></td><td><%=n.getNoticeDate() %></td> --%>
             	<%--} --%>
             	<tr>
-            		<td><a href="/noticeEmpWriteFrm?noticeNo=<%=n.getNoticeNo()%>"><%=n.getNoticeTitle() %></a></td><td><%=n.getNoticeWriter() %></td><td><%=n.getNoticeDate() %></td><td><button type="button" class="mdBtn modifyBtn">수정</button></td><td><button type="button" class="mdBtn deleteBtn">삭제</button></td>
+            		<td><a href="/noticeEmpView?noticeNo=<%=n.getNoticeNo()%>"><%=n.getNoticeTitle() %></a></td><td><%=n.getNoticeWriter() %></td><td><%=n.getNoticeDate() %></td><td><button type="button" value="<%=n.getNoticeNo() %>" class="mdBtn modifyBtn">수정</button></td><td><button type="button" value="<%=n.getNoticeNo() %>" class="mdBtn deleteBtn">삭제</button></td>
             	</tr>
             	<%} %>
             </tbody>

@@ -111,9 +111,9 @@
         </div>
         <%} %>		
    	</div>
-   		<div>
-   			<a class="btn btn-default" href="/careWriteFrm">글쓰기</a>
-   </div>
+   	<%if(m != null){ %>
+   		<div><a class="btn btn-default" href="/careWriteFrm">글쓰기</a></div>
+   	<%} %>
    </div>
    
         <div id="pageNavi"><%=pageNavi %></div>

@@ -1,3 +1,4 @@
+<%@page import="member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -84,7 +85,7 @@
 		</div>
 		<div class="content-bottom">
 			<div class="content-wrap content-left"><input type="hidden" value="noticeList"><div class="main-modal"><a href="community?reqPage=1&noticeCom=2">커뮤니티</a></div></div>
-			<div class="content-wrap content-right"><input type="hidden" value="partner"><div class="main-modal"><a href="/staff?store=1">컨택트</a></div></div>
+			<div class="content-wrap content-right"><input type="hidden" value="partner"><div class="main-modal"><a href="/view/contactMain.jsp">컨택트</a></div></div>
 		</div>
 	</div>
 	<script>

@@ -1,6 +1,8 @@
 package inProduct.model.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -51,11 +53,15 @@ public class InProductWriteServlet extends HttpServlet {
 		//3.
 		int result = new InProductService().insertInProduct(inPro);
 		//4.
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
 		if(result>0) {
-			System.out.println("등록 성공");			
+			request.setAttribute("msg", "등록완료");			
+			request.setAttribute("loc", "/productList?reqPage=1");			
 		}else {
-			System.out.println("등록 실패");
+			request.setAttribute("msg", "등록실패");			
+			request.setAttribute("loc", "/insertPage");			
 		}
+		rd.forward(request, response);
 	}
 
 	/**

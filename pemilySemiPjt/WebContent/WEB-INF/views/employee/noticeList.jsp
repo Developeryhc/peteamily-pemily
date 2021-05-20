@@ -3,54 +3,107 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
-   	ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list");
+    ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list");
     String pageNavi = (String)request.getAttribute("pageNavi");
     %>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>  
 <style>
-	.empMenu:first-child>a{
-		color:#555;
-    	background-color:#fff;
-	}
+    .write>a{
+      color : black;
+      font-weight: bolder;
+     
+    }
+	#pageNavi{
+        text-align: center;
+       
+    }
+    fieldset{
+    	border: none;}
+    a{
+    color : black;
+     text-decoration: none;
+      
+    }
+     .faq-wrap {
+        width: 100%;
+        height: 200px;
+        margin: 10px auto;
+        border: 1px solid #000000;
+        position: relative;
+    }
+    .faq-wrap img {
+        width: 100%;
+        vertical-align: middle;
+    }
+    .faq-text {
+        padding: 5px 10px;
+        text-align: center;
+        position: absolute;
+	    top: 50%;
+	    left: 50%;
+        transform: translate( -50%, -50% );
+    }
+    select{
+   margin-bottom:10px;}
 </style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
-	<%@include file="/WEB-INF/views/common/header.jsp" %>
-	<%@include file="/WEB-INF/views/common/empDefault.jsp" %>
-	<%@include file="/WEB-INF/views/employee/employeeNavi.jsp" %>
-	<section>
-		<h2 class="section-headline">직원 공지사항</h2>
-		<table id="notice-table" class="printList">
-            <thead>
-                <tr>
-                	<%-- 
-                	<%if(emp != null && emp.getEmpGrade == 1){ %>
-                    <th>제목</th><th>작성자</th><th>작성일</th>
-                	<%}else{ %>
-                    <th>제목</th><th>작성자</th><th>작성일</th>
-                	<%} %>
-                	--%>
-                    <th>제목</th><th>작성자</th><th>작성일</th><th colspan="2"></th>
-                </tr>
-            </thead>
-            <tbody>
-            	<%for(Notice n : list){ %>
-            	<%--if(emp != null && emp.getGrade() == 1){ --%>
-            		<%-- 여기가 수정/삭제 버튼이 추가된 tr자리 --%>
-            		<%--<td><a href="/noticeEmpWriteFrm?noticeNo=<%=n.getNoticeNo()%>"><%=n.getNoticeTitle() %></a></td><td><%=n.getNoticeWriter() %></td><td><%=n.getNoticeDate() %></td> --%>
-            	<%--} --%>
-            	<tr>
-            		<td><a href="/noticeEmpView?noticeNo=<%=n.getNoticeNo()%>"><%=n.getNoticeTitle() %></a></td><td><%=n.getNoticeWriter() %></td><td><%=n.getNoticeDate() %></td><td><button type="button" value="<%=n.getNoticeNo() %>" class="mdBtn modifyBtn">수정</button></td><td><button type="button" value="<%=n.getNoticeNo() %>" class="mdBtn deleteBtn">삭제</button></td>
-            	</tr>
-            	<%} %>
-            </tbody>
-        </table>
-        <%=pageNavi %>
-	</section>
-	<%@include file="/WEB-INF/views/common/footer.jsp" %>
+	<div class="container">
+		<fieldset>
+		<div class="faq-wrap">
+        	<div class="faq-image"><img src="" alt="" width="100%;" height="200px;"></div>
+        	<div class="faq-text">
+            	<p>공지사항</p>
+        	</div>
+    		</div>
+    		
+    		<select id="noticeChoice" name="noticeChoice">
+            	<option selected>공지 분류</option>
+            	<option value="1">직원 공지</option>
+            	<option value="2">회원 공지</option>
+            </select>
+    		
+    		
+    		
+    		
+		<table class="table table-striped" style="width:100%;">
+				<tr>
+					<th>NO</th><th>제목</th><th>작성자</th><th>작성일</th>
+				</tr>
+				<%for(Notice n : list) {%>
+				<tr>
+					<td><%=n.getRnum() %></td>
+					<td ><a href="/noticeView?noticeNo=<%=n.getNoticeNo()%>"><%=n.getNoticeTitle()%></a></td>
+					<td><%=n.getNoticeWriter()%></td>
+					<td><%=n.getNoticeDate() %></td>
+				</tr>
+				<%} %>
+					
+			</table>
+			<a class="btn btn btn-default" href="/noticeWriteFrm">글쓰기</a>
+			<div id="pageNavi"><%=pageNavi %></div> 
+	</fieldset>
+</div>
+<script>
+$(document).ready(function() {
+	$('#noticeChoice').change(function(){
+        //셀렉트값 불러와서 일치하는 폼 show() , id에 서머노트 적용시키기
+        const option = $(this).val();
+        const noticeCom = $("#noticeCom"); //히든id
+        noticeCom.val("option");
+        });
+});
+</script>
 </body>
 </html>

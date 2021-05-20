@@ -86,4 +86,33 @@ public class InProductDao {
 		return result;
 	}
 
+	public InPro selectOneInPro(Connection conn, int inProNo) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		InPro inPro = null;
+		String query = "select * from inpro where inpro_no=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, inProNo);
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				inPro = new InPro();
+				inPro.setInProAmount(rset.getInt("inpro_amount"));
+				inPro.setInProName(rset.getString("inpro_name"));
+				inPro.setInProNo(rset.getInt("inpro_no"));
+				inPro.setInProPath(rset.getString("inpro_path"));
+				inPro.setInProPic(rset.getString("inpro_pic"));
+				inPro.setInProPrice(rset.getInt("inpro_price"));
+				inPro.setInProSn(rset.getInt("inpro_sn"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return inPro;
+	}
+
 }

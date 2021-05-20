@@ -98,4 +98,63 @@ public class CareDao {
 		return c;
 	}
 
+	public int deleteCare(Connection conn, int careNo) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "delete from care where care_no=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, careNo);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
+	public int insertCare(Connection conn, Care c) {
+		PreparedStatement pstmt=null;
+		int result =0;
+		String query = "insert into care values(care_seq.nextval,?,?,?,?,to_char(sysdate,'yyyy-mm-dd'),?,?)";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, c.getCareAn());
+			pstmt.setString(2, c.getCareTitle());
+			pstmt.setString(3, c.getCareWriter());
+			pstmt.setString(4, c.getCareContent());
+			pstmt.setString(5, c.getCarePic());
+			pstmt.setString(6, c.getCarePath());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+
+	}
+
+	public int updateCare(Connection conn, Care c) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "update care set care_title=?, care_content=? where care_no=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, c.getCareTitle());
+			pstmt.setString(2, c.getCareContent());
+			pstmt.setInt(3, c.getCareNo());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
 }

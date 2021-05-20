@@ -132,7 +132,7 @@ form>h2{
 .btns{
 	display:flex;
 	justify-content:center;
-	
+	margin:20px 0;
 }
 /* 동물등록, 상품재고등록 form의 등록/취소 버튼wrap의 위치 재배치 */
 #incaBtnWrap, #inProPrice+div{

@@ -20,6 +20,51 @@ public class MemberService {
 		return result;
 	}
 
+	public Member selectOneMember(String memberId, String memberPw) {
+		Connection conn = JDBCTemplate.getConnection();
+		Member m = new MemberDao().selectOneMember(conn,memberId,memberPw);
+		JDBCTemplate.close(conn);
+		return m;
+	}
+
+	public Member selectOneMember(String memberId) {
+		Connection conn = JDBCTemplate.getConnection();
+		Member m = new MemberDao().selectOneMember(conn, memberId);
+		JDBCTemplate.close(conn);
+		return m;
+	}
+
+	public int updateMember(Member m) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new MemberDao().updateMember(conn,m);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int deleteMember(int memberNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new MemberDao().deleteMember(conn,memberNo);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public Member findId(String memberName, String memberPhone, String memberEmail) {
+		Connection conn = JDBCTemplate.getConnection();
+		Member m = new MemberDao().findId(conn,memberName,memberPhone,memberEmail);
+		JDBCTemplate.close(conn);
+		return m;
+	}
+
 	public MemberPage selectAllMember(int reqPage) {
 		Connection conn = JDBCTemplate.getConnection();
 		int printList = 10;						//보여줄 게시글 갯수

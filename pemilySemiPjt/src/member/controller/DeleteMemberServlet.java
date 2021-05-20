@@ -8,18 +8,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import member.model.service.MemberService;
 
 /**
- * Servlet implementation class PrivacyFrmServlet
+ * Servlet implementation class DeleteMemberServlet
  */
-@WebServlet(name = "PrivacyFrm", urlPatterns = { "/privacyFrm" })
-public class PrivacyFrmServlet extends HttpServlet {
+@WebServlet(name = "DeleteMember", urlPatterns = { "/deleteMember" })
+public class DeleteMemberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PrivacyFrmServlet() {
+    public DeleteMemberServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,7 +32,17 @@ public class PrivacyFrmServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/member/privacy.jsp");
+		int memberNo =Integer.parseInt(request.getParameter("memberNo"));
+		int result = new MemberService().deleteMember(memberNo);
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/member/msg.jsp");
+		if(result>0) {
+			request.setAttribute("msg", "회원탈퇴 성공");
+			HttpSession session = request.getSession(false);
+			session.invalidate();
+		}else {
+			request.setAttribute("msg", "회원탈퇴 실패");
+		}
+		request.setAttribute("loc", "/");
 		rd.forward(request, response);
 	}
 

@@ -46,22 +46,35 @@
         height: 50px;
         border: 1px solid rgb(204, 204, 204);
         }
-        .search-box>ul{
+        .join-box>ul{
         list-style-type: none;
         }
-        .search-box>ul>li{
+        .join-box>ul>li{
         float: left;
         text-align: center;
         margin-left:27px ;
         }
-        .search-box>ul>li>a{
+        .join-box>ul>li>a{
         text-decoration: none;
         color: #221e1e;
         font-weight: bold;
         font-size: 14px;
         }
-        .search-box>ul>li>a:hover{
+        .join-box>ul>li>a:hover{
         text-decoration: underline;
+        }
+        .search-box>ul{
+        list-style-type:none;
+        }
+        .search-box>ul>li{
+        float:left;
+        text-align:center;
+        margin-left: 65px;
+        }
+        .search-box>ul>li>a{
+        text-decoration:none;
+        color:black;
+        font-size:14px;
         }
         #login-btn {
         background-color: rgb(106, 208, 106);
@@ -79,24 +92,32 @@
 <body>
 	 <div class="wrap">
         <div class="hearder">
-            headerd
+            header
         </div>
         <div class="content">
             <div class="login-bg">
                 <div class="login-wrap">
-                    <form action="#" method="post" autocomplete="off">
+                    <form action="/login" method="post" name="loginFrm" autocomplete="off">
                         <h1>로그인</h1>
                         <div class="input-box">
                             <h3>아이디</h3>
-                            <input type="text" name="id" placeholder="아이디를 입력해주세요"><br>
+                            <input type="text" name="memberId" placeholder="아이디를 입력해주세요"><br>
                             <h3>비밀번호</h3>
-                            <input type="password" name="pw" placeholder="비밀번호를 입력해주세요"><br><br>
-                            <input type="submit" id="login-btn" value="로그인">
-                        </div>
-                        <div class="search-box">
-                            <ul>
+                            <input type="password" name="memberPw" placeholder="비밀번호를 입력해주세요"><br><br>
+                            <input type="submit" id="login-btn" value="로그인"><br><br>
+                        <div class="join-box">
+                            <ul>	
                                 <li>아이디가 없으신가요? <a href="/joinFrm">회원 가입</a></li>
                             </ul>
+                        </div>
+                        <div>
+                        	<ul><br></ul>
+                        </div>
+                        <div class="search-box">
+                        	<ul>
+                        		<li><a href="/searchIdFrm">아이디찾기</a> | <a href="#">비밀번호 찾기</a></li>
+                        	</ul>
+                        </div>
                         </div>
                     </form>
                 </div>

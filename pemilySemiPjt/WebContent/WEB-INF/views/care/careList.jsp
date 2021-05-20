@@ -79,7 +79,8 @@
 </style>
 </head>
 <body>
-
+	
+	<%@include file="/WEB-INF/views/common/header.jsp" %>
 	<div class="container">
 
 			<div class="faq-wrap">

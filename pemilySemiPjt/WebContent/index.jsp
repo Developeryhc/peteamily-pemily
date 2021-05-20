@@ -55,32 +55,47 @@
 		position: absolute;
 		right:0;
 	}
-	.main-modal{
-		background-color: rgba(246,246,246,0.5);
+	.content-wrap{
+		position: relative;
 	}
-	.main-modal p{
-		font-size: 50px;
+	.main-modal{
+		display: none;
+		background-color: rgba(246,246,246,0.8);
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.main-modal a{
+		padding: 100px;
+		line-height: 50vh;
+		font-size: 80px;
+		text-decoration: none;
+		color: rgb(232,69,86);
+		font-family: 'Do Hyeon', sans-serif;
 	}
 </style>
 <body>
-	<%@include file="/WEB-INF/views/common/header.jsp" %>
 	<div class="content">
 		<div class="content-top">
-			<div class="content-wrap content-left"><input type="hidden" value="ca"></div>
-			<div class="content-wrap content-right"><input type="hidden" value="goods"></div>
+			<div class="content-wrap content-left"><input type="hidden" value="ca"><div class="main-modal"><a href="/ca">반려동물</a></div></div>
+			<div class="content-wrap content-right"><input type="hidden" value="goods"><div class="main-modal"><a href="/buyProduct">반려물품</a></div></div>
 		</div>
 		<div class="content-bottom">
-			<div class="content-wrap content-left"><input type="hidden" value="noticeList"></div>
-			<div class="content-wrap content-right"><input type="hidden" value="partner"></div>
+			<div class="content-wrap content-left"><input type="hidden" value="noticeList"><div class="main-modal"><a href="/community">커뮤니티</a></div></div>
+			<div class="content-wrap content-right"><input type="hidden" value="partner"><div class="main-modal"><a href="/contact">컨택트</a></div></div>
 		</div>
 	</div>
 	<script>
-		var modal = "<div class='main-modal'><p>내가 보이니?</p></div>";
-		$(".content-wrap").hover(function(){
-			$(this).append(modal);
+		var a;
+		$(".content-wrap").mouseover(function(){
+			$(this).children().eq(1).css("display", "block");
 		});
 		$(".content-wrap").mouseout(function(){
-			$(this).removeAppend(modal);
+			$(this).children().eq(1).css("display", "none");
+		});
+		$(".main-modal").children().click(function(){
+			$(this).css("color", "rgba(174, 215, 232, 0.73)");
 		});
 		// 페이지 이동할 수 있게 작성
 	</script>

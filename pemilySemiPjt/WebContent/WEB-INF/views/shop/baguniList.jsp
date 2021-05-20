@@ -27,7 +27,7 @@
                 </th>
             </tr>
             <tr>
-                <td>
+                <td><input type="hidden" value="">
                     1
                 </td>
                 <td>

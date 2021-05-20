@@ -38,10 +38,10 @@
 	        <div class="blue">
 	        <form action="">
 	        <table class="tb">
-	            <tr><td><p class="tb_p"><%=pro.getInProName() %></p></td></tr>
+	            <tr><td><p class="tb_p"><%=pro.getInProName() %><input type="hidden" name="inProName" value="<%=pro.getInProName()%>"></p></td></tr>
 	                <tr><td class="tb_size"> 판매가격 <%=pro.getInProPrice() %>원</td></tr>
 	                <tr><td class="tb_size"> 수량 
-	                    <select name="count">
+	                    <select name="count" class="select">
 	                        <option>1</option>
 	                        <option>2</option>
 	                        <option>3</option>
@@ -52,12 +52,9 @@
 	                        <option>8</option>
 	                        <option>9</option>
 	                    </select>
-	
 	                </td></tr>
 	                <tr><td class="tb_size">
-	                
-	               		
-	                   <div class="btn"><a href="/buy">구매하기</a></div>
+	                   <div class="btn btn-buy"><a>구매하기</a></div>
 	                   <div class="btn"><a href="/baguni">장바구니 (클릭) </a></div>
 	                   <div class="btn"><a href="#">찜하기</a></div>
 	                </td></tr>
@@ -81,6 +78,13 @@
 	           
 	        </div>
 	    </div>
-
+	    <script>
+	    	$(".select").click(function(){
+	    		var count = $(".select").val();
+	    		var href = "/buy?inProName=<%=pro.getInProName()%>&inProPrice=<%=pro.getInProPrice()%>&count=";
+	    		href += count;
+	    		$(".btn-buy").children().attr("href", href);
+	    	});
+	    </script>
 </body>
 </html>

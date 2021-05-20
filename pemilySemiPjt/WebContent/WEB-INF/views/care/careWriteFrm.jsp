@@ -1,5 +1,10 @@
+<%@page import="outCa.model.vo.OutCa"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%
+    	OutCa oc = (OutCa)request.getAttribute("oc");
+    %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -56,8 +61,8 @@
 						
 			<div class="summer">
 				<input type="text" class="summer" placeholder="제목" id="careTitle" name="careTitle" required>
-				<input type="hidden" name="careWriter" value="next007">
-				<input type="hidden" name="careAn" value="21">
+				<input type="hidden" name="careWriter" value="<%=m.getMemberId()%>">
+				<input type="hidden" name="careAn" value="<%=oc.getOutCaNo()%>">
 			</div>
 			<div class="summer">
 				

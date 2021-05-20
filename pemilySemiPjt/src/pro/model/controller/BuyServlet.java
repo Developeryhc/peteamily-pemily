@@ -31,6 +31,10 @@ public class BuyServlet extends HttpServlet {
 		//상세페이지에서 구매하기 버튼 누르면!!
 		request.setCharacterEncoding("utf-8");
 		//값추출 (이름 가격 수량)
+		String inProName = request.getParameter("inProName");
+		System.out.println(inProName);
+		int count = Integer.parseInt(request.getParameter("count"));
+		System.out.println(count);
 		//비즈니스로직
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/shop/buy.jsp");
 		rd.forward(request, response);

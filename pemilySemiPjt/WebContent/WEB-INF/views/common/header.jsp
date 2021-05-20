@@ -5,7 +5,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
-	Member m = (Member)session.getAttribute("member");
+	Member m = (Member)session.getAttribute("m");
 %>
 <html>
 <head>
@@ -101,7 +101,7 @@
                 <li class="menu"><a href="/buyProduct">Goods</a></li>
                 <li><a href="/"><img src="img/logo.JPG.jpg" class="logo" alt="Logo" style="width:200px;"></a></li>
                 <li class="menu"><a href="/community?reqPage=1&noticeCom=2">Community</a></li>
-                <li class="menu"><a href="/staff?store=1">Contact</a></li>
+                <li class="menu"><a href="/view/contactMain.jsp">Contact</a></li>
             </ul>
         </div>
         <%if(m == null){ %>

@@ -15,7 +15,6 @@
 	.top{
 		width:78%;
 		margin:0 auto;
-		
 		overflow:hidden;
 	}
 	.body{
@@ -57,10 +56,7 @@
 	.staff>*{
 		color : rgba(182, 215, 168, 0.54);
 	}
-	img{
-		height:400px;
-		width:95%;
-	}
+	
 	a{
 		text-decoration:none;
 		display:block;

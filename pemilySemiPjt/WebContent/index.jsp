@@ -7,23 +7,44 @@
 <title>Pemily에 오신것을 환영합니다.</title>
 </head>
 <style>
+	
+	.content{
+		height: 400px;
+	}
 	.content-wrap{
-		background-color:rgba(242, 217, 207, 0.84);
+		float: left;
+		width:Calc(100%/6);
+		border-radius: 400px;
+		box-sizing: border-box;
+		margin-top: 100px;
 	}
 	.content-wrap img{
-		width:Calc(100%/3);
+		width: 100%;
+		border-radius: 400px;
 	}
 </style>
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
 	<div class="container">
-		<div class="content-wrap"><img src="/img/윤현철.png" alt="윤현철"></div>
-		<div class="content-wrap"><img src="/img/김가연.png" alt="김가연"></div>
-		<div class="content-wrap"><img src="/img/김민형.png" alt="김민형"></div>
-			<img src="/img/성예지.png" alt="성예지">
-			<img src="/img/이탁승.png" alt="이탁승">
-			<img src="/img/황승연.png" alt="황승연">
+		<div class="content">
+			<div class="back-wrap"></div>
+			<div class="content-wrap"><input type="hidden" value="ca"><img src="/img/adopt.png" alt="adopt"></div>
+			<div class="content-wrap"><input type="hidden" value="adopt"><img src="/img/food.png" alt="goods"></div>
+			<div class="content-wrap"><input type="hidden" value="noticeList"><img src="/img/notice.png" alt="notice"></div>
+			<div class="content-wrap"><input type="hidden" value="partner"><img src="/img/contact.png" alt="contact"></div>
+			<div class="content-wrap"><input type="hidden" value="login"><img src="/img/login.png" alt="login"></div>
+			<div class="content-wrap"><input type="hidden" value="join"><img src="/img/join.png" alt="join"></div>
+		</div>
 	</div>
+	<script>
+		$(".content-wrap").mouseover(function(){
+			$(this).css("background-color", "rgb(232,69,86)");
+		});
+		$(".content-wrap").mouseout(function(){
+			$(this).css("background-color", "");
+		});
+		// 페이지 이동할 수 있게 작성
+	</script>
 	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

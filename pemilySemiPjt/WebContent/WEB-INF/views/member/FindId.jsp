@@ -1,3 +1,5 @@
+
+<%@page import="member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
@@ -13,18 +15,12 @@
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 
 	<h1>아이디 찾기</h1>
-	<fieldset>
+
 		등록된 아이디 :
 		<%=member.getMemberId()%>
 		&emsp; 가입일 :
 		<%=member.getMemberEnter()%><br>
-		<button id="button" onclick="location.href='/joinFrm'">로그인하러가기</button>
-	</fieldset>
+		<button id="button" onclick="location.href='/loginFrm'">로그인하러가기</button>
 
-
-
-
-
-	<%@ include file="/WEB-INF/views/common/footer.jsp"%>
 </body>
 </html>

@@ -39,17 +39,18 @@ public class NoticeListServlet extends HttpServlet {
 				//3.비즈니스 로직 (공지사항 목록이 나오기때문에 리턴값은 ArrayList로 받음!
 				NoticePageData npd = new NoticeService().selectNoticeList(reqPage,noticeCom);
 				//4.결과처리
-				if(noticeCom == 1) {
+				if(noticeCom==1) {
 					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employee/noticeList.jsp");
 					request.setAttribute("list", npd.getList());
-					request.setAttribute("pageNavi", npd.getPageNavi());										
+					request.setAttribute("pageNavi", npd.getPageNavi());
 					rd.forward(request, response);
-				}else if(noticeCom == 2) {
+				}else if(noticeCom==2) {
 					RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/notice/noticeList.jsp");
 					request.setAttribute("list", npd.getList());
-					request.setAttribute("pageNavi", npd.getPageNavi());					
+					request.setAttribute("pageNavi", npd.getPageNavi());
 					rd.forward(request, response);
 				}
+				
 	}
 
 	/**

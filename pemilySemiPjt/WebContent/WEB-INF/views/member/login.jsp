@@ -7,11 +7,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="/js/jquery-3.3.1.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <style>
   .content{
         width: 100%;
         height: 900px;
         position: relative;
+        }
+        .wrap{
+        height:100%;
+        width:100%;
+        background-image: url(img/login.jpg);
+        background-position: center;
+        background-size: cover;
+        position: absolute;
         }
         .login-bg{
         position: absolute;
@@ -19,11 +29,11 @@
         height: 100%;
         }
         .login-wrap{
-        background-color:rgba(243, 243, 243, 0.926);
+        background-color: rgba(255,255,255,0.9);
         width: 600px;
         height: 600px;
         margin: 0 auto;
-        border-radius: 60px;
+        border-radius: 5px;
         margin-top: 130px;
         }
         .login-wrap>form{
@@ -44,7 +54,7 @@
         .input-box>input{
         width: 360px;
         height: 50px;
-        border: 1px solid rgb(204, 204, 204);
+        border: 1px solid rgb(232,69,86);
         }
         .join-box>ul{
         list-style-type: none;
@@ -77,8 +87,8 @@
         font-size:14px;
         }
         #login-btn {
-        background-color: rgb(106, 208, 106);
-        color: white;
+        background-color: rgba(238, 140, 148, 0.60);
+        color: black;
         font-size: 20px;
         padding: 1px 2px;
         box-sizing: content-box;
@@ -90,15 +100,13 @@
     </style>
 </head>
 <body>
+	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 	 <div class="wrap">
-        <div class="hearder">
-            header
-        </div>
         <div class="content">
             <div class="login-bg">
                 <div class="login-wrap">
                     <form action="/login" method="post" name="loginFrm" autocomplete="off">
-                        <h1>로그인</h1>
+                        <h1>login</h1>
                         <div class="input-box">
                             <h3>아이디</h3>
                             <input type="text" name="memberId" placeholder="아이디를 입력해주세요"><br>
@@ -107,7 +115,7 @@
                             <input type="submit" id="login-btn" value="로그인"><br><br>
                         <div class="join-box">
                             <ul>	
-                                <li>아이디가 없으신가요? <a href="/joinFrm">회원 가입</a></li>
+               	                 <li>아이디가 없으신가요? <a href="/joinFrm">회원 가입</a></li>
                             </ul>
                         </div>
                         <div>
@@ -115,7 +123,7 @@
                         </div>
                         <div class="search-box">
                         	<ul>
-                        		<li><a href="/searchIdFrm">아이디찾기</a> | <a href="#">비밀번호 찾기</a></li>
+                        		<li><a href="/searchIdFrm">아이디찾기</a> | <a href="/searchPwFrm">비밀번호 찾기</a></li>
                         	</ul>
                         </div>
                         </div>
@@ -123,9 +131,6 @@
                 </div>
             </div>
         </div>
-        <div class="footer">
-            footer
-        </div>
-    </div>
-</body>
+      </div>
+</head>
 </html>

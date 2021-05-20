@@ -23,6 +23,7 @@
         body{
             margin: 0;
             min-width:1280px;
+            background-color: rgb(246,246,246);
         }
         header{
             display: flex;
@@ -68,6 +69,28 @@
         	right:0;
         	color: rgb(246,246,246);
         }
+        .testWrap{
+	        position:relative;
+	    }
+	    .test{
+	        width:100px;
+	        height:400px;
+	        margin-top:130px;
+	        background-color:rgba(182, 215, 168, 0.54);
+	        position:fixed;
+	        top:130px;
+	        right:30px;
+	        border-radius: 30px;
+	    }
+	    .go-top{
+	        width:50px;
+	        height:50px;
+	        background-color: rgb(232,69,86);
+	        position:fixed;
+	        bottom:100px;
+	        left:100px;
+	        cursor:pointer;
+	    }
     </style>
 </head>
 <body>
@@ -85,5 +108,14 @@
         <%if(m!=null && m.getMemberGrade() == 1){ %>
         <%} %>       
     </header>
+    <div class="testWrap">
+		<div class="test"></div>
+   		<div class="go-top"></div>
+	</div>
+<script>
+$('.go-top').click(function(){
+    window.scrollTo(0,0);
+});
+</script>
 </body>
 </html>

@@ -171,4 +171,39 @@ public class IncaDao {
 		return adopt;
 	}
 
+	public Inca selectOneInca(Connection conn, int incaNo) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		Inca inca = null;
+		String query = "select * from inca where inca_no=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, incaNo);
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				inca = new Inca();
+				inca.setIncaAn(rset.getInt("inca_an"));
+				inca.setIncaCondition(rset.getInt("inca_condition"));
+				inca.setIncaDate(rset.getString("inca_date"));
+				inca.setIncaGender(rset.getString("inca_gender"));
+				inca.setIncaMonth(rset.getInt("inca_month"));
+				inca.setIncaNo(rset.getInt("inca_no"));
+				inca.setIncaPath(rset.getString("inca_path"));
+				inca.setIncaPic(rset.getString("inca_pic"));
+				inca.setIncaStore(rset.getInt("inca_store"));
+				inca.setIncaName(rset.getString("inca_name"));
+				inca.setIncaPrice(rset.getInt("inca_price"));
+				inca.setSort(rset.getInt("sort"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(rset);
+			JDBCTemplate.close(pstmt);
+		}
+		return inca;
+	}
+
+
 }

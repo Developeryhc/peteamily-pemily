@@ -70,13 +70,13 @@ form>h2{
 .animalInfoWrap, .inProWrap{
 	margin-top:10px;
 	display:flex;
-	justify-content:center;
+	justify-content:space-between;
 }
 .animalInfoWrap>div{
 	display:flex;
 	flex-direction:column;
 	justify-content:space-between;
-	margin-left:50px;
+	
 }
 	/* 동물 등록 세부입력 CSS */
 .animalInfo{
@@ -96,7 +96,7 @@ form>h2{
   	height:300px;
   	box-sizing:border-box;
   	border:1px solid black;
-  	background-image:url("/images/buttons/plusBtnBlack.png");
+  	background-image:url("/img/buttons/plusBtnBlack.png");
   	background-repeat: no-repeat;
 	background-size:100%;
 }

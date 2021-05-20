@@ -29,33 +29,53 @@ section > * {
 /* 수정 완료버튼 */
 .completeBtn{
 	background-color:plum;
-	transition-duration:0.3s;
+	transition-duration:0.2s;
+}
+.completeBtn:hover{
+	color:plum;
+	background-color:#fff;
+	border:1px solid plum;
 }
 /* 수정 취소버튼 */
 .cancelBtn{
 	background-color:#333;
 	color:#eee;
-	transition-duration:0.3s;
+	transition-duration:0.2s;
+}
+.cancelBtn:hover{
+	background-color:#eee;
+	color:#333;
+	border:1px solid #333;
 }
 /* 수정버튼 */
 .modifyBtn{
 	background-color:khaki;
-	transition-duration:0.3s;
+	transition-duration:0.2s;
+}
+.modifyBtn:hover{
+	color:khaki;
+	background-color:#fff;
+	border:1px solid khaki;
 }
 /* 삭제버튼 */
 .deleteBtn{	
 	background-color:lightcoral;
-	transition-duration:0.3s;
+	transition-duration:0.2s;
+}
+.deleteBtn:hover{	
+	color:lightcoral;
+	background-color:#fff;
+	border:1px solid lightcoral;
 }
 /* 다운버튼 */
 .downBtn{
 	background-color: olivedrab;
-	transition-duration:0.3s;
+	transition-duration:0.2s;
 }
 /* 모달 확인버튼 */
 .okBtn{
 	background-color: lightblue;
-	transition-duration:0.3s;
+	transition-duration:0.2s;
 }
 .okBtn:hover{
 	border:1px solid black;
@@ -66,7 +86,7 @@ section > * {
 .noBtn{
 	background-color: red;
 	color:#fff;
-	transition-duration:0.3s;
+	transition-duration:0.2s;
 }
 .noBtn:hover{
 	border:1px solid black;
@@ -124,6 +144,7 @@ section > * {
 	z-index:1000;
 }
 .eModal-box{
+	transition-duration:1s;
 	width:200px;
 	height:200px;
 	background-color:#fff;
@@ -131,6 +152,8 @@ section > * {
 	box-sizing:border-box;
 	padding:10px 0;
 	display:flex;
+	position:abolute;
+	top:100px;
 	flex-direction:column;
 	justify-content:space-between;
 	text-align:center;

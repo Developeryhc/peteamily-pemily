@@ -4,9 +4,12 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import common.JDBCTemplate;
+import inca.model.vo.Inca;
+import member.model.dao.MemberDao;
 import outCa.model.dao.OutCaDao;
 import outCa.model.vo.OutCa;
 import outCa.model.vo.OutCaPage;
+import outCa.model.vo.OutCaTable;
 
 public class OutCaService {
 
@@ -48,5 +51,30 @@ public class OutCaService {
 		OutCaPage opp = new OutCaPage(list, navigation);
 		return opp;
 	}
+	public OutCaTable selectOneOutCa(int memberNo, int incaNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		OutCaTable oct = new OutCaDao().selectOneOutCaTable(conn, memberNo, incaNo);
+		JDBCTemplate.close(conn);
+		return oct;
+	}
+	
+	
+	public int insertOutCa(OutCaTable oct) {
+		Connection conn = JDBCTemplate.getConnection();
+		int Result = new OutCaDao().updateMember(conn, oct);
+		if(Result>0) {
+			Result = new OutCaDao().insertOutCa(conn, oct);
+			if(Result>0) {
+				JDBCTemplate.commit(conn);
+			}else {
+				JDBCTemplate.rollback(conn);
+			}
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return Result;
+	}
+	
 
 }

@@ -7,6 +7,8 @@ import common.JDBCTemplate;
 import member.model.dao.MemberDao;
 import member.model.vo.Member;
 import member.model.vo.MemberPage;
+import outCa.model.dao.OutCaDao;
+import outCa.model.vo.OutCaTable;
 
 public class MemberService {
 	public int inserMember(Member m) {
@@ -18,6 +20,51 @@ public class MemberService {
 			JDBCTemplate.rollback(conn);
 		}
 		return result;
+	}
+
+	public Member selectOneMember(String memberId, String memberPw) {
+		Connection conn = JDBCTemplate.getConnection();
+		Member m = new MemberDao().selectOneMember(conn,memberId,memberPw);
+		JDBCTemplate.close(conn);
+		return m;
+	}
+
+	public Member selectOneMember(String memberId) {
+		Connection conn = JDBCTemplate.getConnection();
+		Member m = new MemberDao().selectOneMember(conn, memberId);
+		JDBCTemplate.close(conn);
+		return m;
+	}
+
+	public int updateMember(Member m) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new MemberDao().updateMember(conn,m);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int deleteMember(int memberNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new MemberDao().deleteMember(conn,memberNo);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public Member findId(String memberName, String memberPhone, String memberEmail) {
+		Connection conn = JDBCTemplate.getConnection();
+		Member m = new MemberDao().findId(conn,memberName,memberPhone,memberEmail);
+		JDBCTemplate.close(conn);
+		return m;
 	}
 
 	public MemberPage selectAllMember(int reqPage) {
@@ -58,5 +105,5 @@ public class MemberService {
 		MemberPage mp = new MemberPage(list, navigation);
 		return mp;
 	}
-	
+
 }

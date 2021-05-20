@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class PrivacyFrmServlet
+ * Servlet implementation class SearchIdFrmServlet
  */
-@WebServlet(name = "PrivacyFrm", urlPatterns = { "/privacyFrm" })
-public class PrivacyFrmServlet extends HttpServlet {
+@WebServlet(name = "SearchIdFrm", urlPatterns = { "/searchIdFrm" })
+public class SearchIdFrmServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PrivacyFrmServlet() {
+    public SearchIdFrmServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,7 +29,7 @@ public class PrivacyFrmServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/member/privacy.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/member/searchId.jsp");
 		rd.forward(request, response);
 	}
 

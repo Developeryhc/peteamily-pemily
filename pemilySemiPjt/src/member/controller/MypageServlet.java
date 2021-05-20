@@ -8,18 +8,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import member.model.service.MemberService;
+import member.model.vo.Member;
 
 /**
- * Servlet implementation class PrivacyFrmServlet
+ * Servlet implementation class MypageServlet
  */
-@WebServlet(name = "PrivacyFrm", urlPatterns = { "/privacyFrm" })
-public class PrivacyFrmServlet extends HttpServlet {
+@WebServlet(name = "Mypage", urlPatterns = { "/mypage" })
+public class MypageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PrivacyFrmServlet() {
+    public MypageServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,9 +32,15 @@ public class PrivacyFrmServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/member/privacy.jsp");
-		rd.forward(request, response);
+				request.setCharacterEncoding("utf-8");
+				HttpSession session = request.getSession(false);
+				Member m = (Member)session.getAttribute("m");
+				//3.비지니스로직
+				Member member = new MemberService().selectOneMember(m.getMemberId());
+				//4결과처리
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/member/mypage.jsp");
+				request.setAttribute("member", member);
+				rd.forward(request, response);
 	}
 
 	/**

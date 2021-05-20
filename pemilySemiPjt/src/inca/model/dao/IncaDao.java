@@ -170,6 +170,7 @@ public class IncaDao {
 		}
 		return adopt;
 	}
+
 	public Inca selectOneInca(Connection conn, int incaNo) {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -203,5 +204,6 @@ public class IncaDao {
 		}
 		return inca;
 	}
+
 
 }

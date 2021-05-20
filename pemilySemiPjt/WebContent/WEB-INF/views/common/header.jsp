@@ -28,7 +28,9 @@
             display: flex;
             justify-content: center;
             background-color: rgb(246,246,246);
-            border-bottom:1px solid black;
+            border-bottom:3px solid rgb(232,69,86);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
         }
         .header{
             display:flex;

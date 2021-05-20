@@ -8,20 +8,16 @@
 </head>
 <style>
 /* 컨텐츠 관련 css */
-.main {
-	border: 1px solid black;
-}
-
 .main-left>div {
 	display: inline-block;
 	width: 69.35%;
 }
 
-.main-left>img {
+.main-left img {
 	width: 30%;
 }
 
-.main-right>img {
+.main-right img {
 	width: 30%;
 }
 
@@ -33,9 +29,15 @@
 .main-right>div>p {
 	text-align: right;
 }
-.main img{
+
+.main img {
 	width: 300px;
 	margin: 20px 20px 20px;
+}
+.main-list{
+	margin: 20px 10px;
+	border: 10px dashed rgba(174, 215, 232, 0.4);
+	border-radius: 10px;
 }
 /* 버튼 css 관련 */
 .more-btn {
@@ -64,6 +66,7 @@
 	margin: 0px 15px;
 	height: 30px;
 	line-height: 30px;
+	border-radius: 20px;
 }
 
 .menu-wrap>ul>li>a {
@@ -71,6 +74,16 @@
 	color: rgb(246,246,246);
 	font-size: 16px;
 	font-weight: bolder;
+}
+
+.p-left{
+	margin: 20px;
+	float: right;
+}
+
+.p-right{
+	margin: 20px;
+	float: left;
 }
 </style>
 <body>

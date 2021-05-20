@@ -64,6 +64,7 @@
         	position : absolute;
         	top:0;
         	right:0;
+        	color: rgb(246,246,246);
         }
     </style>
 </head>
@@ -71,7 +72,7 @@
     <header>
         <div class="header">
             <ul>
-                <li class="menu"><a href="/ca?incaNo=2">Adopt</a></li>
+                <li class="menu"><a href="/ca">Adopt</a></li>
                 <li class="menu"><a href="/buyProduct">Goods</a></li>
                 <li><a href="/"><img src="img/logo.JPG.jpg" alt="Logo" style="width:200px;"></a></li>
                 <li class="menu"><a href="/community">Community</a></li>

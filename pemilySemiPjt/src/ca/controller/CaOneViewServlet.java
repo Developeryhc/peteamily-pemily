@@ -1,7 +1,6 @@
 package ca.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,29 +8,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.connector.Request;
-
-import com.google.gson.Gson;
-
-import ca.model.service.CaService;
 import ca.model.vo.Adopt;
-import ca.model.vo.Ca;
 import inca.model.service.IncaService;
-import inca.model.vo.Inca;
 
 /**
- * Servlet implementation class AdoptServlet
+ * Servlet implementation class CaOneViewServlet
  */
-@WebServlet(name = "Ca", urlPatterns = { "/ca" })
-public class CaServlet extends HttpServlet {
+@WebServlet(name = "CaOneView", urlPatterns = { "/caOneView" })
+public class CaOneViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CaServlet() {
+    public CaOneViewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,9 +31,15 @@ public class CaServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 1. 인코딩
+		// 1.
 		request.setCharacterEncoding("UTF-8");
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/ca/ca.jsp");
+		// 2.
+		int incaNo = Integer.parseInt(request.getParameter("incaNo"));
+		// 3.
+		Adopt adopt = new IncaService().selectOneCa(incaNo);
+		// 4.
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/ca/caOneView.jsp");
+		request.setAttribute("adopt", adopt);
 		rd.forward(request, response);
 	}
 

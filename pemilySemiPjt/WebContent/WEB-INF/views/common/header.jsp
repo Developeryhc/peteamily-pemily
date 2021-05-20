@@ -105,7 +105,7 @@
             </ul>
         </div>
         <%if(m == null){ %>
-        <a class="login" href="/loginFrm">회원가입</a>
+        <a class="login" href="/loginFrm">로그인</a>
         <a href="/joinFrm">회원가입</a>
         <%}else{ %> 
 				<a href="/mypage">&ensp;&ensp;&ensp;<%=m.getMemberName() %></a> <a href="/logout">&ensp;&ensp;&ensp;로그아웃</a>

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import member.model.service.MemberService;
 import member.model.vo.Member;
+import member.model.vo.MypageData;
 
 /**
  * Servlet implementation class MypageServlet
@@ -36,10 +37,11 @@ public class MypageServlet extends HttpServlet {
 				HttpSession session = request.getSession(false);
 				Member m = (Member)session.getAttribute("m");
 				//3.비지니스로직
-				Member member = new MemberService().selectOneMember(m.getMemberId());
+				MypageData  md = new MemberService().myPage(m.getMemberId());
 				//4결과처리
 				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/member/mypage.jsp");
-				request.setAttribute("member", member);
+				request.setAttribute("member", md.getM());
+				request.setAttribute("list", md.getList());
 				rd.forward(request, response);
 	}
 

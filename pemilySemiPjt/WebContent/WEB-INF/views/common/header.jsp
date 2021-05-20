@@ -104,6 +104,13 @@
                 <li class="menu"><a href="/staff">Contact</a></li>
             </ul>
         </div>
+        <%if(m == null){ %>
+        <a class="login" href="/loginFrm">회원가입</a>
+        <a href="/joinFrm">회원가입</a>
+        <%}else{ %> 
+				<a href="/mypage">&ensp;&ensp;&ensp;<%=m.getMemberName() %></a> <a href="/logout">&ensp;&ensp;&ensp;로그아웃</a>
+				<a href="/mypage">&ensp;&ensp;&ensp;내정보</a> &ensp;&ensp;&ensp;&ensp;<a href="#">장바구니</a> 
+				<%} %>
         <a class="empLink" href="/employeeMain">직원페이지</a>
         <%if(m!=null && m.getMemberGrade() == 1){ %>
         <%} %>       

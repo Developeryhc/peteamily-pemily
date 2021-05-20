@@ -55,7 +55,6 @@
 			$(this).css("height", "400px");
 			$(this).css("width", "400px");
 		});
-<<<<<<< HEAD
 		function more(start){
 			$.ajax({
 				url : "/ca",
@@ -81,15 +80,14 @@
 					}
 				}
 			});
-			
-		
 		}
-=======
 		$(".CaImg").mouseout(function(){
 			$(".CaImg").css("width", "Calc(1280px/7)");
 			$(".CaImg").css("height", "400px");
 		});
->>>>>>> branch 'master' of https://github.com/Developeryhc/peteamily-pemily.git
+		$(".CaImg").hover(function(){
+			
+		});
 	</script>
 	<%@include file="/WEB-INF/views/common/footer.jsp"%>
 </body>

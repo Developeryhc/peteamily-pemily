@@ -64,7 +64,7 @@
     		</div>
     	
             
-		<form action="/noticeWrite" method="post"> <!-- enctype="multipart/form-data" -->
+		<form action="/noticeWrite" method="post" onsubmit="return check();"> <!-- enctype="multipart/form-data" -->
 			<select id="noticeChoice" name="noticeChoice">
             	<option valus="0" selected>공지 분류</option>
             	<option value="1">직원 공지</option>
@@ -72,7 +72,7 @@
             </select>
 		
 			<div class="summer">
-				<input type="text" class="summer" placeholder="제목을 작성해주세요" id="noticeTitle" name="noticeTitle">
+				<input type="text" class="summer" placeholder="제목을 작성해주세요" id="noticeTitle" name="noticeTitle" required>
 				<input type="hidden" id="noticeCom" name="noticeCom" value="">
             <input type="hidden" id="noticeWriter" name="noticeWriter" value="도베르만">
 			</div>
@@ -84,7 +84,7 @@
 			<button type="button" class="btn btn-info" onclick="history.go(-1);">돌아가기</button>
 		</form>
 	</div>
-
+	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 <script>
 $(document).ready(function() {
     $('#summernote').summernote({
@@ -155,6 +155,16 @@ function uploadImage(file, editor) {
 }
 			
 
+function check(){
+	var sCheck = $("#summernote").val().replace(/\s|/gi,'');
+	if(sCheck == ""){
+		alert("내용을 입력해주세요.");
+		$("#summernote").val("");
+		$("#summernote").focus();
+		return false;
+	}
+	return true;
+};
 
 </script>	
 </body>

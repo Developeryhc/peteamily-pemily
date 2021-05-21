@@ -42,7 +42,7 @@
 		width:33%;
 	}
 	.text>*{
-		color : rgba(238, 140, 148, 0.60);
+		color : rgba(238, 140, 148, 1.00);
 	}
 	.partner{
 		width:49%;
@@ -53,14 +53,14 @@
 		height:60%;
 	}
 	.partner>*{
-		color : rgba(238, 140, 148, 0.60);
+		color : rgba(238, 140, 148, 1.00);
 	}
 	
-	img{
+	.img>img{
 		width:95%;	
 		height:350px;
 	}
-	a{
+	.divide>a{
 		text-decoration:none;
 		display:block;
 		text-align:center;
@@ -69,7 +69,7 @@
 		color: black;
 	}
 	a:hover{
-		color: rgba(238, 140, 148, 0.60);
+		color: rgba(238, 140, 148, 1.00);
 	}
 </style>
 </head>
@@ -90,7 +90,7 @@
 	</div><br>
 	<div class="middle">
 		<div class="divide"><a href="/partnerIntro?sort=뷰티" >뷰티</a></div>
-		<div class="divide"><a href="#" style="color:rgba(238, 140, 148, 0.60);">라이프</a></div>
+		<div class="divide"><a href="#" style="color:rgba(238, 140, 148, 1.00);">라이프</a></div>
 		<div class="divide"><a href="partnerIntro?sort=의료">의료</a></div>
 	</div><br>
 	<div class="body">

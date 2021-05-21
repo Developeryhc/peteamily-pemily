@@ -61,9 +61,9 @@
         }
         .bbb{
             height: 100px;
-            
+            background-color:rgba(241, 235, 235, 0.904);
             display: none;
-            background-color: rgba(248, 246, 246, 0.932);
+            background-color: 
         }
        
         li:hover>b{
@@ -80,7 +80,7 @@
  	p>a{
  	margin : 20px;
  	color:black;}
-    	
+   
 </style>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
      <script>
@@ -120,19 +120,37 @@
 				<ul class="que">
 					<li class="a">Q.
 					<%=faq.getFaqTitle() %>
-					
-					<a href="/faqDelete?faqNo=<%=faq.getFaqNo() %>">삭제하기</a> 
 					</li>
 					<li class="bbb">A.
 					<%=faq.getFaqContent() %>
+					
+					<%--<%if(emp != null){ %>
+        	 	<p class="del"><a href="/faqDelete?faqNo=<%=faq.getFaqNo() %>">삭제하기</a> </p>
+      			<%} %>
+				 --%>
+					
+					
+					<p class="del"><a href="/faqDelete?faqNo=<%=faq.getFaqNo() %>">삭제하기</a> </p>
 					</li>
 				</ul>
 				<%} %>
 				  
 				<div id="map" style="width:600px; height:300px;"></div>
+				
+				
+				<%--<%if(emp != null){ %>
+        	 	<div><a class="btn btn btn-default" href="/faqWriteFrm">질문등록</a></div>
+      			<%} %>
+				 --%>
+				
+				
+				
+				
 				<a class="btn btn btn-default" href="/faqWriteFrm">질문등록</a>
 		</div>
 	</div>
+	<%@include file="/WEB-INF/views/common/footer.jsp" %>
+	
 <script>
 			//네이버지도 사용
 			window.onload=function(){
@@ -153,7 +171,7 @@
 				var contentString = [
 					'<div class="iw_inner">',
 					'	<h3>Pemily</h3>',
-					'	<p>댕댕시 냥냥구 도마뱀로 57 Pemily 6F</p>',
+					'	<p>서울특별시 영등포구 양평동 이레빌딩 19F,20F</p>',
 					'</div>'
 				].join("");
 				var infoWindow = new naver.maps.InfoWindow();

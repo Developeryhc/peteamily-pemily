@@ -80,7 +80,7 @@
 			<button type="button" class="btn btn-info" onclick="history.go(-1);">돌아가기</button>
 		</form>
 	</div>
-
+<%@include file="/WEB-INF/views/common/footer.jsp" %>
 <script>
 $(document).ready(function() {
     $('#summernote').summernote({

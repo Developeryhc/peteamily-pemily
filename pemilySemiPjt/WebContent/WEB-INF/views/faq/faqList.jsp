@@ -61,9 +61,9 @@
         }
         .bbb{
             height: 100px;
-            
+            background-color:rgba(241, 235, 235, 0.904);
             display: none;
-            background-color: rgba(248, 246, 246, 0.932);
+            background-color: 
         }
        
         li:hover>b{
@@ -80,7 +80,7 @@
  	p>a{
  	margin : 20px;
  	color:black;}
-    	
+   
 </style>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
      <script>
@@ -120,11 +120,10 @@
 				<ul class="que">
 					<li class="a">Q.
 					<%=faq.getFaqTitle() %>
-					
-					<a href="/faqDelete?faqNo=<%=faq.getFaqNo() %>">삭제하기</a> 
 					</li>
 					<li class="bbb">A.
 					<%=faq.getFaqContent() %>
+					<p class="del"><a href="/faqDelete?faqNo=<%=faq.getFaqNo() %>">삭제하기</a> </p>
 					</li>
 				</ul>
 				<%} %>

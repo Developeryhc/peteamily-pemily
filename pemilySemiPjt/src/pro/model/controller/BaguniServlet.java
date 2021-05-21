@@ -33,6 +33,16 @@ public class BaguniServlet extends HttpServlet {
 		//2값가져오기 이름 가격 수량
 		//3비지니스로직
 		//4결과처리
+		String inProName = request.getParameter("inProName");
+		int count = Integer.parseInt(request.getParameter("count"));
+//		String count = request.getParameter("count");
+		
+		String inProPrice = request.getParameter("inProPrice");
+		
+	
+		request.setAttribute("inProName", inProName);
+		request.setAttribute("inProPrice", inProPrice);
+		request.setAttribute("count", count);
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/shop/baguni.jsp");
 		rd.forward(request, response);
 	}

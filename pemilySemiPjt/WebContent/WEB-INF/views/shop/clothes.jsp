@@ -37,7 +37,7 @@
               <%for(InPro pro : list) {%>
            	 	<div>
                     <img src="/upload/inProduct/<%=pro.getInProPic() %>" alt=""><br>
-                    <a href="#"><%=pro.getInProName() %></a>
+                     <a href="/detileView?inpro_no=<%=pro.getInProNo()%>"><%=pro.getInProName() %></a>
                     <p><%=pro.getInProPrice() %> won</p>
                 </div>
             <%} %>

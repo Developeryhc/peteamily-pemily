@@ -16,6 +16,7 @@
 	border: 1px solid black;
 	margin: auto;
 	padding: 60px 90px 60px 90px;
+	display: hidden;
 	}
 </style>
 </head>

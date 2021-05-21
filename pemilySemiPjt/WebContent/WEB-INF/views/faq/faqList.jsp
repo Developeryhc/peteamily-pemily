@@ -133,6 +133,8 @@
 				<a class="btn btn btn-default" href="/faqWriteFrm">질문등록</a>
 		</div>
 	</div>
+	<%@include file="/WEB-INF/views/common/footer.jsp" %>
+	
 <script>
 			//네이버지도 사용
 			window.onload=function(){

@@ -222,6 +222,22 @@ public class IncaDao {
 		}
 		return result;
 	}
+	public int incaDelete(Connection conn, int incaNo) {
+		PreparedStatement pstmt = null;
+		int result=0;
+		String query = "delete from inca where inca_no=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, incaNo);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
 
 
 }

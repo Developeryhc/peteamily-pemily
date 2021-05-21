@@ -115,4 +115,40 @@ public class InProductDao {
 		return inPro;
 	}
 
+	public int inProDelete(Connection conn, int inProNo) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "delete from inpro where inpro_no=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, inProNo);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
+	public int modifyInPro(Connection conn, int inProNo, int inProPrice, int inProAmount) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "update inpro set inpro_price=?,inpro_amount=? where inpro_no=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, inProPrice);
+			pstmt.setInt(2, inProAmount);
+			pstmt.setInt(3, inProNo);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
+	}
+
 }

@@ -1,28 +1,28 @@
-package notice.model.controller;
+package inProduct.model.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import notice.model.service.NoticeService;
-import notice.model.vo.NoticePageData;
+import inPro.model.vo.InPro;
+import inProduct.model.service.InProductService;
 
 /**
- * Servlet implementation class NoticeEmpListServlet
+ * Servlet implementation class InProDeleteServlet
  */
-@WebServlet(name = "NoticeEmpList", urlPatterns = { "/noticeEmpList" })
-public class NoticeEmpListServlet extends HttpServlet {
+@WebServlet(name = "InProDelete", urlPatterns = { "/inProDelete" })
+public class InProDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeEmpListServlet() {
+    public InProDeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,20 +33,14 @@ public class NoticeEmpListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
-		//1.인코딩
+		//1.
 		request.setCharacterEncoding("utf-8");
-		//2.값추출(요청페이지 번호 받음)
-		int reqPage = Integer.parseInt(request.getParameter("reqPage"));
-		int noticeCom = Integer.parseInt(request.getParameter("noticeCom"));
-		//3.비즈니스 로직 (공지사항 목록이 나오기때문에 리턴값은 ArrayList로 받음!
-		NoticePageData npd = new NoticeService().selectNoticeEmpList(reqPage,noticeCom);
-		//4.결과처리
-
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employee/noticeEmpList.jsp");
-		request.setAttribute("list", npd.getList());
-		request.setAttribute("pageNavi", npd.getPageNavi());
-		rd.forward(request, response);
-	
+		//2.
+		int inProNo = Integer.parseInt(request.getParameter("inProNo"));
+		//3.
+		int result = new InProductService().inProDelete(inProNo);
+		PrintWriter out = response.getWriter();
+		out.print(result);
 	}
 
 	/**

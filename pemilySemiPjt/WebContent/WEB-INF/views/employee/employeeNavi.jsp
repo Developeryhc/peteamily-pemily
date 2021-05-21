@@ -3,7 +3,7 @@
 	<!-- 직원페이지 메뉴 css -->
 <nav class="emp-nav-Wrap">
     <ul class="emp-nav">
-	    <li class="empMenu"><a href="/noticeList?reqPage=1&noticeCom=1">공지사항</a></li>
+	    <li class="empMenu"><a href="/noticeEmpList?reqPage=1&noticeCom=1">공지사항</a></li>
 	    <li class="empMenu"><a href="/caList?reqPage=1">반려동물 목록</a></li>
 	    <li class="empMenu"><a href="/productList?reqPage=1">물품 재고</a></li>
 	    <!-- 밑의 메뉴는 관리자 계정만 가능 -->

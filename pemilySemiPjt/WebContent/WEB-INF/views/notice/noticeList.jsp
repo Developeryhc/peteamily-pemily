@@ -90,6 +90,7 @@
 			<div id="pageNavi"><%=pageNavi %></div> 
 	</fieldset>
 </div>
+<%-- 
 <script>
 $(document).ready(function() {
 	$('#noticeChoice').change(function(){
@@ -100,5 +101,6 @@ $(document).ready(function() {
         });
 });
 </script>
+--%>
 </body>
 </html>

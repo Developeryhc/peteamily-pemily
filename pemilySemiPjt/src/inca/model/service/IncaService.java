@@ -95,4 +95,15 @@ public class IncaService {
 		return inca;
 	}
 
+	public int incaModify(Inca inca, int incaNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new IncaDao().incaModify(conn,inca,incaNo);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		return result;
+	}
+
 }

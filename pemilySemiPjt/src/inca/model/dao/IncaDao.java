@@ -193,7 +193,6 @@ public class IncaDao {
 				inca.setIncaStore(rset.getInt("inca_store"));
 				inca.setIncaName(rset.getString("inca_name"));
 				inca.setIncaPrice(rset.getInt("inca_price"));
-				inca.setSort(rset.getInt("sort"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -203,6 +202,25 @@ public class IncaDao {
 			JDBCTemplate.close(pstmt);
 		}
 		return inca;
+	}
+	public int incaModify(Connection conn, Inca inca, int incaNo) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String query = "update inca set inca_price=?, inca_condition=?, inca_store=? where inca_no=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, inca.getIncaPrice());
+			pstmt.setInt(2, inca.getIncaCondition());
+			pstmt.setInt(3, inca.getIncaStore());
+			pstmt.setInt(4, incaNo);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+		}
+		return result;
 	}
 
 

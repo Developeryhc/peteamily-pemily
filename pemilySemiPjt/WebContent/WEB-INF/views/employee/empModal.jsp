@@ -21,7 +21,6 @@
    			</div>
    			<div class="chk-wrap">
    				<button type="button" class="mdBtn confirmBtn">확인</button>
-   				
    			</div>
    		</div>
    	</div>

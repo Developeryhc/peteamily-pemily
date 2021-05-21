@@ -1,6 +1,6 @@
 /* 직원 공지사항 상세보기, 수정 css */
 .noticeView-wrap{
-	margin-top:100px;
+	margin:100px auto;
 	width:800px;
 	/* background-color:lightgray; */
 	display:flex;

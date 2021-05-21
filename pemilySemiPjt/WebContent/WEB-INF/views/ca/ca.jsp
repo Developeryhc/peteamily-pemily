@@ -19,17 +19,35 @@
 	width: 1280px;
 }
 
-.selectCa{
-	margin: 100px 0;
-	width: 100%;
+.container ul{
+	padding: 0;
+	display: flex;
 }
-.selectCa>a{
-	height: 400px;
+.ul li{
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	flex-wrap: wrap;
+	width:Calc(1280px/2);
+	height: 320px;
+	background-position: center;
+	background-size: cover;
+	border: 5px dashed rgba(182, 215, 168, 0.9);
+	margin: 0 10px;
+}
+.container ul li a{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	text-decoration: none;
+	font-size: 50px;
+	color: rgba(232,69,86, 0.8);
+	line-height: 32vh;
+	font-family: 'Do Hyeon', sans-serif; 
 }
 .CaImg{
-	height: 400px;
-	width: Calc(1280px/7);
-	transition-duration: 0.2s;
+	width: 100%;
+	background-image: url(img/ca1.jpg);
 }
 
 </style>
@@ -37,60 +55,43 @@
 	<%@include file="/WEB-INF/views/common/header.jsp"%>
 	<script type="text/javascript"></script>
 	<div class="container">
-		<div class="selectCa">ㄱ
-			<a href="/caViewList?incaNo=2"><img src="/img/ca1.jpg" class="CaImg"></a>
-			<a href="/caViewList?incaNo=3"><img src="/img/ca2.jpg" class="CaImg"></a>
-			<a href="/caViewList?incaNo=4"><img src="/img/ca3.jpg" class="CaImg"></a>
-			<a href="/caViewList?incaNo=5"><img src="/img/ca4.jpg" class="CaImg"></a>
-			<a href="/caViewList?incaNo=6"><img src="/img/ca5.jpg" class="CaImg"></a>
-			<a href="/caViewList?incaNo=7"><img src="/img/ca6.jpg" class="CaImg"></a>
-			<a href="/caViewList?incaNo=8"><img src="/img/ca7.jpg" class="CaImg"></a>
-		</div>
+		<ul class="ul">
+			<li class="li"><input type="hidden" value="2"><a href="/caViewList?incaNo=2">강아지</a><input type="hidden" value="강아지"></li>
+			<li class="li"><input type="hidden" value="3"><a href="/caViewList?incaNo=3">고양이</a><input type="hidden" value="고양이"></li>
+			<li class="li"><input type="hidden" value="4"><a href="/caViewList?incaNo=4">물고기</a><input type="hidden" value="물고기"></li>
+			<li class="li"><input type="hidden" value="5"><a href="/caViewList?incaNo=5">도마뱀</a><input type="hidden" value="도마뱀"></li>
+		</ul>
+		<ul class="ul">
+			<li class="li"><input type="hidden" value="6"><a href="/caViewList?incaNo=6">설치류</a><input type="hidden" value="설치류"></li>
+			<li class="li"><input type="hidden" value="7"><a href="/caViewList?incaNo=7">뱀류</a><input type="hidden" value="뱀류"></li>
+			<li class="li"><input type="hidden" value="8"><a href="/caViewList?incaNo=8">절지류</a><input type="hidden" value="절지류"></li>
+			<li class="li"><input type="hidden" value="1"><a href="/">뒤로가기</a><input type="hidden" value="뒤로가기"></li>
+		</ul>
 	</div>
 	<script>
-		$(".CaImg").hover(function(){
-			var value = $(this).val();
-			$(".CaImg").css("width", "Calc(980px/7)");
-			$(".CaImg").not(this).css("height", "300px");
-			$(this).css("height", "400px");
-			$(this).css("width", "400px");
+		$(".li").mouseout(function(){
+			var obj = $(this);
+			mouseout(obj, obj.children().eq(2).val());
 		});
 		
-		function more(start){
-			$.ajax({
-				url : "/ca",
-				data : {start:start},
-				type : "post",
-				success : function(data){
-					for(var i = 0; i<data.length; i++){
-						var a = data[i];
-						var html = "";
-						html += "<div class='main-left'>";
-						html += "<img src='/upload/inca/"+a.inca.incaPath+"'>";
-						html += "<p>"+a.ca.caContent+"</p></div>";
-						$(".main").append(html);
-					}
-					// 이미지 추가가 끝나고 나면 더보기 버튼의 value 값 조정
-					$(".more-btn").val(Number(start)+4);
-					var curr = Number($(".more-btn").attr("currentCount"));
-					$(".more-btn").attr("currentCount", curr+data.length);	// attr과 append의 의미
-					var totalCount = $(".more-btn").attr("totalCount");
-					var currCount = $(".more-btn").attr("currentCount");
-					if(currCount == totalCount){
-						$(".more-btn").attr("disabled", true);		// 비활성화
-					}
-				}
-			});
+		$(".li").mouseover(function(){
+			var obj = $(this);
+			mouseoverImg(obj, obj.children().eq(0).val());
+		});
+		
+		function mouseoverImg(obj, val){
+			if(val == 1){
+				obj.css("background-image", "url(img/logo.JPG.jpg)");
+			}else{
+				obj.css("background-image", "url(img/ca"+(val-1)+".jpg)");
+			}
+			obj.children().eq(1).html("");
 		}
 		
-		$(".CaImg").mouseout(function(){
-			$(".CaImg").css("width", "Calc(1280px/7)");
-			$(".CaImg").css("height", "400px");
-		});
-		
-		$(".CaImg").hover(function(){
-			
-		});
+		function mouseout(obj, val){
+			obj.css("background-image", "");
+			obj.children().eq(1).html(val);
+		}
 	</script>
 	<%@include file="/WEB-INF/views/common/footer.jsp"%>
 </body>

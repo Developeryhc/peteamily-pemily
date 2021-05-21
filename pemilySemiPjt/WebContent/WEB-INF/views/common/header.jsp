@@ -74,13 +74,30 @@
 	    }
 	    .test{
 	        width:100px;
-	        height:400px;
+	        height:320px;
 	        margin-top:130px;
 	        background-color:rgba(182, 215, 168, 0.54);
 	        position:fixed;
 	        top:130px;
 	        right:30px;
 	        border-radius: 30px;
+	    }
+	    .test ul{
+	    	padding: 0;
+	    }
+	    .test li, .login-li{
+	    	text-align: center;
+	    	list-style-type: none;
+	    }
+	    .test img, .login-li img{
+	    	width: 70%;
+	    	border-radius: 50px;
+	        cursor:pointer;
+	    }
+	    .login-li p{
+    		font-family: 'Do Hyeon', sans-serif;
+    		font-size: 30px;
+    		margin: 20px 0;
 	    }
 	    .go-top{
 	        width:50px;
@@ -107,21 +124,73 @@
         <%if(m == null){ %>
         <a class="login" href="/loginFrm">로그인</a>
         <a href="/joinFrm">회원가입</a>
-        <%}else{ %> 
-				<a href="/mypage">&ensp;&ensp;&ensp;<%=m.getMemberName() %></a> <a href="/logout">&ensp;&ensp;&ensp;로그아웃</a>
-				<a href="/mypage">&ensp;&ensp;&ensp;내정보</a> &ensp;&ensp;&ensp;&ensp;<a href="#">장바구니</a> 
-				<%} %>
         <a class="empLink" href="/employeeMain">직원페이지</a>
+        <%} %>
         <%if(m!=null && m.getMemberGrade() == 1){ %>
-        <%} %>       
+        
+        <%} %>
     </header>
     <div class="testWrap">
-		<div class="test"></div>
+		<div class="test">
+			<ul>
+				<%if(m == null){ %>
+				<li class="test-li"><img src="/img/login.png"></li>
+				<li class="test-li"><img src="/img/join.png"></li>
+				<%}else{ %>
+					<li class="login-li"><p><%=m.getMemberName() %></p></li>
+					<li class="login-li"><img src="/img/logout.png"></li>
+					<li class="login-li"><img src="/img/mypage.png"></li>
+					<li class="login-li"><img src="/img/cart.png"></li>
+				<%} %>
+				<li class="test-li"><img src="/img/talk.png"></li>
+			</ul>
+		</div>
    		<div class="go-top"><img class="go-top" src="/img/moveButton/arrow.png"></div>
 	</div>
 <script>
+$(function(){
+	<%if(m==null){%>
+	$(".test").css("height", "250px");
+	<%}else{%>
+	$(".test").css("height", "390px")
+	<%}%>
+});
 $('.go-top').click(function(){
     window.scrollTo(0,0);
+});
+$(".test-li").mouseover(function(){
+	$(this).children().css("background-color", "rgb(232,69,86)");
+});
+$(".test-li").mouseout(function(){
+	$(this).children().css("background-color", "");
+});
+$(".login-li").mouseover(function(){
+	$(this).children().css("background-color", "rgb(232,69,86)");
+});
+$(".login-li").mouseout(function(){
+	$(this).children().css("background-color", "");
+});
+$(".test-li").click(function(){
+	var index = $(".test-li").index(this);
+	if(index == 0){
+		location.href="loginFrm";
+	}else if(index == 1){
+		location.href="joinFrm";
+	}else if(index == 2){
+		location.href="#";
+	}
+});
+$(".login-li").click(function(){
+	var index = $(".login-li").index(this);
+	if(index == 1){
+		location.href="logout";
+	}else if(index == 2){
+		location.href="mypage";
+	}else if(index == 3){
+		location.href="#";
+	}else if(index == 4){
+		location.href="#";
+	}
 });
 </script>
 </body>

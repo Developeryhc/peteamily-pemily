@@ -59,15 +59,15 @@ public class IncaWriteServlet extends HttpServlet {
 		// 파일이 업로드 되는 코드
 		MultipartRequest mRequest = new MultipartRequest(request, saveDirectory, maxSize, "UTF-8", new DefaultFileRenamePolicy());
 		Inca i = new Inca();
-		i.setIncaAn(Integer.parseInt(mRequest.getParameter("an")));
-		i.setIncaName(mRequest.getParameter("name"));
-		i.setIncaGender(mRequest.getParameter("gender"));
-		i.setIncaMonth(Integer.parseInt(mRequest.getParameter("month")));
-		i.setIncaCondition(Integer.parseInt(mRequest.getParameter("condition")));
-		i.setIncaPrice(Integer.parseInt(mRequest.getParameter("price")));
-		i.setIncaStore(Integer.parseInt(mRequest.getParameter("store")));
-		i.setIncaPic(mRequest.getOriginalFileName("filename"));	// 사용자가 업로드한 파일 명
-		i.setIncaPath(mRequest.getFilesystemName("filename"));	// 실제 업로드 된 파일 이름
+		i.setIncaAn(Integer.parseInt(mRequest.getParameter("incaAn")));
+		i.setIncaName(mRequest.getParameter("incaName"));
+		i.setIncaGender(mRequest.getParameter("incaGender"));
+		i.setIncaMonth(Integer.parseInt(mRequest.getParameter("incaMonth")));
+		i.setIncaCondition(Integer.parseInt(mRequest.getParameter("incaCondition")));
+		i.setIncaPrice(Integer.parseInt(mRequest.getParameter("incaPrice")));
+		i.setIncaStore(Integer.parseInt(mRequest.getParameter("incaStore")));
+		i.setIncaPic(mRequest.getOriginalFileName("incaPic"));	// 사용자가 업로드한 파일 명
+		i.setIncaPath(mRequest.getFilesystemName("incaPic"));	// 실제 업로드 된 파일 이름
 		// getOriginalFileName, getFilesystemName 매개변수는 <input type="file" name=""> name 속성값
 		// 3. 비즈니스 로직
 		int result = new IncaService().insertInca(i);

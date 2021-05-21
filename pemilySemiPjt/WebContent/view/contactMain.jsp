@@ -124,7 +124,7 @@
 		color:black;
 	}
 	.sub>div>a:hover{
-		color: white;
+		
 		font-style:italic;
 	}
 	.sub>div:hover{
@@ -171,10 +171,10 @@
 	</div>
 	<div class="container">
 		<div class="sub">
-			<div style="background-color:rgba(238, 140, 148, 0.60);"><a href="/view/intro.jsp">회사소개</a></div>
-			<div style="background-color:rgba(174, 215, 232, 0.73);"><a href="/staff?store=1">스텝소개</a></div>
-			<div style="background-color:rgba(242, 217, 207, 0.84);"><a href="/partnerIntro?sort=뷰티">제휴업체 소개</a></div>
-			<div style="background-color:rgba(182, 215, 168, 0.54);"><a href="/view/partner.jsp">가맹문의</a></div>
+			<div id="one" style="background-color:rgba(242, 217, 207, 0.84);"><a href="/view/intro.jsp">회사소개</a></div>
+			<div id="two" style="background-color:rgba(174, 215, 232, 0.73);"><a href="/staff?store=1">스텝소개</a></div>
+			<div id="three" style="background-color:rgba(238, 140, 148, 0.50);"><a href="/partnerIntro?sort=뷰티">제휴업체 소개</a></div>
+			<div id="four" style="background-color:rgba(182, 215, 168, 0.54);"><a href="/view/partner.jsp">가맹문의</a></div>
 		</div>
 	</div>
 	<script>
@@ -224,6 +224,35 @@ $(".login-li").click(function(){
 });
 </script>
 	<%@include file="/WEB-INF/views/common/footer.jsp" %>
+	<script>
+		$("#one").mouseover(function(){
+			$(this).css("background-color", "rgba(238, 140, 148, 0.50)");
+		})
+		$("#one").mouseleave(function(){
+			$(this).css("background-color", "rgba(242, 217, 207, 0.84)");
+		})
+		
+		$("#two").mouseover(function(){
+			$(this).css("background-color", "rgba(182, 215, 168, 0.54)");
+		})
+		$("#two").mouseleave(function(){
+			$(this).css("background-color", "rgba(174, 215, 232, 0.73)");
+		})
+		
+		$("#three").mouseover(function(){
+			$(this).css("background-color", "rgba(242, 217, 207, 0.84)");
+		})
+		$("#three").mouseleave(function(){
+			$(this).css("background-color", "rgba(238, 140, 148, 0.50)");
+		})
+		
+		$("#four").mouseover(function(){
+			$(this).css("background-color", "rgba(174, 215, 232, 0.73)");
+		})
+		$("#four").mouseleave(function(){
+			$(this).css("background-color", "rgba(182, 215, 168, 0.54)");
+		})
+	</script>
 </body>
 </html>
 

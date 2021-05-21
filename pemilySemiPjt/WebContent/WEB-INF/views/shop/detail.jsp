@@ -56,7 +56,7 @@
 	                </td></tr>
 	                <tr><td class="tb_size">
 	                   <div class="btn btn-buy"><a>구매하기</a></div>
-	                   <div class="btn"><a href="/baguni">장바구니 (클릭) </a></div>
+	                   <div class="btn btn-buy2"><a>장바구니  </a></div>
 	                   <div class="btn"><a href="#">찜하기</a></div>
 	                </td></tr>
 	            </table>
@@ -86,6 +86,13 @@
 	    		href += count;
 	    		$(".btn-buy").children().attr("href", href);
 	    	});
+	    	$(".select").click(function(){
+	    		var count = $(".select").val();
+	    		var href = "/baguni?inProName=<%=pro.getInProName()%>&inProPrice=<%=pro.getInProPrice()%>&count=";
+	    		href += count;
+	    		$(".btn-buy2").children().attr("href", href);
+	    	});
+	  
 	    </script>
 </body>
 

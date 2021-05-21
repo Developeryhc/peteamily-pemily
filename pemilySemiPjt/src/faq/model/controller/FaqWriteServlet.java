@@ -41,9 +41,9 @@ public class FaqWriteServlet extends HttpServlet {
 		int result = new FaqService().insertFaq(f);
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
 		if(result>0) {
-			request.setAttribute("msg", "공지사항 등록 성공");
+			request.setAttribute("msg", "FAQ 질문 등록 성공");
 		}else {
-			request.setAttribute("msg", "공지사항 등록 실패");
+			request.setAttribute("msg", "FAQ 등록 실패");
 		}
 		request.setAttribute("loc", "/faqList");
 		rd.forward(request, response);

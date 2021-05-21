@@ -116,12 +116,12 @@
             <ul>
                 <li class="menu"><a href="/ca">Adopt</a></li>
                 <li class="menu"><a href="/buyProduct">Goods</a></li>
-                <li><a href="/"><img src="img/logo.JPG.jpg" class="logo" alt="Logo" style="width:200px;"></a></li>
+                <li><a href="/"><img src="img/logo.JPG.jpg" class="logo" style="width:200px;"></a></li>
                 <li class="menu"><a href="/community?reqPage=1&noticeCom=2">Community</a></li>
                 <li class="menu"><a href="/view/contactMain.jsp">Contact</a></li>
             </ul>
         </div>
-        <%if(m == null){ %>
+        <%if(m != null){ %>
         <a class="empLink" href="/employeeMain">직원페이지</a>
         <%} %>
         <%if(m!=null && m.getMemberGrade() == 1){ %>

@@ -27,11 +27,11 @@
 }
 
 .wrap {
-	height: 100%;
+	height: 1600px;
 	width: 100%;
-	background-image: url(img/login.jpg);
-	background-position: center;
-		background-repeat: repeat;
+	background-image: url(img/join.jpg);
+	background-repeat: repeat;
+	background-cover: auto;	
 	background-size: cover;
 	position: absolute;
 }

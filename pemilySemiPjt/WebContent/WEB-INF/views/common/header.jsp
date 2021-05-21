@@ -122,8 +122,7 @@
             </ul>
         </div>
         <%if(m == null){ %>
-        <a class="login" href="/loginFrm">로그인</a>
-        <a href="/joinFrm">회원가입</a>
+
         <a class="empLink" href="/employeeMain">직원페이지</a>
         <%} %>
         <%if(m!=null && m.getMemberGrade() == 1){ %>

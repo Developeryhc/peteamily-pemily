@@ -51,16 +51,13 @@
 	            <button type="button" class="cancelBtn">돌아가기</button>            
             </div>
         </form>
-<<<<<<< HEAD
-=======
         <form class="forms" id="faqFrm" action="javascript:void(0);">
         	<h2>자주 듣는 질문 등록</h2>
         	<input type="text" class="title" name="서블릿에 전송할 명칭" placeholder="제목 입력">
             <div id="noticeContent" class="summernote" name="noticeContent"></div>
         </form>
-        
->>>>>>> branch 'master' of https://github.com/Developeryhc/peteamily-pemily.git
-        <form class="forms" id="incaFrm" action="/inCompanionAnimalWrite" method="post" enctype="multipart/form-data">
+      
+        <form class="forms" id="incaFrm" action="/incaWrite" method="post" enctype="multipart/form-data">
         	<h2>반려동물 등록</h2>
         	<!-- 동물 종 select -->
         	<div class="animalInfoWrap" id="animalInfoWrap">

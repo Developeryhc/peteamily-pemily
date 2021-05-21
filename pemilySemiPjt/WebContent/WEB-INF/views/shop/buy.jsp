@@ -2,18 +2,25 @@
     pageEncoding="UTF-8"%>
     <%	
 	String name = (String)request.getAttribute("inProName");
-	String price = (String)request.getAttribute("inProPrice");
-	String count = (String)request.getAttribute("count");
-    
+	int price = Integer.parseInt((String)request.getAttribute("inProPrice"));
+	int count = (Integer)request.getAttribute("count");
+	
+	int sum = price * count;
+	int cong = sum + 3000;
     %>
- 
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>구매하기</title>
  <link rel="stylesheet" a href="/css/product/buy.css">
- <link rel="stylesheet" href="/css/baguni.css">
+<link rel="stylesheet" href="/css/product/baguni.css">
+<style>
+	.price_left{
+		margin-left: 30px;
+	}
+</style>
 </head>
 <body>
 
@@ -48,13 +55,13 @@
                     <%= count %> 개
                 </td>
                 <td>
-                   <%=price %> 원
+                   <%=price %> * <%=count %> = <%=sum %> 원
                 </td>
             </tr>
         </table>
         <table width=100% class="tb_2">
             <tr><td>
-                총 주문금액 = 3000 + 3000 = 6000원
+                총 주문금액   <%=sum %> + 3000(배송비)  = <%=cong %>
             </td></tr>
         </table>
 	 	
@@ -80,7 +87,7 @@
         <table>
             <tr>
                 <td width="10%">최종결제금액</td>
-                <td><p class="pay"> 1000000원</p></td>
+                <td><p class="pay price_left">  <%=cong %> won</p></td>
             </tr>
         </table>
     

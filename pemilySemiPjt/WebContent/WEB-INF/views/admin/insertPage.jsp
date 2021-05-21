@@ -10,6 +10,13 @@
 		color:#555;
     	background-color:#fff;
 	}
+	.wrap-2{
+	width: 620px;
+	background: white;
+	border: 1px solid black;
+	margin: auto;
+	padding: 60px 90px 60px 90px;
+	}
 </style>
 </head>
 <body>

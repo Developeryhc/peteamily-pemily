@@ -147,7 +147,7 @@ form>h2{
 }
 /* 동물등록, 상품 재고등록 form의 등록/취소 버튼의 넒이 조정 */
 #incaBtnWrap>button, #inProPrice+div>button{
-   width:200px; 
+   width:100px; 
 }
 /* 등록/취소 버튼을 감싸는 wrap요소에 CSS효과 지정 */
   .btns>*{
@@ -162,6 +162,7 @@ form>h2{
      background-color:#fff;
    box-shadow:0px 0px 3px black;
    margin-right:10px;
+   float: left;
 }
   /* 등록버튼에 동일한 형제요소와 10px 만큼 거리 조정 */
 .btns>button:first-child{

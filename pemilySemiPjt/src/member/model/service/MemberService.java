@@ -118,4 +118,11 @@ public class MemberService {
 		return md;
 	}
 
+	public Member findPw(String memberId, String memberPhone, String memberEmail) {
+		Connection conn = JDBCTemplate.getConnection();
+		Member m = new MemberDao().findPw(conn,memberId,memberPhone,memberEmail);
+		JDBCTemplate.close(conn);
+		return m;
+	}
+
 }

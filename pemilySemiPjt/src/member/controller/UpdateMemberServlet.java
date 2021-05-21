@@ -43,6 +43,7 @@ public class UpdateMemberServlet extends HttpServlet {
 		int result = new MemberService().updateMember(m);
 		//4.결과처리
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
+
 		if(result>0) {
 			request.setAttribute("msg", "정보변경 완료");
 		}else {

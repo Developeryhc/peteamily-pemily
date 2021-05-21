@@ -34,7 +34,11 @@ public class DeleteMemberServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		int memberNo =Integer.parseInt(request.getParameter("memberNo"));
 		int result = new MemberService().deleteMember(memberNo);
+<<<<<<< HEAD
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
+=======
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/member/msg.jsp");
+>>>>>>> branch 'master' of https://github.com/Developeryhc/peteamily-pemily.git
 		if(result>0) {
 			request.setAttribute("msg", "회원탈퇴 성공");
 			HttpSession session = request.getSession(false);

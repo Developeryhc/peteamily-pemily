@@ -29,11 +29,7 @@ public class PrivacyFrmServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-<<<<<<< HEAD
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/member/privacy.jsp");
-=======
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/member/privacy.jsp");
->>>>>>> branch 'master' of https://github.com/Developeryhc/peteamily-pemily.git
 		rd.forward(request, response);
 	}
 

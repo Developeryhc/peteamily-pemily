@@ -10,19 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import notice.model.service.NoticeService;
-import notice.model.vo.NoticePageData;
+import notice.model.vo.Notice;
 
 /**
- * Servlet implementation class NoticeEmpListServlet
+ * Servlet implementation class NoticeEmpWriteServlet
  */
-@WebServlet(name = "NoticeEmpList", urlPatterns = { "/noticeEmpList" })
-public class NoticeEmpListServlet extends HttpServlet {
+@WebServlet(name = "NoticeEmpWrite", urlPatterns = { "/noticeEmpWrite" })
+public class NoticeEmpWriteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeEmpListServlet() {
+    public NoticeEmpWriteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,20 +33,30 @@ public class NoticeEmpListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
-		//1.인코딩
+		//1.
 		request.setCharacterEncoding("utf-8");
-		//2.값추출(요청페이지 번호 받음)
-		int reqPage = Integer.parseInt(request.getParameter("reqPage"));
+		//2.
 		int noticeCom = Integer.parseInt(request.getParameter("noticeCom"));
-		//3.비즈니스 로직 (공지사항 목록이 나오기때문에 리턴값은 ArrayList로 받음!
-		NoticePageData npd = new NoticeService().selectNoticeEmpList(reqPage,noticeCom);
-		//4.결과처리
-
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employee/noticeEmpList.jsp");
-		request.setAttribute("list", npd.getList());
-		request.setAttribute("pageNavi", npd.getPageNavi());
+		String noticeWriter = request.getParameter("noticeWriter");
+		String noticeContent = request.getParameter("noticeContent");
+		String noticeTitle = request.getParameter("noticeTitle");
+		//3.
+		Notice n = new Notice();
+		n.setNoticeCom(noticeCom);
+		n.setNoticeContent(noticeContent);
+		n.setNoticeTitle(noticeTitle);
+		n.setNoticeWriter(noticeWriter);
+		int result = new NoticeService().insertNotice(n);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
+		if(result>0) {
+			request.setAttribute("msg", "등록 완료");
+			request.setAttribute("loc", "/insertPage");			
+		}else {
+			request.setAttribute("msg", "등록 실패");			
+			request.setAttribute("loc", "/insertPage");			
+		}
 		rd.forward(request, response);
-	
 	}
 
 	/**

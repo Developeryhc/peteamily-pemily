@@ -68,8 +68,9 @@
 	       	</form>
         </div>
 	<%@include file="/WEB-INF/views/employee/empModal.jsp" %>
-        <span class="hiddenTextChk">inca</span>
-        <input type="hidden" id="modifyCheck" value="2">
+        
+        <input type="hidden" class="hiddenModiChk" value="2">
+        <input type="hidden" class="hiddenDelChk" value="22">
 	</section>
 	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>

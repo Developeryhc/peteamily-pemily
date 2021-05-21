@@ -101,7 +101,7 @@
 			<div class="noticeViewContent">
 				<%=nwi.getNoticeContent() %>
 			</div>
-			<div class="mdBtn-wrap"><button type="button" class="mdBtn modifyBtn" value="<%=nwi.getNoticeNo() %>">수정</button><button type="button" class="mdBtn deleteBtn" value="<%=nwi.getNoticeNo() %>">삭제</button></div>
+			<div class="mdBtn-wrap"><button type="button" class="mdBtn goBackBtn">뒤로</button><button type="button" class="mdBtn modifyBtn" value="<%=nwi.getNoticeNo() %>">수정</button><button type="button" class="mdBtn deleteBtn" value="<%=nwi.getNoticeNo() %>">삭제</button></div>
 		</div>
 		<%-- 
 		<div class="comment-wrap">
@@ -114,7 +114,8 @@
 		</div>
 		--%>
 	<%@include file="/WEB-INF/views/employee/empModal.jsp" %>
-		<span class="hiddenTextChk">noticeEmp</span>
+		<input type="hidden" class="hiddenModiChk" value="1">
+		<input type="hidden" class="hiddenDelChk" value="11">
 	</section>
 	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>

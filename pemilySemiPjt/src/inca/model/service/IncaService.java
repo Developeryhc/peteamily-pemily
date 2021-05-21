@@ -106,4 +106,16 @@ public class IncaService {
 		return result;
 	}
 
+	public int incaDelete(int incaNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new IncaDao().incaDelete(conn, incaNo);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
 }

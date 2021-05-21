@@ -1,6 +1,7 @@
 package inProduct.model.service;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 
 import common.JDBCTemplate;
@@ -27,7 +28,7 @@ public class InProductService {
 		int printList = 10;						//보여줄 게시글 갯수
 		int printNavi = 10;						//보여줄 네비 길이
 		int end = printList * reqPage;			//list 마지막 값
-		int start = end - printList + reqPage;	//list 시작 값
+		int start = end - printList + 1;	//list 시작 값
 		ArrayList<InPro> list = new InProductDao().selectAllInProduct(conn,start,end);		//게시글 전부
 		int totalListCount = new InProductDao().totalListCount(conn);		//총 게시글 수
 		int aReqPage = ((reqPage-1) / printNavi) * printNavi+1;
@@ -66,6 +67,30 @@ public class InProductService {
 		InPro inPro = new InProductDao().selectOneInPro(conn,inProNo);
 		JDBCTemplate.close(conn);
 		return inPro;
+	}
+
+	public int inProDelete(int inProNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = new InProductDao().inProDelete(conn,inProNo);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public int modifyInPro(int inProNo, int inProPrice, int inProAmount) {
+		Connection conn =JDBCTemplate.getConnection();
+		int result = new InProductDao().modifyInPro(conn,inProNo,inProPrice,inProAmount);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
 	}
 
 }

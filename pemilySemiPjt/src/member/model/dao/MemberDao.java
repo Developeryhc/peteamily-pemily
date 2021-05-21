@@ -220,4 +220,37 @@ public class MemberDao {
 		}
 		return count;
 	}
+
+	public Member findPw(Connection conn, String memberId, String memberPhone, String memberEmail) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String query = "select * from member where member_Id=? and member_phone=? and member_email=?";
+		Member m = null;
+		try {
+			pstmt=conn.prepareStatement(query);
+			pstmt.setString(1, memberId);
+			pstmt.setString(2, memberPhone);
+			pstmt.setString(3, memberEmail);
+			rset = pstmt.executeQuery();
+			while(rset.next()) {
+				m = new Member();
+				m.setMemberId(rset.getString("member_id"));
+				m.setMemberPw(rset.getString("member_pw"));
+				m.setMemberName(rset.getString("member_name"));
+				m.setMemberGrade(rset.getInt("member_grade"));
+				m.setMemberPhone(rset.getString("member_phone"));
+				m.setMemberAddr(rset.getString("member_addr"));
+				m.setMemberEmail(rset.getString("member_email"));
+				m.setMemberEnter(rset.getString("member_enter"));
+				m.setMemberAn(rset.getInt("member_an"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCTemplate.close(pstmt);
+			JDBCTemplate.close(rset);
+		}
+		return m;
+	}
 }

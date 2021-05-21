@@ -42,6 +42,7 @@
 			</form>
 		</div>
 		<%@include file="/WEB-INF/views/employee/empModal.jsp" %>
+		<input type="hidden" class="hiddenModiChk" value="1">
 	</section>
 	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>

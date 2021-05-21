@@ -13,16 +13,16 @@ import member.model.service.MemberService;
 import member.model.vo.Member;
 
 /**
- * Servlet implementation class FindIdServlet
+ * Servlet implementation class FindPwServlet
  */
-@WebServlet(name = "FindId", urlPatterns = { "/findId" })
-public class FindIdServlet extends HttpServlet {
+@WebServlet(name = "FindPw", urlPatterns = { "/findPw" })
+public class FindPwServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FindIdServlet() {
+    public FindPwServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,15 +33,15 @@ public class FindIdServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		//값 추출(이름,번호,이메일)
-		String memberName = request.getParameter("memberName");
+		String memberId = request.getParameter("memberId");
 		String memberPhone = request.getParameter("memberPhone");
 		String memberEmail = request.getParameter("memberEmail");
-		Member m = new MemberService().findId(memberName,memberPhone,memberEmail);
+		Member m = new MemberService().findPw(memberId,memberPhone,memberEmail);
 		//이동할 페이지 지정
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/member/findId.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/member/findPw.jsp");
 		request.setAttribute("member", m);
+		
 		rd.forward(request, response);
-	
 	}
 
 	/**

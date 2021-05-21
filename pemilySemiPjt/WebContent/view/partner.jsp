@@ -59,7 +59,7 @@
 </head>
 <body>
 	<%@include file="/WEB-INF/views/common/header.jsp" %>
-	<br><br>
+	<br>
 	<div class="container">
 		<div class="top">
 			<h1>가맹문의</h1>
@@ -129,6 +129,6 @@
 			</div>
 			</form>
 		</div>
-	</div>  
+	 </div>
 </body>
 </html>

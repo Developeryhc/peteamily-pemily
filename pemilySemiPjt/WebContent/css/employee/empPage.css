@@ -95,6 +95,17 @@ section > * {
 	background-color:#fff;
 	color:red;
 }
+/* 이전 페이지로 이동 버튼 */
+.goBackBtn{
+	background-color:dodgerblue;
+	color:black;
+	transition-duration:0.2s;
+}
+.goBackBtn:hover{
+	background-color:#fff;
+	color:dodgerblue;
+	border:1px solid dodgerblue;	
+}
 
 .printList{
 	border-collapse: collapse;

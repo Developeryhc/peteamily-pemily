@@ -51,7 +51,8 @@
          </table>
          <%=pageNavi %>
          <%@include file="/WEB-INF/views/employee/empModal.jsp" %>
-         <span class="hiddenTextChk">noticeEmp</span>
+         <input type="hidden" class="hiddenModiChk" value="1">
+         <input type="hidden" class="hiddenDelChk" value="11">
  	</section>
  	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>

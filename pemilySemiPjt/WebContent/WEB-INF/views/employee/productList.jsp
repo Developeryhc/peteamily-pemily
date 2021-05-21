@@ -14,8 +14,16 @@
 <style>
 	.empMenu:nth-child(3)>a{
 		color:#555;
-    	background-color:rgb(246,246,246);;
+    	background-color:rgb(246,246,246);
 	}
+	.hides{
+		display:none;	
+		width:50px;
+	}
+	.hideBtn{
+		display:none;
+	}
+
 </style>
 </head>
 <body>
@@ -36,14 +44,32 @@
 	           		 String proKinds = inPro.getInProSn()==10?"Snack":(inPro.getInProSn()==20?"Toy":(inPro.getInProSn()==30?"Clothes":"기타"));
 	           %>
 	           <tr>
-	           	   <td><%=inPro.getSort() %></td><td><%=proKinds %></td><td><%=inPro.getInProName() %></td><td><%=inPro.getInProPrice() %><span class="won">원</span></td><td><%=inPro.getInProAmount() %><span class="won">개</span></td><td><button type="button" class="mdBtn modifyBtn" value="<%=inPro.getInProNo() %>">수정</button></td><td><button type="button" class="mdBtn deleteBtn" value="<%=inPro.getInProNo() %>" >삭제</button></td>
+	           	   <td><%=inPro.getSort() %></td><td><%=proKinds %></td><td><%=inPro.getInProName() %></td>
+	           	   <td>
+	           	   		<span><%=inPro.getInProPrice() %></span><span class="won">원</span>
+	           	   		<input type="text" id="inProPriceFake" name="inProPriceFake" class="hides inProInputs" value="<%=inPro.getInProPrice() %>">
+	           	   		<input type="hidden" id="inProPrice" name="inProPrice" value="<%=inPro.getInProPrice() %>">
+	           	   </td>
+	           	   	<td>
+	           	   		<span><%=inPro.getInProAmount() %></span><span class="won">개</span>
+	           	   		<input type="text" id="inProAmount" name="inProAmount" class="hides inProInputs" value="<%=inPro.getInProAmount() %>">
+	           	   </td>
+	           	   <td>
+	           	   		<button type="button" class="mdBtn modifyBtn" value="<%=inPro.getInProNo() %>">수정</button>
+	           	   		<button type="button" class="mdBtn completeBtn hideBtn" value="<%=inPro.getInProNo() %>">완료</button>
+	           	   	</td>
+	           	   <td>
+	           	   		<button type="button" class="mdBtn deleteBtn" value="<%=inPro.getInProNo() %>" >삭제</button>
+	           	   		<button type="button" class="mdBtn cancelBtn hideBtn" value="<%=inPro.getInProNo() %>" >취소</button>
+	           	   	</td>
 	           </tr>
 	           <%} %>
 	       </tbody>
 	   	</table>
    		<%=navigation %>
     <%@include file="/WEB-INF/views/employee/empModal.jsp" %>
-    <span class="hiddenTextChk">inPro</span>
+    	<input type="hidden" class="hiddenModiChk" value="3">
+        <input type="hidden" class="hiddenDelChk" value="33">
 	</section>
 	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>

@@ -123,12 +123,29 @@
 					</li>
 					<li class="bbb">A.
 					<%=faq.getFaqContent() %>
+					
+					<%--<%if(emp != null){ %>
+        	 	<p class="del"><a href="/faqDelete?faqNo=<%=faq.getFaqNo() %>">삭제하기</a> </p>
+      			<%} %>
+				 --%>
+					
+					
 					<p class="del"><a href="/faqDelete?faqNo=<%=faq.getFaqNo() %>">삭제하기</a> </p>
 					</li>
 				</ul>
 				<%} %>
 				  
 				<div id="map" style="width:600px; height:300px;"></div>
+				
+				
+				<%--<%if(emp != null){ %>
+        	 	<div><a class="btn btn btn-default" href="/faqWriteFrm">질문등록</a></div>
+      			<%} %>
+				 --%>
+				
+				
+				
+				
 				<a class="btn btn btn-default" href="/faqWriteFrm">질문등록</a>
 		</div>
 	</div>

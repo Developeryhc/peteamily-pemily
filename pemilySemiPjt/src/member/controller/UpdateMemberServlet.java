@@ -42,7 +42,11 @@ public class UpdateMemberServlet extends HttpServlet {
 		//3.비지니스로직
 		int result = new MemberService().updateMember(m);
 		//4.결과처리
+<<<<<<< HEAD
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/common/msg.jsp");
+=======
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
+>>>>>>> branch 'master' of https://github.com/Developeryhc/peteamily-pemily.git
 		if(result>0) {
 			request.setAttribute("msg", "정보변경 완료");
 		}else {

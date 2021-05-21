@@ -44,24 +44,22 @@
 	}
 	
 	.text>*{
-		color : rgba(182, 215, 168, 0.54);
+		color : rgba(182, 215, 168, 1.00);
 	}
 	.staff{
 		width:49%;
-		height:600px;
+		
 		float:left;
 	}
 	.image{
 		height:60%;
 	}
-	.staff>*{
-		color : rgba(182, 215, 168, 0.54);
-	}
-	img{
-		height:350px;
+	
+	.img>img{
+		height:500px;
 		width:95%;
 	}
-	a{
+	.divide>a{
 		text-decoration:none;
 		display:block;
 		text-align:center;
@@ -70,7 +68,7 @@
 		color: black;
 	}
 	a:hover{
-		color:rgba(182, 215, 168, 0.54);
+		color:rgba(182, 215, 168, 1.00);
 	}
 </style>
 </head>
@@ -91,7 +89,7 @@
 		</div>
 	</div><br>
 	<div class="middle">
-		<div class="divide"><a href="#" style="color:rgba(182, 215, 168, 0.54);">당산 본점</a></div>
+		<div class="divide"><a href="#" style="color:rgba(182, 215, 168, 1.00);">당산 본점</a></div>
 		<div class="divide"><a href="/staff?store=2">강남점</a></div>
 		<div class="divide"><a href="/staff?store=3">부산점</a></div>
 	</div><br>

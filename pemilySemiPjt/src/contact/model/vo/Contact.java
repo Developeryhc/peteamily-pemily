@@ -7,11 +7,14 @@ public class Contact {
 	private String phone;
 	private String email;
 	private String content;
+	private String partnerSort;
+	private String filepath;
 	public Contact() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Contact(int partnerNo, String partnerName, String partnerEmp, String phone, String email, String content) {
+	public Contact(int partnerNo, String partnerName, String partnerEmp, String phone, String email, String content,
+			String partnerSort, String filepath) {
 		super();
 		this.partnerNo = partnerNo;
 		this.partnerName = partnerName;
@@ -19,6 +22,8 @@ public class Contact {
 		this.phone = phone;
 		this.email = email;
 		this.content = content;
+		this.partnerSort = partnerSort;
+		this.filepath = filepath;
 	}
 	public int getPartnerNo() {
 		return partnerNo;
@@ -55,6 +60,18 @@ public class Contact {
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public String getPartnerSort() {
+		return partnerSort;
+	}
+	public void setPartnerSort(String partnerSort) {
+		this.partnerSort = partnerSort;
+	}
+	public String getFilepath() {
+		return filepath;
+	}
+	public void setFilepath(String filepath) {
+		this.filepath = filepath;
 	}
 	
 	

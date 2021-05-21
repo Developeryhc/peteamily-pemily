@@ -4,9 +4,12 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import common.JDBCTemplate;
+import member.model.vo.MypageData;
 import member.model.dao.MemberDao;
 import member.model.vo.Member;
 import member.model.vo.MemberPage;
+import order.model.dao.OrderDao;
+import order.model.vo.Order;
 import outCa.model.dao.OutCaDao;
 import outCa.model.vo.OutCaTable;
 
@@ -104,6 +107,15 @@ public class MemberService {
 		JDBCTemplate.close(conn);
 		MemberPage mp = new MemberPage(list, navigation);
 		return mp;
+	}
+
+	public MypageData myPage(String memberId) {
+		Connection conn = JDBCTemplate.getConnection();
+		Member m = new MemberDao().selectOneMember(conn, memberId);
+		ArrayList<Order> list = new OrderDao().order(conn, memberId);
+		MypageData md = new MypageData(m, list);
+		JDBCTemplate.close(conn);
+		return md;
 	}
 
 }

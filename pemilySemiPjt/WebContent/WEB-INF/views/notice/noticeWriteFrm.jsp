@@ -18,7 +18,7 @@
         width: 100%;
         height: 200px;
         margin: 10px auto;
-        border: 1px solid #000000;
+       background-color: rgba(242, 217, 207, 0.84);
         position: relative;
     }
     .faq-wrap img {
@@ -54,9 +54,10 @@
 </style>
 </head>
 <body>
+	<%@include file="/WEB-INF/views/common/header.jsp" %>
 	<div class="container">
 		<div class="faq-wrap">
-        	<div class="faq-image"><img src="" alt="" width="100%;" height="200px;"></div>
+        	<div class="faq-image"></div>
         	<div class="faq-text">
             	<p>공지사항 작성</p>
         	</div>

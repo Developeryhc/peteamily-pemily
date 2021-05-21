@@ -1,11 +1,18 @@
+<%@page import="order.model.vo.Order"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="member.model.vo.Member"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%
 	Member member = (Member) request.getAttribute("member");
+	ArrayList<Order> list = (ArrayList<Order>)request.getAttribute("list");
+	
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+	<script type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
@@ -52,7 +59,7 @@
 						class="form-control" value="<%=member.getMemberEnter()%>" readonly>
 				</div>
 				<div class="form-group">
-					<button type="submit">정보수정</button>
+					<button type="submit" class="btn btn-outline-primary">정보수정</button>
 					<a href="/deleteMember?memberNo=<%=member.getMemberNo()%>"
 						class="btn btn-outline-danger">회원탈퇴</a>
 				</div>
@@ -67,11 +74,12 @@
 					<td>상품금액</td>
 					<td>상품수량</td>
 				</tr>
+				<%for(int i = 0; i<list.size();i++){ %>
 				<tr>
-					<td> </td>
-					<td>상품1</td>
-					<td>100</td>
-					<td>1</td>
+					<td><%=list.get(i).getOrderNo()%> </td>
+					<td><%=list.get(i).getOrderName() %></td>
+					<td><%=list.get(i).getOrderPrice() %></td>
+					<td><%=list.get(i).getOrderAmount() %></td>
 				</tr>
 			</table>
 		</div><br>
@@ -87,9 +95,12 @@
 					<td>상품2</td>
 					<td>200</td>
 					<td>2</td>
-				</tr>	
+				</tr>
+				<%} %>
 			</table>
 		</div>
 	</div>
+
+
 </body>
 </html>

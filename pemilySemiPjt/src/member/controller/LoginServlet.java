@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
 				String memberPw = request.getParameter("memberPw");
 				//3. 로직처리 -> 비지니스 로직 == 서비스 호출
 				Member m = new MemberService().selectOneMember(memberId,memberPw);
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/common/msg.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
 				if(m != null) {
 					if(m.getMemberGrade()==3) {
 						request.setAttribute("msg", "로그인 권한이 없습니다.");

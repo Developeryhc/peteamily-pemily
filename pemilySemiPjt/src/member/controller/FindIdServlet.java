@@ -40,7 +40,6 @@ public class FindIdServlet extends HttpServlet {
 		//이동할 페이지 지정
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/member/findId.jsp");
 		request.setAttribute("member", m);
-		
 		rd.forward(request, response);
 	
 	}

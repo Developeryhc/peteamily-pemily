@@ -38,9 +38,8 @@ public class FindIdServlet extends HttpServlet {
 		String memberEmail = request.getParameter("memberEmail");
 		Member m = new MemberService().findId(memberName,memberPhone,memberEmail);
 		//이동할 페이지 지정
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/member/FindId.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/member/findId.jsp");
 		request.setAttribute("member", m);
-		
 		rd.forward(request, response);
 	
 	}

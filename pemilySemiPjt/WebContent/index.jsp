@@ -69,6 +69,8 @@
 		height: 100%;
 	}
 	.main-modal a{
+		width:100%;
+		heigth:100%;
 		padding: 100px;
 		line-height: 50vh;
 		font-size: 80px;

@@ -35,9 +35,9 @@ public class NoticeWriteFrmServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String memberId = request.getParameter("memberId");
 		// 메소드 만들기
-		OutCa oc = new NoticeService().selectCareOutCa(memberId);
+//		OutCa oc = new NoticeService().selectCareOutCa(memberId);
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/views/notice/noticeWriteFrm.jsp");
-		request.setAttribute("oc", oc);
+//		request.setAttribute("oc", oc);
 		rd.forward(request, response);
 	}
 

@@ -10,6 +10,13 @@
 		color:#555;
     	background-color:#fff;
 	}
+	.wrap-2{
+	width: 620px;
+	background: white;
+	border: 1px solid black;
+	margin: auto;
+	padding: 60px 90px 60px 90px;
+	}
 </style>
 </head>
 <body>
@@ -43,6 +50,15 @@
 	            <button type="button" class="cancelBtn">돌아가기</button>            
             </div>
         </form>
+<<<<<<< HEAD
+=======
+        <form class="forms" id="faqFrm" action="javascript:void(0);">
+        	<h2>자주 듣는 질문 등록</h2>
+        	<input type="text" class="title" name="서블릿에 전송할 명칭" placeholder="제목 입력">
+            <div id="noticeContent" class="summernote" name="noticeContent"></div>
+        </form>
+        
+>>>>>>> branch 'master' of https://github.com/Developeryhc/peteamily-pemily.git
         <form class="forms" id="incaFrm" action="/inCompanionAnimalWrite" method="post" enctype="multipart/form-data">
         	<h2>반려동물 등록</h2>
         	<!-- 동물 종 select -->
@@ -194,7 +210,9 @@
             <!-- 동물 건강(검사) : incaCondition--><!-- 처음 등록은 '0'값을 넘겨준다. -->
             <input type="hidden" id="incaCondition" name="incaCondition" value="0">
         </form>
+        
         <!-- 물품재고 등록 form -->
+        <div class="wrap-2">
         <form class="forms" id="inProFrm" action="/inProductWrite" method="post" enctype="multipart/form-data">
         	<h2>물품 재고 등록</h2>
         	<div class="inProWrap">
@@ -224,6 +242,20 @@
         		</div>
         	</div>
         </form>
+<<<<<<< HEAD
+=======
+        </div>
+        <form class="forms" id="parcelOutFrm" action="javascript:void(0);">
+        	<h2>분양 등록</h2>
+        	<input type="text" class="title" name="서블릿에 전송할 명칭" placeholder="제목 입력">
+            <textarea id="noticeContent" class="summernote" name="noticeContent"></textarea>
+        </form>
+        <form class="forms" id="goodsFrm" action="javascript:void(0);">
+        	<h2>물품 등록</h2>
+        	<input type="text" class="title" name="서블릿에 전송할 명칭" placeholder="제목 입력">
+            <textarea id="noticeContent" class="summernote" name="noticeContent"></textarea>
+        </form>
+>>>>>>> branch 'master' of https://github.com/Developeryhc/peteamily-pemily.git
     </section>
     <%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>

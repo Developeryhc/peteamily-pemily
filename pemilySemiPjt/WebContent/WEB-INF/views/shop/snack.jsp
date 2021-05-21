@@ -13,7 +13,7 @@
     
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
 <meta charset="UTF-8">
 <title>물품</title>
 </head>

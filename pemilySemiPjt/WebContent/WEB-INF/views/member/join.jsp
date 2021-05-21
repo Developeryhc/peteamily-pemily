@@ -25,22 +25,26 @@
 	height: 900px;
 	position: relative;
 }
-        .wrap{
-        height:100%;
-        width:100%;
-        background-image: url(img/login.jpg);
-        background-position: center;
-        background-size: cover;
-        position: absolute;
-        }
+
+.wrap {
+	height: 100%;
+	width: 100%;
+	background-image: url(img/login.jpg);
+	background-position: center;
+		background-repeat: repeat;
+	background-size: cover;
+	position: absolute;
+}
+
 .jogin-wrap {
-	background-color: rgba(255,255,255,0.9);
+	background-color: rgba(255, 255, 255, 0.9);
+
 	width: 600px;
 	height: 1400px;
 	margin: 0 auto;
 	border-radius: 5px;
 	margin-top: 130px;
-	border-color:rgb(232,69,86);
+	border-color: rgb(232, 69, 86);
 }
 
 .jogin-wrap>form {
@@ -64,7 +68,7 @@
 .input-box>input {
 	width: 400px;
 	height: 50px;
-	border: 1px solid rgb(232,69,86);
+	border: 1px solid rgb(232, 69, 86);
 }
 
 .search-box>ul {
@@ -107,7 +111,7 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
-	<div class="wrap">	
+	<div class="wrap">
 		<div class="content">
 			<div class="jogin-bg">
 				<div class="jogin-wrap">
@@ -115,7 +119,8 @@
 						<h1>회원가입</h1>
 						<div class="input-box">
 							<h3>아이디</h3>
-							<input type="text" name="memberId" id="memberId" placeholder="아이디를 입력해주세요"><br>
+							<input type="text" name="memberId" id="memberId"
+								placeholder="아이디를 입력해주세요"><br>
 							<h3>비밀번호</h3>
 							<input type="password" name="memberPw" id="pw" class="pw"
 								placeholder="비밀번호를 입력해주세요"><br>
@@ -125,9 +130,10 @@
 								id="alert-success" style="display: none;">비밀번호가 일치합니다.</span> <span
 								id="alert-danger"
 								style="display: none; color: #d92742; font-weight: bold;">비밀번호가
-								일치하지 않습니다.</span> 
+								일치하지 않습니다.</span>
 							<h3>이름</h3>
-							<input type="text" name="memberName" id="memberName" class="memberName">
+							<input type="text" name="memberName" id="memberName"
+								class="memberName">
 							<h3>전화번호</h3>
 							<input type="tel" name="memberPhone" placeholder="전화번호를 입력해주세요"><br>
 							<h3>이메일 주소</h3>
@@ -137,15 +143,15 @@
 							<br>
 							<table>
 								<tr>
-									<td><input type="radio" name="memberGender" name="memberGender" value="M" id="memberGender">
-										<label for="M">남</label> 
-										<input type="radio" name="memberGender" name="memberGender" value="F" id="memberGender"> 
-										<label for="F">여</label><br> <br>
-										<input type="checkbox" id="checkall" class="chk">모두 동의
-										합니다.<br> <br> <input type="checkbox" id="c1"
-										class="chk" name="chk">(필수)<a href="/serviceFrm"
-										target="_blank">이용약관</a>과&nbsp;<a href="/privacyFrm"
-										target="_blank">개인정보 수집 및 이용</a>에<br>&emsp;동의합니다.<br>
+									<td><input type="radio" name="memberGender"
+										name="memberGender" value="M" id="memberGender"> <label
+										for="M">남</label> <input type="radio" name="memberGender"
+										name="memberGender" value="F" id="memberGender"> <label
+										for="F">여</label><br> <br> <input type="checkbox"
+										id="checkall" class="chk">모두 동의 합니다.<br> <br>
+										<input type="checkbox" id="c1" class="chk" name="chk">(필수)<a
+										href="/serviceFrm" target="_blank">이용약관</a>과&nbsp;<a
+										href="/privacyFrm" target="_blank">개인정보 수집 및 이용</a>에<br>&emsp;동의합니다.<br>
 										<br> <input type="checkbox" id="c2" class="chk"
 										name="chk">(필수) 만 14세 이상입니다.<br>&emsp;<small>만
 											19세 미만의 미성년자가 결제 시 법정 대리인이 거래를<br> &emsp;취소할 수 있습니다

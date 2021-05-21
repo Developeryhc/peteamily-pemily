@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class PrivacyFrmServlet
+ * Servlet implementation class SearchPwServlet
  */
-@WebServlet(name = "PrivacyFrm", urlPatterns = { "/privacyFrm" })
-public class PrivacyFrmServlet extends HttpServlet {
+@WebServlet(name = "SearchPw", urlPatterns = { "/searchPwFrm" })
+public class SearchPwFrmServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PrivacyFrmServlet() {
+    public SearchPwFrmServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,11 +29,7 @@ public class PrivacyFrmServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-<<<<<<< HEAD
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/member/privacy.jsp");
-=======
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/member/privacy.jsp");
->>>>>>> branch 'master' of https://github.com/Developeryhc/peteamily-pemily.git
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/member/searchPw.jsp");
 		rd.forward(request, response);
 	}
 

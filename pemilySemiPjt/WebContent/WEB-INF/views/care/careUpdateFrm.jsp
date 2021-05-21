@@ -71,7 +71,7 @@
 			<button type="submit" class="btn btn-primary">수정 하기</button>
 			<button type="button" class="btn btn-info" onclick="history.go(-1);">돌아가기</button>
 		</form>
-		
+		<%@include file="/WEB-INF/views/common/footer.jsp" %>
 	</div>
 	
 

@@ -89,6 +89,6 @@
 		<a class="btn btn-info" href="/noticeDelete?noticeNo=<%=n.getNoticeNo() %>&noticeCom=<%=n.getNoticeCom()%>">삭제하기</a>
 		</div>
 	</div>
-
+	<%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>

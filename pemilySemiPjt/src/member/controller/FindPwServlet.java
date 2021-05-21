@@ -9,17 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import member.model.service.MemberService;
+import member.model.vo.Member;
+
 /**
- * Servlet implementation class PrivacyFrmServlet
+ * Servlet implementation class FindPwServlet
  */
-@WebServlet(name = "PrivacyFrm", urlPatterns = { "/privacyFrm" })
-public class PrivacyFrmServlet extends HttpServlet {
+@WebServlet(name = "FindPw", urlPatterns = { "/findPw" })
+public class FindPwServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PrivacyFrmServlet() {
+    public FindPwServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,11 +32,15 @@ public class PrivacyFrmServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-<<<<<<< HEAD
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/member/privacy.jsp");
-=======
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/member/privacy.jsp");
->>>>>>> branch 'master' of https://github.com/Developeryhc/peteamily-pemily.git
+		//값 추출(이름,번호,이메일)
+		String memberId = request.getParameter("memberId");
+		String memberPhone = request.getParameter("memberPhone");
+		String memberEmail = request.getParameter("memberEmail");
+		Member m = new MemberService().findPw(memberId,memberPhone,memberEmail);
+		//이동할 페이지 지정
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/member/findPw.jsp");
+		request.setAttribute("member", m);
+		
 		rd.forward(request, response);
 	}
 

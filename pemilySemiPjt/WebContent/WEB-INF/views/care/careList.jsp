@@ -117,7 +117,7 @@
    </div>
    
         <div id="pageNavi"><%=pageNavi %></div>
-     
+     <%@include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 </html>
 

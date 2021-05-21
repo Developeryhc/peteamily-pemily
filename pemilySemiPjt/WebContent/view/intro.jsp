@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
+@import url ( 'https://fonts.googleapis.com/css2? family = Jua & display = swap');
 	.top{
 		text-align:center;
 	}
@@ -40,6 +41,7 @@
 	#pre2{
 		font-size:15px;
 		font-weight: bold;
+		font-family : 'Jua', sans-serif;
 	}
 	.introduce2>div>div{
 		float:left;
@@ -72,7 +74,9 @@
 		background-size:cover;
 		height:700px;
 	}
-	
+	.text>pre{
+		font-size:13px; font-family : 'Jua', sans-serif;
+	}
 </style>
 </head>
 <body>

@@ -103,11 +103,22 @@
 				<%} %>
 					
 			</table>
+			
+			<%--<%if(emp != null){ %>
+         	<div><a class="btn btn-default" href="/noticeWriteFrm">글쓰기</a></div>
+      		<%} %> --%>
+			
+			
+			
 			<a class="btn btn btn-default" href="/noticeWriteFrm">글쓰기</a>
 			
 			<div id="pageNavi"><%=pageNavi %></div> 
+			
+			
+			<%@include file="/WEB-INF/views/common/footer.jsp" %>
 	</fieldset>
 </div>
+<%-- 
 <script>
 $(document).ready(function() {
 	$('#noticeChoice').change(function(){
@@ -118,5 +129,6 @@ $(document).ready(function() {
         });
 });
 </script>
+--%>
 </body>
 </html>

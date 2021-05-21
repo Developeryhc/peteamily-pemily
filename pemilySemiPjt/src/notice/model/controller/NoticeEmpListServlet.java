@@ -10,20 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import notice.model.service.NoticeService;
-import notice.model.vo.Notice;
-import notice.model.vo.NoticeWriteInfo;
+import notice.model.vo.NoticePageData;
 
 /**
- * Servlet implementation class NoticeEmpViewServlet
+ * Servlet implementation class NoticeEmpListServlet
  */
-@WebServlet(name = "NoticeEmpView", urlPatterns = { "/noticeEmpView" })
-public class NoticeEmpViewServlet extends HttpServlet {
+@WebServlet(name = "NoticeEmpList", urlPatterns = { "/noticeEmpList" })
+public class NoticeEmpListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeEmpViewServlet() {
+    public NoticeEmpListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,20 +33,23 @@ public class NoticeEmpViewServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
-		//1.
+		//1.인코딩
 		request.setCharacterEncoding("utf-8");
-		//2.
-		int noticeNo = Integer.parseInt(request.getParameter("noticeNo"));
-		//3.
-		NoticeWriteInfo nwi = new NoticeService().selectOneNoticeWriteInfo(noticeNo);
-		
-		//4.
-		if(nwi != null) {
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employee/noticeEmpView.jsp");
-			request.setAttribute("nwi", nwi);
+		//2.값추출(요청페이지 번호 받음)
+		int reqPage = Integer.parseInt(request.getParameter("reqPage"));
+		int noticeCom = Integer.parseInt(request.getParameter("noticeCom"));
+		//3.비즈니스 로직 (공지사항 목록이 나오기때문에 리턴값은 ArrayList로 받음!
+		NoticePageData npd = new NoticeService().selectNoticeList(reqPage,noticeCom);
+		//4.결과처리
+		if(noticeCom==1) {
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employee/noticeEmpList.jsp");
+			request.setAttribute("list", npd.getList());
+			request.setAttribute("pageNavi", npd.getPageNavi());
 			rd.forward(request, response);
-		}else {
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/common/error404.jsp");
+		}else if(noticeCom==2) {
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/notice/noticeList.jsp");
+			request.setAttribute("list", npd.getList());
+			request.setAttribute("pageNavi", npd.getPageNavi());
 			rd.forward(request, response);
 		}
 	}

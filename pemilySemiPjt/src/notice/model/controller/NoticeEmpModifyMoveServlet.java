@@ -40,7 +40,7 @@ public class NoticeEmpModifyMoveServlet extends HttpServlet {
 		//3.
 		NoticeWriteInfo nwi = new NoticeService().selectOneNoticeWriteInfo(noticeNo);
 		//4.
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/notice/noticeEmpModify.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employee/noticeEmpModify.jsp");
 		request.setAttribute("nwi", nwi);
 		rd.forward(request, response);
 	}

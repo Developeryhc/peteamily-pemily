@@ -28,5 +28,6 @@
 <!-- 회원 목록 --> 
 <link rel="stylesheet" href="/css/employee/memberList.css" type="text/css">
 <!-- 직원 공지사항 상세보기/수정 --> 
-<link rel="stylesheet" href="/css/employee/noticeEmp.css" type="text/css"> 
-
+<link rel="stylesheet" href="/css/employee/noticeEmp.css" type="text/css">  
+<!-- 반려동물 수정 -->
+<link rel="stylesheet" href="/css/employee/inCaModify.css" type="text/css">  

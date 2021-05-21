@@ -17,6 +17,10 @@
 	.caDiv{
 		background-color:#ddd;
 	}
+	.iiimg{
+		width:100%;
+		hwight:100%;
+	}
 </style>
 </head>
 <body>
@@ -36,7 +40,8 @@
 	            <div class="caTopBox">
 	                <h3><%=inca.getIncaName() %></h3><span><%=ani %></span>
             	</div>
-	            <div class="caImg-wrap"></div>
+	            <div class="caImg-wrap">
+	            <img class="iiimg"src="/upload/inca/<%=inca.getIncaPath()%>"></div>
 	            <div class="caInfo-wrap">
 	                <div class="caInfo">
 	                    <span class="caInfoText">분양가</span><input type="text" id="incaPriceFake" value="<%=inca.getIncaPrice() %>" class="caInputs"><span class="caInfoText">건강</span>

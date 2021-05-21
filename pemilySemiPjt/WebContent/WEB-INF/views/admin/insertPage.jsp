@@ -82,84 +82,84 @@
 					            <!-- 견 -->
 					            <select id="dog" class="kinds">
 					            	<option value="0" selected>분류</option>
-					            	<option value="1">닥스훈트</option>
-					            	<option value="1">말티즈</option>
-					            	<option value="1">비글</option>
-					            	<option value="1">비숑 프리제</option>
-					            	<option value="1">보더 콜리</option>
-					            	<option value="1">시바</option>
-					            	<option value="1">시추</option>
-					            	<option value="1">웰시 코기</option>
-					            	<option value="1">제페니즈 스피츠</option>
-					            	<option value="1">치와와</option>
-					            	<option value="1">퍼그</option>
-					            	<option value="1">포메라니안</option>
-					            	<option value="1">푸들</option>
+					            	<option value="2">닥스훈트</option>
+					            	<option value="2">말티즈</option>
+					            	<option value="2">비글</option>
+					            	<option value="2">비숑 프리제</option>
+					            	<option value="2">보더 콜리</option>
+					            	<option value="2">시바</option>
+					            	<option value="2">시추</option>
+					            	<option value="2">웰시 코기</option>
+					            	<option value="2">제페니즈 스피츠</option>
+					            	<option value="2">치와와</option>
+					            	<option value="2">퍼그</option>
+					            	<option value="2">포메라니안</option>
+					            	<option value="2">푸들</option>
 					            </select>
 					            <!-- 묘 -->
 					            <select id="cat" class="kinds">
 					            	<option value="0" selected>분류</option>
-					            	<option value="2">러시안 블루</option>
-					            	<option value="2">랙돌</option>
-					            	<option value="2">먼치킨</option>
-					            	<option value="2">브리티시 숏헤어</option>
-					            	<option value="2">브리티시 롱헤어</option>
-					            	<option value="2">봄베이</option>
-					            	<option value="2">뱅골</option>
-					            	<option value="2">사바나</option>
-					            	<option value="2">샴</option>
-					            	<option value="2">시베리안</option>
-					            	<option value="2">스코티시 폴드</option>
-					            	<option value="2">아메리칸 숏헤어</option>
-					            	<option value="2">유러피안 숏헤어</option>
-					            	<option value="2">페르시안</option>
+					            	<option value="3">러시안 블루</option>
+					            	<option value="3">랙돌</option>
+					            	<option value="3">먼치킨</option>
+					            	<option value="3">브리티시 숏헤어</option>
+					            	<option value="3">브리티시 롱헤어</option>
+					            	<option value="3">봄베이</option>
+					            	<option value="3">뱅골</option>
+					            	<option value="3">사바나</option>
+					            	<option value="3">샴</option>
+					            	<option value="3">시베리안</option>
+					            	<option value="3">스코티시 폴드</option>
+					            	<option value="3">아메리칸 숏헤어</option>
+					            	<option value="3">유러피안 숏헤어</option>
+					            	<option value="3">페르시안</option>
 					            </select>
 					            <!-- 어류 -->
 					            <select id="pisces" class="kinds">
 					            	<option value="0" selected>분류</option>
-					            	<option value="3">어류1</option>
-					            	<option value="3">어류2</option>
-					            	<option value="3">어류3</option>
-					            	<option value="3">어류4</option>
-					            	<option value="3">어류5</option>
-					            	<option value="3">어류6</option>
-					            	<option value="3">어류7</option>
+					            	<option value="4">어류1</option>
+					            	<option value="4">어류2</option>
+					            	<option value="4">어류3</option>
+					            	<option value="4">어류4</option>
+					            	<option value="4">어류5</option>
+					            	<option value="4">어류6</option>
+					            	<option value="4">어류7</option>
 					            </select>
 					            <!-- 절지류 -->
 					            <select id="arthropod" class="kinds">
 					            	<option value="0" selected>분류</option>
-					            	<option value="7">절지류1</option>
-					            	<option value="7">절지류2</option>
-					            	<option value="7">절지류3</option>
-					            	<option value="7">절지류4</option>
-					            	<option value="7">절지류5</option>
+					            	<option value="8">절지류1</option>
+					            	<option value="8">절지류2</option>
+					            	<option value="8">절지류3</option>
+					            	<option value="8">절지류4</option>
+					            	<option value="8">절지류5</option>
 					            </select>
 					            <!-- 설치류 -->
 					            <select id="rodent" class="kinds">
 					            	<option value="0" selected>분류</option>
-					            	<option value="5">설치류1</option>
-					            	<option value="5">설치류2</option>
-					            	<option value="5">설치류3</option>
-					            	<option value="5">설치류4</option>
-					            	<option value="5">설치류5</option>
-					            	<option value="5">설치류6</option>
+					            	<option value="6">설치류1</option>
+					            	<option value="6">설치류2</option>
+					            	<option value="6">설치류3</option>
+					            	<option value="6">설치류4</option>
+					            	<option value="6">설치류5</option>
+					            	<option value="6">설치류6</option>
 					            </select>
 					            <!-- 도마뱀 -->
 					            <select id="lizard" class="kinds">
 					            	<option value="0" selected>분류</option>
-					            	<option value="4">종1</option>
-					            	<option value="4">종2</option>
-					            	<option value="4">종3</option>
-					            	<option value="4">종4</option>		            	
+					            	<option value="5">종1</option>
+					            	<option value="5">종2</option>
+					            	<option value="5">종3</option>
+					            	<option value="5">종4</option>		            	
 					            </select>
 					            <!-- 뱀 -->
 					            <select id="snake" class="kinds">
 					            	<option value="0" selected>분류</option>           	
-				            		<option value="6">비단뱀</option>
-				            		<option value="6">구렁이</option>
-				            		<option value="6">아나콘다</option>
-				            		<option value="6">살모사</option>
-				            		<option value="6">블랙맘바</option>
+				            		<option value="7">비단뱀</option>
+				            		<option value="7">구렁이</option>
+				            		<option value="7">아나콘다</option>
+				            		<option value="7">살모사</option>
+				            		<option value="7">블랙맘바</option>
 					            </select>
 				            </div>
 			        	</div>

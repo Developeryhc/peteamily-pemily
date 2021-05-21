@@ -133,6 +133,8 @@
 				<a class="btn btn btn-default" href="/faqWriteFrm">질문등록</a>
 		</div>
 	</div>
+	<%@include file="/WEB-INF/views/common/footer.jsp" %>
+	
 <script>
 			//네이버지도 사용
 			window.onload=function(){
@@ -153,7 +155,7 @@
 				var contentString = [
 					'<div class="iw_inner">',
 					'	<h3>Pemily</h3>',
-					'	<p>댕댕시 냥냥구 도마뱀로 57 Pemily 6F</p>',
+					'	<p>서울특별시 영등포구 양평동 이레빌딩 19F,20F</p>',
 					'</div>'
 				].join("");
 				var infoWindow = new naver.maps.InfoWindow();

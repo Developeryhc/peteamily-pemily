@@ -1,6 +1,7 @@
 package notice.model.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -47,6 +48,9 @@ public class NModifyFrmServlet extends HttpServlet {
 		//3.
 		int result = new NoticeService().modifyEmpNotice(noticeNo,n);
 		//4.
+		PrintWriter out = response.getWriter();
+		out.print(result);
+		/*
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/common/msg.jsp");
 		if(result>0) {
 			request.setAttribute("msg", "수정 완료");
@@ -56,6 +60,7 @@ public class NModifyFrmServlet extends HttpServlet {
 			request.setAttribute("loc", "/noticeEmpView?noticeNo="+noticeNo);
 		}
 		rd.forward(request, response);
+		*/
 	}
 
 	/**

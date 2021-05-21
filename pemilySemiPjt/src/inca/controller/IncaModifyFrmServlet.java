@@ -1,6 +1,7 @@
-package notice.model.controller;
+package inca.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,21 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import notice.model.service.NoticeService;
-import notice.model.vo.Notice;
-import notice.model.vo.NoticeWriteInfo;
+import inca.model.service.IncaService;
+import inca.model.vo.Inca;
 
 /**
- * Servlet implementation class NoticeEmpViewServlet
+ * Servlet implementation class IncaModifyFrmServlet
  */
-@WebServlet(name = "NoticeEmpView", urlPatterns = { "/noticeEmpView" })
-public class NoticeEmpViewServlet extends HttpServlet {
+@WebServlet(name = "IncaModifyFrm", urlPatterns = { "/incaModifyFrm" })
+public class IncaModifyFrmServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeEmpViewServlet() {
+    public IncaModifyFrmServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,19 +37,21 @@ public class NoticeEmpViewServlet extends HttpServlet {
 		//1.
 		request.setCharacterEncoding("utf-8");
 		//2.
-		int noticeNo = Integer.parseInt(request.getParameter("noticeNo"));
+		int incaNo = Integer.parseInt(request.getParameter("incaNo"));
+		int incaPrice = Integer.parseInt(request.getParameter("incaPrice"));
+		int incaCondition = Integer.parseInt(request.getParameter("incaCondition"));
+		int incaStore = Integer.parseInt(request.getParameter("incaStore"));
 		//3.
-		NoticeWriteInfo nwi = new NoticeService().selectOneNoticeWriteInfo(noticeNo);
-		
+		Inca inca = new Inca();
+		inca.setIncaPrice(incaPrice);
+		inca.setIncaCondition(incaCondition);
+		inca.setIncaStore(incaStore);
+		int result = new IncaService().incaModify(inca,incaNo);
 		//4.
-		if(nwi != null) {
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employee/noticeEmpView.jsp");
-			request.setAttribute("nwi", nwi);
-			rd.forward(request, response);
-		}else {
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/common/error404.jsp");
-			rd.forward(request, response);
-		}
+		PrintWriter out = response.getWriter();
+		out.print(result);
+		
+		
 	}
 
 	/**

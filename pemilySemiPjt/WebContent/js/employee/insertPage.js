@@ -73,8 +73,28 @@ $(document).ready(function() {
 	 	const inProSn = $('#inProSn');
 		inProSn.val($(this).val());
 	 });
+	 //동물 수정 시 건상 상태 select값 변경시 hidden 에 넣어주기
+	 $('#incaConditionSel').change(function(){
+	 	const incaCondition = $('#incaCondition');
+	 	incaCondition.val($(this).val());	 	
+	 });
+	 //동물 수정 시 지점 select값 변경시 hidden 에 넣어주기
+	 $('#incaStoreSel').change(function(){
+	 	const incaStore = $('#incaStore');
+	 	incaStore.val($(this).val());
+	 });
 	 //동물 분양비 를 한화 단위로 변경하는 함수
 	 $("#incaPriceFake").keyup(function(){
+	 	if($(this).val().length != 0){
+	 		$(this).css('text-align','right');
+	 	}else{
+	 		$(this).css('text-align','left');	
+	 	}
+		//입력될 때마다 변하는 자리수에 ','를 제거(uncomma)하고 새로운 자리에 생성(comma)한다. 
+	    $(this).val(comma(uncomma($(this).val())));		//uncomma에 값을 넘겨 기존에 있던 콤마를 제거하고 리턴된 값을 comma에 전달해 새로운 자리에 콤마를 생성하는 코드임
+	   	incaPriceReal($(this).val());
+	 });
+	 $("#incaPriceFake").focus(function(){
 	 	if($(this).val().length != 0){
 	 		$(this).css('text-align','right');
 	 	}else{
@@ -95,6 +115,17 @@ $(document).ready(function() {
 	    $(this).val(comma(uncomma($(this).val())));		//uncomma에 값을 넘겨 기존에 있던 콤마를 제거하고 리턴된 값을 comma에 전달해 새로운 자리에 콤마를 생성하는 코드임
 	   	inProPriceReal($(this).val());
 	 });
+	 $("#caModifyPrice").keyup(function(){
+	 	if($(this).val().length != 0){
+	 		$(this).css('text-align','right');
+	 	}else{
+	 		$(this).css('text-align','left');	
+	 	}
+		//입력될 때마다 변하는 자리수에 ','를 제거(uncomma)하고 새로운 자리에 생성(comma)한다. 
+	    $(this).val(comma(uncomma($(this).val())));		//uncomma에 값을 넘겨 기존에 있던 콤마를 제거하고 리턴된 값을 comma에 전달해 새로운 자리에 콤마를 생성하는 코드임
+	   	inProPriceReal($(this).val());
+	 });
+	 
 	 //콤마찍기(입력할 때마다 자리수가 변함)
 	 function comma(str) {
 	    str = String(str);

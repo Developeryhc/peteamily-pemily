@@ -1,3 +1,4 @@
+
 package pro.model.controller;
 
 import java.io.IOException;
@@ -32,12 +33,22 @@ public class BuyServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		//값추출 (이름 가격 수량)
 		String inProName = request.getParameter("inProName");
-		System.out.println(inProName);
+		System.out.println("가져온 이름" +inProName);
 		int count = Integer.parseInt(request.getParameter("count"));
+//		String count = request.getParameter("count");
 		System.out.println(count);
+		String inProPrice = request.getParameter("inProPrice");
+		
+		System.out.println("가져온 가격 "+ inProPrice);
+		System.out.println("가져온 수량  " + count);
 		//비즈니스로직
+		request.setAttribute("inProName", inProName);
+		request.setAttribute("inProPrice", inProPrice);
+		request.setAttribute("count", count);
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/shop/buy.jsp");
 		rd.forward(request, response);
+		
+		
 	}
 
 	/**
